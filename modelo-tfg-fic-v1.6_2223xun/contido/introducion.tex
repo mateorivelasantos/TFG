@@ -1,0 +1,76 @@
+\chapter{Introducción}
+\label{chap:introducion}
+
+\lettrine{E}{ste} trabajo fin de grado aborda el diseño e implementación de una boya instrumentada capaz de caracterizar el oleaje mediante medidas inerciales.
+El desarrollo se planteó en dos fases:
+una fase inicial con Android como prototipo rápido de validación
+y una fase posterior con plataforma embebida ESP32 + IMU + LoRa.
+El objetivo principal es estimar movimiento vertical relativo a partir de aceleración medida en el eje \texttt{z}, aplicando técnicas de filtrado y análisis en frecuencia para reducir ruido y obtener métricas interpretables.
+
+\section{Contexto y motivación}
+
+En entornos reales, las señales de aceleración incluyen ruido, variaciones de orientación, pequeñas derivas y componentes gravitatorias que dificultan la interpretación directa de la medida~\cite{TittertonWeston2004}. Durante el desarrollo se observó que una aproximación naive basada en leer directamente \texttt{az} produce falsas variaciones de altura cuando el dispositivo está en reposo o cuando cambia ligeramente la inclinación. Esta limitación motiva la construcción de un pipeline de procesado robusto y parametrizable.
+
+En la fase actual, el sistema desarrollado permite:
+
+\begin{itemize}
+  \item Capturar datos IMU desde Android por HTTP en red local.
+  \item Guardar sesiones temporales de medida para análisis offline.
+  \item Procesar las señales con distintos filtros y estrategias de validación temporal.
+  \item Visualizar la evolución de cada etapa para entender el impacto de cada parámetro.
+\end{itemize}
+
+Como siguiente fase, se plantea migrar la captura a ESP32 para aumentar la frecuencia de muestreo efectiva hasta valores cercanos a \(1000\) Hz en adquisición local, y transportar telemetría por LoRa.
+
+\section{Objetivos}
+
+\subsection{Objetivo general}
+
+Implementar y validar un sistema extremo a extremo para estimación de movimiento vertical relativo a partir de datos IMU, priorizando reproducibilidad experimental y capacidad de ajuste de parámetros.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+  \item Diseñar una arquitectura de comunicación Android--servidor basada en HTTP para validación temprana.
+  \item Implementar un módulo de captura temporal con persistencia en \texttt{CSV}/\texttt{NPZ}.
+  \item Construir un pipeline de procesado con separación de gravedad, filtrado en banda e integración espectral.
+  \item Incorporar mecanismos de reducción de ruido: umbral mínimo y confirmación por persistencia temporal.
+  \item Evaluar el comportamiento del sistema con sesiones de prueba y documentar parámetros efectivos.
+  \item Definir y ejecutar una comparación entre plataforma Android y plataforma ESP32+LoRa en términos de calidad de medida y viabilidad de despliegue en boya.
+\end{itemize}
+
+\section{Alcance y limitaciones}
+
+El alcance del trabajo se centra en estimación de movimiento vertical \textit{relativo} sobre sesiones cortas de captura. No se plantea una estimación absoluta de posición global ni navegación inercial completa, dado que ello requeriría fusión avanzada con magnetómetro/GNSS y modelos de error más complejos~\cite{Farrell2008}.
+
+Las limitaciones principales detectadas son:
+
+\begin{itemize}
+  \item Sensibilidad a orientación del dispositivo.
+  \item Dependencia fuerte de la banda de frecuencias elegida.
+  \item Atenuación de movimientos lentos cuando los filtros son demasiado restrictivos.
+  \item Frecuencia de muestreo limitada en Android (aprox. \(50\) Hz en el prototipo actual).
+\end{itemize}
+
+\section{Metodología de desarrollo}
+
+El trabajo se realizó de forma incremental:
+
+\begin{enumerate}
+  \item Fase 1: prototipo Android para captura por red local y validación del pipeline.
+  \item Captura estructurada de sesiones de 30 segundos.
+  \item Procesado offline con métricas de validación y visualización.
+  \item Ajuste de parámetros con experimentación controlada.
+  \item Fase 2: migración prevista a ESP32+IMU+LoRa y comparación de plataformas.
+  \item Documentación de resultados y consolidación de pipeline.
+\end{enumerate}
+
+\section{Estructura de la memoria}
+
+La memoria se organiza de la siguiente forma:
+
+\begin{itemize}
+  \item En el Capítulo~\ref{chap:demo} se describe el diseño técnico, la implementación del sistema, el pipeline de procesado y los resultados de pruebas.
+  \item En el Capítulo~\ref{chap:conclusions} se presentan conclusiones, aportaciones y líneas futuras.
+  \item En el Apéndice~\ref{chap:adicional} se incluye material de soporte y reproducibilidad experimental.
+\end{itemize}

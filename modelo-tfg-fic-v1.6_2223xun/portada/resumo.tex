@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+\begin{abstract}
+  Este trabajo presenta el desarrollo de un sistema de captura y procesado de datos IMU utilizando un dispositivo Android y un entorno de análisis en Python. La solución implementada permite adquirir muestras por red local, almacenar sesiones temporales y aplicar un pipeline de procesado orientado a estimar movimiento vertical relativo a partir de aceleración.
+
+  El procesado incluye estimación de frecuencia de muestreo, separación de componente gravitatoria mediante filtrado pasa-bajos, filtrado en banda para aislar la dinámica de interés y cálculo de altura relativa por integración espectral. Para reducir ruido y falsos positivos se añadieron mecanismos de umbral mínimo de cambio y confirmación temporal por persistencia de muestras consecutivas.
+
+  Los resultados obtenidos muestran que la arquitectura propuesta es viable y reproducible, y que la selección de parámetros de filtrado condiciona de forma decisiva la sensibilidad del sistema. Como trabajo futuro se plantea incorporar corrección por orientación del dispositivo y automatizar la calibración de umbrales para distintos escenarios de medida.
+
+  \vspace*{25pt}
+  \begin{segundoresumo}
+    Este traballo presenta o desenvolvemento dun sistema de captura e procesado de datos IMU empregando un dispositivo Android e unha contorna de análise en Python. A solución implementada permite adquirir mostras por rede local, almacenar sesións temporais e aplicar unha cadea de procesado orientada a estimar movemento vertical relativo a partir da aceleración.
+
+    O procesado inclúe estimación da frecuencia de mostraxe, separación da compoñente gravitatoria mediante filtrado pasa-baixos, filtrado en banda para illar a dinámica de interese e cálculo da altura relativa por integración espectral. Para reducir ruído e falsos positivos engadíronse mecanismos de limiar mínimo de cambio e confirmación temporal por persistencia de mostras consecutivas.
+
+    Os resultados obtidos mostran que a arquitectura proposta é viable e reproducible, e que a selección de parámetros de filtrado condiciona de maneira decisiva a sensibilidade do sistema. Como traballo futuro proponse incorporar corrección por orientación do dispositivo e automatizar a calibración de limiares para distintos escenarios de medida.
+  \end{segundoresumo}
+\vspace*{25pt}
+\input{portada/palabras_chave}
+\end{abstract}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,21 @@
+{
+  "g_fc": 0.05090396882383288,
+  "fmin": 0.22947372552978548,
+  "fmax": 0.3356881338256181,
+  "height_min_change": 1.4754135755862018e-05,
+  "height_step_min": 3.180697171577839e-06,
+  "confirm_samples": 13,
+  "score": 3.280261692118779,
+  "mean_hs": 0.055120365344253845,
+  "std_hs": 0.08163561596722284,
+  "mean_tp": 3.875000000000018,
+  "std_tp": 0.02841361176142858,
+  "coverage": 1.0,
+  "mean_confirm_ratio": 0.351046071682523,
+  "file": "session_20260218_162321_30s.csv",
+  "chunk_seconds": 5.0,
+  "fft_min_samples": 128,
+  "trials": 120,
+  "rounds": 4,
+  "target_hs": -1.0
+}

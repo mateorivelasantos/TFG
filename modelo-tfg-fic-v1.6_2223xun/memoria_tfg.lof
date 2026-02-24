@@ -1,0 +1,12 @@
+\xpginauxfiletrue 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\setforeignlanguage {spanish}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Pipeline completo de procesado IMU en modo \texttt {all}.}}{7}{figure.caption.4}%
+\setforeignlanguage {spanish}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Estimación de altura en modo estricto: se minimizan falsos positivos, pero también se pierde señal útil.}}{7}{figure.caption.5}%
+\setforeignlanguage {spanish}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimación de altura con ajuste sensible: mayor capacidad de detección manteniendo control de ruido.}}{8}{figure.caption.6}%
+\setforeignlanguage {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

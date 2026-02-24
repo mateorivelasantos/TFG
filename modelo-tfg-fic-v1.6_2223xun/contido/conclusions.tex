@@ -1,0 +1,39 @@
+\chapter{Conclusiones}
+\label{chap:conclusions}
+
+\lettrine{E}{l} trabajo realizado permite concluir que es viable construir un sistema ligero de captura y procesado IMU con herramientas accesibles, manteniendo una cadena completa desde adquisición en Android hasta análisis técnico en escritorio.
+Esta fase constituye la validación metodológica inicial de una solución mayor orientada a boya instrumentada.
+
+\section{Conclusiones principales}
+
+\begin{itemize}
+  \item Se implementó una solución funcional extremo a extremo para captura y análisis de aceleración vertical relativa.
+  \item Se consiguió una infraestructura reproducible de pruebas basada en sesiones temporales y scripts parametrizables.
+  \item El análisis por etapas facilitó identificar el impacto de cada filtro y corregir configuraciones demasiado agresivas.
+  \item La incorporación de confirmación temporal de cambios redujo falsos positivos asociados a ruido de muestra aislada.
+  \item Se establecieron criterios de comparación para la transición a una plataforma embebida ESP32+LoRa.
+\end{itemize}
+
+\section{Aportaciones}
+
+Las aportaciones más relevantes del trabajo son:
+
+\begin{itemize}
+  \item Diseño modular de scripts de captura y procesado.
+  \item Soporte de formatos de entrada/salida en distintos entornos de ejecución.
+  \item Estrategia práctica de validación basada en umbral mínimo y persistencia temporal.
+  \item Documentación técnica incremental útil para evolución futura del proyecto.
+\end{itemize}
+
+\section{Trabajo futuro}
+
+Como evolución natural del TFG se proponen las siguientes líneas:
+
+\begin{itemize}
+  \item Implementación completa de la Fase 2 en ESP32 con IMU y transmisión LoRa.
+  \item Comparativa experimental Android vs ESP32+LoRa con métricas homogéneas.
+  \item Proyección de aceleración al eje vertical global usando información de orientación del dispositivo.
+  \item Calibración automática de umbrales a partir de un tramo inicial en reposo.
+  \item Generación automática de informes por sesión con métricas y figuras.
+  \item Validación con campañas experimentales controladas y comparación frente a referencia externa.
+\end{itemize}

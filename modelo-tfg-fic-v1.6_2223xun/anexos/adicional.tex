@@ -1,0 +1,38 @@
+\chapter{Material adicional}
+\label{chap:adicional}
+
+\lettrine{E}{n} este apéndice se recoge material de apoyo para reproducir el entorno experimental y el flujo de trabajo técnico del proyecto.
+
+\section{Scripts principales}
+
+\begin{itemize}
+  \item \texttt{capture\_http\_imu.py}: recepción HTTP y guardado de sesiones.
+  \item \texttt{process\_imu\_session.py}: procesado offline con métricas y visualización.
+  \item \texttt{process\_imu\_step\_by\_step.py}: visualización por etapas del pipeline.
+\end{itemize}
+
+\section{Comandos de referencia}
+
+\subsection{Captura}
+
+\begin{lstlisting}[language=bash]
+python3 capture_http_imu.py --host 0.0.0.0 --port 8001 --seconds 30
+\end{lstlisting}
+
+\subsection{Procesado rápido sin gráfica}
+
+\begin{lstlisting}[language=bash]
+python3 process_imu_session.py session_YYYYMMDD_HHMMSS_30s.csv --no-plot
+\end{lstlisting}
+
+\subsection{Procesado paso a paso con validación temporal}
+
+\begin{lstlisting}[language=bash]
+python3 process_imu_step_by_step.py session_YYYYMMDD_HHMMSS_30s.csv \
+  --mode step4 --g-fc 0.03 --fmin 0.02 --fmax 1.20 \
+  --height-min-change 0.00005 --height-step-min 0.000001 --confirm-samples 6
+\end{lstlisting}
+
+\section{Datos de prueba}
+
+Se trabajó con múltiples sesiones de 30 segundos en formato CSV, incluyendo capturas de reposo y capturas con movimiento vertical manual. La bitácora de resultados y ajustes se mantiene en \texttt{INFORME\_IMU.md}.
