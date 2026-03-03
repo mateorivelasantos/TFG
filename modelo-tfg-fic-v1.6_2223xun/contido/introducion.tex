@@ -1,68 +1,59 @@
 \chapter{Introducción}
 \label{chap:introducion}
 
-\lettrine{E}{ste} trabajo fin de grado aborda el diseño e implementación de una boya instrumentada capaz de caracterizar el oleaje mediante medidas inerciales.
-El desarrollo se planteó en dos fases:
-una fase inicial con Android como prototipo rápido de validación
-y una fase posterior con plataforma embebida ESP32 + IMU + LoRa.
-El objetivo principal es estimar movimiento vertical relativo a partir de aceleración medida en el eje \texttt{z}, aplicando técnicas de filtrado y análisis en frecuencia para reducir ruido y obtener métricas interpretables.
+\lettrine{E}{ste} trabajo fin de grado se centra en una idea principal: usar el teléfono móvil como plataforma ubicua para capturar y procesar datos inerciales, y demostrar su viabilidad en un caso de uso de caracterización de oleaje.
+El valor del sistema no está en un sensor concreto, sino en el producto software: su arquitectura de plataforma, su operación en distintos modos y su capacidad de despliegue práctico.
 
 \section{Contexto y motivación}
 
-En entornos reales, las señales de aceleración incluyen ruido, variaciones de orientación, pequeñas derivas y componentes gravitatorias que dificultan la interpretación directa de la medida~\cite{TittertonWeston2004}. Durante el desarrollo se observó que una aproximación naive basada en leer directamente \texttt{az} produce falsas variaciones de altura cuando el dispositivo está en reposo o cuando cambia ligeramente la inclinación. Esta limitación motiva la construcción de un pipeline de procesado robusto y parametrizable.
+La señal inercial medida por un dispositivo móvil combina aceleración útil, gravedad, ruido, deriva y cambios de orientación, lo que dificulta una interpretación directa~\cite{TittertonWeston2004}.
+Para transformar estas medidas en métricas útiles de estado de mar, se requiere un pipeline de procesado robusto y consistente.
 
-En la fase actual, el sistema desarrollado permite:
-
-\begin{itemize}
-  \item Capturar datos IMU desde Android por HTTP en red local.
-  \item Guardar sesiones temporales de medida para análisis offline.
-  \item Procesar las señales con distintos filtros y estrategias de validación temporal.
-  \item Visualizar la evolución de cada etapa para entender el impacto de cada parámetro.
-\end{itemize}
-
-Como siguiente fase, se plantea migrar la captura a ESP32 para aumentar la frecuencia de muestreo efectiva hasta valores cercanos a \(1000\) Hz en adquisición local, y transportar telemetría por LoRa.
+En este trabajo se adopta como método principal un enfoque tipo OpenMetBuoy:
+estimación espectral mediante Welch, conversión de espectro de aceleración a elevación y cálculo de métricas de oleaje (\(H_s\), \(T_z\), \(T_c\)).
+La implementación se orienta a ejecución \textit{on-device} en Android, con una fase posterior de comparación frente a ESP32+MPU6050.
 
 \section{Objetivos}
 
 \subsection{Objetivo general}
 
-Implementar y validar un sistema extremo a extremo para estimación de movimiento vertical relativo a partir de datos IMU, priorizando reproducibilidad experimental y capacidad de ajuste de parámetros.
+Diseñar e implementar una plataforma móvil capaz de capturar y procesar datos inerciales para estimación de movimiento vertical de olas, con salida reproducible y comparable entre plataformas.
 
 \subsection{Objetivos específicos}
 
 \begin{itemize}
-  \item Diseñar una arquitectura de comunicación Android--servidor basada en HTTP para validación temprana.
-  \item Implementar un módulo de captura temporal con persistencia en \texttt{CSV}/\texttt{NPZ}.
-  \item Construir un pipeline de procesado con separación de gravedad, filtrado en banda e integración espectral.
-  \item Incorporar mecanismos de reducción de ruido: umbral mínimo y confirmación por persistencia temporal.
-  \item Evaluar el comportamiento del sistema con sesiones de prueba y documentar parámetros efectivos.
-  \item Definir y ejecutar una comparación entre plataforma Android y plataforma ESP32+LoRa en términos de calidad de medida y viabilidad de despliegue en boya.
+  \item Implementar en Android un modo autónomo de captura y procesado local.
+  \item Estandarizar formato de sesión y exportación (\texttt{CSV}/\texttt{JSON}) con metadatos de adquisición.
+  \item Aplicar un pipeline espectral tipo OpenMetBuoy para estimar \(H_s\), \(T_z\) y \(T_c\).
+  \item Incluir visualización de olas \(h(t)\), métricas y estado de validez de ventana.
+  \item Implementar un segundo modo en Android como pantalla de resultados de ESP32+MPU6050.
+  \item Definir una comparativa experimental homogénea Android vs ESP32 con métricas comunes.
 \end{itemize}
 
 \section{Alcance y limitaciones}
 
-El alcance del trabajo se centra en estimación de movimiento vertical \textit{relativo} sobre sesiones cortas de captura. No se plantea una estimación absoluta de posición global ni navegación inercial completa, dado que ello requeriría fusión avanzada con magnetómetro/GNSS y modelos de error más complejos~\cite{Farrell2008}.
+El alcance de la memoria es la estimación de movimiento vertical relativo en superficie, no navegación inercial completa.
+No se aborda estimación absoluta de orientación/posición con fusión avanzada magnetómetro--GNSS, por su mayor complejidad~\cite{Farrell2008}.
 
-Las limitaciones principales detectadas son:
+Las limitaciones principales consideradas son:
 
 \begin{itemize}
-  \item Sensibilidad a orientación del dispositivo.
-  \item Dependencia fuerte de la banda de frecuencias elegida.
-  \item Atenuación de movimientos lentos cuando los filtros son demasiado restrictivos.
-  \item Frecuencia de muestreo limitada en Android (aprox. \(50\) Hz en el prototipo actual).
+  \item Sensibilidad de la estimación a orientación y calidad de medida.
+  \item Necesidad de ventanas largas (\(10\) a \(20\) min) para resultados espectrales robustos.
+  \item Menor fiabilidad del modo rápido en ventanas cortas (\(30\) s), útil solo como diagnóstico.
+  \item Diferencias de tasa efectiva de muestreo entre plataformas.
 \end{itemize}
 
 \section{Metodología de desarrollo}
 
-El trabajo se realizó de forma incremental:
+La metodología aplicada es incremental y orientada a validación:
 
 \begin{enumerate}
-  \item Fase 1: prototipo Android para captura por red local y validación del pipeline.
-  \item Captura estructurada de sesiones de 30 segundos.
-  \item Procesado offline con métricas de validación y visualización.
-  \item Ajuste de parámetros con experimentación controlada.
-  \item Fase 2: migración prevista a ESP32+IMU+LoRa y comparación de plataformas.
-  \item Documentación de resultados y consolidación de pipeline.
+  \item Definición de arquitectura funcional con Android como núcleo.
+  \item Implementación y pruebas del pipeline de procesado en entorno reproducible.
+  \item Validación de estabilidad del método con ventanas largas y análisis de límites en ventanas cortas.
+  \item Integración del modo Android display para consumir resultados externos.
+  \item Diseño del protocolo de comparación Android vs ESP32+MPU6050.
 \end{enumerate}
 
 \section{Estructura de la memoria}
@@ -70,7 +61,11 @@ El trabajo se realizó de forma incremental:
 La memoria se organiza de la siguiente forma:
 
 \begin{itemize}
-  \item En el Capítulo~\ref{chap:demo} se describe el diseño técnico, la implementación del sistema, el pipeline de procesado y los resultados de pruebas.
-  \item En el Capítulo~\ref{chap:conclusions} se presentan conclusiones, aportaciones y líneas futuras.
-  \item En el Apéndice~\ref{chap:adicional} se incluye material de soporte y reproducibilidad experimental.
+  \item En el Capítulo~\ref{chap:estado-arte} se resume el estado del arte estrictamente necesario para justificar decisiones de producto.
+  \item En el Capítulo~\ref{chap:metodologia-plan} se describe la metodología de desarrollo, la planificación y el presupuesto de trabajo.
+  \item En el Capítulo~\ref{chap:diseno-plataforma} se define la arquitectura funcional de la plataforma y sus módulos, incluyendo IMU y modos de operación.
+  \item En el Capítulo~\ref{chap:implementacion} se documenta la implementación técnica del producto y el formato de datos.
+  \item En el Capítulo~\ref{chap:validacion} se presenta el plan de pruebas y la validación experimental Android vs ESP32+MPU6050.
+  \item En el Capítulo~\ref{chap:conclusions} se recogen conclusiones, aportaciones y trabajo futuro.
+  \item En el Apéndice~\ref{chap:adicional} se incluye material complementario.
 \end{itemize}

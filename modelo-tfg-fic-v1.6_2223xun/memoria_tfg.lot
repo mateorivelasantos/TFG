@@ -1,10 +1,9 @@
-\xpginauxfiletrue 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\setforeignlanguage {spanish}
-\setforeignlanguage {spanish}
-\setforeignlanguage {spanish}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Plantilla de comparación entre prototipo Android y plataforma embebida ESP32+LoRa.}}{9}{table.caption.7}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo.}}{15}{table.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,0 +1,60 @@
+\chapter{Diseño de la plataforma}
+\label{chap:diseno-plataforma}
+
+\lettrine{E}{l} diseño se centra en Android como núcleo del producto, con dos modos operativos y módulos desacoplados de captura, procesado, visualización y exportación.
+
+\section{Arquitectura funcional}
+
+La arquitectura global se divide en:
+
+\begin{itemize}
+  \item \textbf{Modo Android autónomo}: captura y procesa en el propio teléfono.
+  \item \textbf{Modo Android display}: recibe resultados desde ESP32+MPU6050 y los presenta de forma homogénea.
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{imaxes/esquema_1_arquitectura.png}
+  \caption{Arquitectura funcional del TFG con Android como plataforma central.}
+  \label{fig:plantilla-arquitectura}
+\end{figure}
+
+\section{Diseño del bloque IMU}
+
+El bloque IMU se modela como un módulo de producto, no como experimento aislado:
+
+\begin{itemize}
+  \item adquisición de \texttt{accelerometer} y \texttt{gyroscope};
+  \item normalización de tiempo y estimación de frecuencia efectiva;
+  \item serialización en formato común para procesado y exportación.
+\end{itemize}
+
+Este diseño permite reutilizar el mismo contrato de datos tanto en Android como en ESP32.
+
+\section{Diseño del flujo Android}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{imaxes/esquema_2_flujo_android.png}
+  \caption{Flujo Android: captura, procesado on-device, visualización y exportación.}
+  \label{fig:plantilla-android}
+\end{figure}
+
+Cada sesión incluye:
+
+\begin{itemize}
+  \item series temporales inerciales;
+  \item metadatos de dispositivo y parámetros de cálculo;
+  \item métricas finales (\(H_s\), \(T_z\), \(T_c\), \(f_s\) real, indicadores de calidad).
+\end{itemize}
+
+\section{Diseño de comparativa entre plataformas}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\textwidth]{imaxes/esquema_3_comparativa.png}
+  \caption{Flujo de comparativa entre plataformas con métricas unificadas.}
+  \label{fig:plantilla-comparativa}
+\end{figure}
+
+La comparativa se diseña para medir diferencias de estabilidad, ruido, latencia y consumo bajo un mismo protocolo de prueba.

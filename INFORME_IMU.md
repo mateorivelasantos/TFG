@@ -119,6 +119,25 @@ Comandos:
 - Guardar automáticamente un reporte por sesión (JSON/MD) con parámetros y métricas.
 - Opcional avanzado: usar orientación (`rotation vector`) en Android para proyectar aceleración al eje vertical global.
 
+## Hoja de ruta acordada (2026-02-28)
+Enfoque principal del TFG:
+- Captura y procesado de datos inerciales usando una plataforma ubicua (telefono movil Android).
+
+Flujo de trabajo acordado:
+1. Metodo de procesado:
+   - Usar enfoque tipo OpenMetBuoy (Welch + momentos espectrales `Hs/Tz/Tc`) como metodo principal.
+2. Android on-device:
+   - Implementar procesado directamente en el propio telefono (sin depender de PC para el calculo principal).
+3. Extension ESP32 + MPU6050:
+   - Repetir el flujo en microcontrolador para obtener el mismo tipo de metricas de salida.
+4. Comparativa final:
+   - Comparar resultados Android vs ESP32 en condiciones equivalentes y extraer conclusiones de viabilidad, precision y limitaciones.
+
+Extras recomendados para reforzar la parte informatica:
+- Definir un formato de salida comun (JSON/CSV con campos y unidades fijas) para Android y ESP32.
+- Crear un protocolo de pruebas repetible (mismas ventanas, mismo escenario y mismas metricas).
+- Generar reporte automatico por sesion para facilitar analisis y memoria.
+
 ## Archivos clave
 - `capture_http_imu.py`
 - `process_imu_session.py`

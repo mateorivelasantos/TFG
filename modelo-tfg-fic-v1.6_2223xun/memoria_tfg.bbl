@@ -31,13 +31,13 @@ D.~H. Titterton and J.~L. Weston, \emph{Strapdown Inertial Navigation
 J.~A. Farrell, \emph{Aided Navigation: GPS with High Rate Sensors}.\hskip 1em
   plus 0.5em minus 0.4em\relax McGraw-Hill, 2008.
 
+\bibitem[Oppenheim and Schafer(2010)]{Oppenheim2010}
+A.~V. Oppenheim and R.~W. Schafer, \emph{Discrete-Time Signal Processing},
+  3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Prentice Hall, 2010.
+
 \bibitem[{Android Developers}(2026)]{AndroidSensors}
 {Android Developers}, ``Sensor overview,''
   \url{https://developer.android.com/guide/topics/sensors/sensors_overview},
   2026, accedido el 18 de febrero de 2026.
-
-\bibitem[Oppenheim and Schafer(2010)]{Oppenheim2010}
-A.~V. Oppenheim and R.~W. Schafer, \emph{Discrete-Time Signal Processing},
-  3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Prentice Hall, 2010.
 
 \end{thebibliography}

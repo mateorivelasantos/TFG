@@ -1,0 +1,56 @@
+\chapter{Validación y evaluación}
+\label{chap:validacion}
+
+\lettrine{L}{a} validación se enfoca en comprobar la viabilidad del producto en condiciones de uso real y en preparar una comparación defendible entre plataformas.
+
+\section{Estrategia temporal de evaluación}
+
+La validación distingue dos escenarios:
+
+\begin{itemize}
+  \item \textbf{Ventana robusta (10--20 min)}: cálculo principal para métricas finales.
+  \item \textbf{Ventana corta (\(\sim\)30 s)}: diagnóstico rápido de señal y funcionamiento.
+\end{itemize}
+
+Los resultados robustos del TFG se reportan sobre ventana larga.
+
+\section{Métricas de evaluación}
+
+Las métricas principales son:
+
+\begin{itemize}
+  \item \(H_s\), \(T_z\), \(T_c\) y su estabilidad temporal;
+  \item frecuencia efectiva de muestreo y jitter;
+  \item latencia de cálculo y visualización;
+  \item consumo por sesión;
+  \item indicadores de calidad de señal.
+\end{itemize}
+
+\section{Plantilla de comparativa Android vs ESP32+MPU6050}
+
+\begin{table}[htbp]
+  \centering
+  \rowcolors{2}{white}{udcgray!25}
+  \begin{tabular}{p{0.22\textwidth} p{0.19\textwidth} p{0.19\textwidth} p{0.30\textwidth}}
+  \rowcolor{udcpink!25}
+  \textbf{Métrica} & \textbf{Android} & \textbf{ESP32+MPU6050} & \textbf{Criterio de evaluación} \\\hline
+  Frecuencia efectiva (Hz) & Medida en sesión & Medida en sesión & Estabilidad temporal y jitter \\
+  \(H_s\), \(T_z\), \(T_c\) & Serie temporal & Serie temporal & Concordancia entre plataformas \\
+  Ruido residual & Estimado tras procesado & Estimado tras procesado & Robustez de la estimación \\
+  Latencia & On-device / display & Envío + display & Respuesta en uso real \\
+  Consumo energético & Por sesión de prueba & Por sesión de prueba & Viabilidad operativa \\
+  \end{tabular}
+  \caption{Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo.}
+  \label{tab:comparativa-plataformas}
+\end{table}
+
+\section{Criterios de aceptación}
+
+Se considerará la plataforma validada cuando:
+
+\begin{itemize}
+  \item complete el flujo captura-procesado-visualización-exportación sin intervención externa;
+  \item mantenga estabilidad de métricas en sesiones largas repetidas;
+  \item documente límites de precisión y condiciones de no validez;
+  \item permita comparar Android y ESP32 con resultados trazables.
+\end{itemize}

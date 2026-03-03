@@ -1,185 +1,144 @@
 \chapter{Desarrollo del sistema y validación}
 \label{chap:demo}
 
-\lettrine{E}{n} este capítulo se detalla la arquitectura implementada, el flujo de captura y el procesado de señal aplicado para estimar movimiento vertical relativo.
+\lettrine{E}{ste} capítulo describe el flujo técnico definido para el TFG y su implementación actual, alineada con el objetivo de usar Android como plataforma principal de captura y procesado inercial.
 
-\section{Arquitectura general}
+\section{Arquitectura funcional}
 
-La solución se compone de dos bloques:
-
-\begin{itemize}
-  \item \textbf{Cliente Android}: adquiere datos de acelerómetro y giroscopio, guarda una copia local en CSV y envía muestras por HTTP en formato JSON.
-  \item \textbf{Servidor de captura/procesado}: recibe muestras en \texttt{POST /data}, almacena sesiones temporales y ejecuta análisis offline con scripts en Python.
-\end{itemize}
-
-El intercambio mínimo para captura es \texttt{\{"t": ..., "az": ...\}}, aunque el sistema admite también \texttt{ax, ay, gx, gy, gz}.
-La base de adquisición de sensores en Android se apoyó en la documentación oficial de la plataforma~\cite{AndroidSensors}.
-
-\section{Captura de datos}
-
-Se desarrolló el script \texttt{capture\_http\_imu.py}, con las siguientes características:
+La arquitectura se diseñó con dos modos de operación en una misma aplicación móvil:
 
 \begin{itemize}
-  \item Escucha configurable (por defecto \texttt{0.0.0.0:8000}).
-  \item Ventana temporal de captura (30 segundos en las pruebas base).
-  \item Corrección de monotonía temporal para evitar \texttt{dt <= 0}.
-  \item Exportación en \texttt{NPZ} cuando hay \texttt{numpy} o en \texttt{CSV} en modo fallback.
+  \item \textbf{Modo Android autónomo}: el teléfono captura sensores y procesa localmente.
+  \item \textbf{Modo Android display}: el teléfono recibe resultados ya procesados desde ESP32+MPU6050 y actúa como interfaz de visualización y exportación.
 \end{itemize}
 
-El flujo de red se validó tanto en entorno Linux como en escenario Windows/WSL, utilizando redirección de puertos cuando fue necesario.
+La Figura~\ref{fig:plantilla-arquitectura} resume esta arquitectura.
 
-\section{Pipeline de procesado}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{imaxes/esquema_1_arquitectura.png}
+  \caption{Arquitectura funcional del TFG con Android como plataforma central.}
+  \label{fig:plantilla-arquitectura}
+\end{figure}
 
-El procesado principal se implementó en dos scripts:
-\texttt{process\_imu\_session.py} y
-\texttt{process\_imu\_step\_by\_step.py}.
-Las etapas son:
+\section{Flujo funcional definido}
 
-\subsection{Estimación de frecuencia de muestreo}
+El flujo del sistema se organiza en bloques:
 
-A partir del vector temporal \texttt{t}, se calcula \texttt{fs} mediante la mediana de diferencias positivas \texttt{dt}. Este valor gobierna el resto de filtros y transformadas.
+\begin{enumerate}
+  \item \textbf{Captura}: lectura de \texttt{accelerometer} y \texttt{gyroscope}, con soporte recomendado para \texttt{rotation vector}.
+  \item \textbf{Normalización}: homogeneización de timestamps y estimación de frecuencia efectiva de muestreo.
+  \item \textbf{Procesado}: método espectral tipo OpenMetBuoy.
+  \item \textbf{Visualización}: gráfica de olas \(h(t)\) y panel de métricas.
+  \item \textbf{Exportación}: almacenamiento de sesión con datos, métricas y parámetros.
+\end{enumerate}
 
-\subsection{Separación de gravedad}
+\subsection{Apartado IMU dentro del producto}
 
-Se aplica un filtro pasa-bajos de primer orden para estimar componente lenta \(g_{est}\), y se calcula aceleración dinámica:
-
-\[
- a_{z,dyn} = a_z - g_{est}
-\]
-
-\subsection{Filtrado en banda}
-
-Sobre \(a_{z,dyn}\) se aplica un band-pass de primer orden \([f_{min}, f_{max}]\) para aislar la banda de interés.
-
-\subsection{Periodo dominante}
-
-Se estima \(T_p\) mediante FFT, seleccionando el pico espectral dominante en banda válida~\cite{Oppenheim2010}.
-
-\subsection{Altura relativa por integración espectral}
-
-La altura relativa \(h(t)\) se obtiene en frecuencia aplicando:
-
-\[
- H(f) = \frac{A(f)}{(2\pi f)^2}
-\]
-
-tras enmascarar frecuencias fuera de banda para reducir deriva e inestabilidad en bajas frecuencias.
-
-\section{Reducción de ruido y validación temporal}
-
-Durante las pruebas se detectaron microvariaciones en reposo. Para reducir falsos positivos se añadieron dos mecanismos:
+El módulo IMU es un componente central de la plataforma y se trata como parte explícita del producto:
 
 \begin{itemize}
-  \item \textbf{Deadband de altura} (\texttt{--height-min-change}): cambios menores que un umbral se ignoran.
-  \item \textbf{Confirmación por persistencia}: una subida o bajada solo se confirma si se mantiene durante \(N\) muestras consecutivas con signo coherente. Los parámetros usados son \texttt{--height-step-min} y \texttt{--confirm-samples}.
+  \item \textbf{Entrada}: adquisición de acelerómetro y giroscopio con marcas temporales consistentes.
+  \item \textbf{Normalización}: control de frecuencia efectiva y detección de irregularidades de muestreo.
+  \item \textbf{Salida}: datos estructurados para procesado y exportación en formato común.
 \end{itemize}
 
-Este enfoque mejora la robustez frente a ruido impulsivo de una sola muestra.
+Esta separación en módulo permite mantener trazabilidad técnica del hardware inercial sin perder el foco principal del TFG, que es la plataforma móvil de captura y procesado.
 
-\section{Resultados experimentales}
+La Figura~\ref{fig:plantilla-android} muestra el flujo de Android.
 
-Con sesiones de aproximadamente 30 segundos, se obtuvieron resultados consistentes con el movimiento realizado y se observó que la selección de parámetros afecta de forma crítica a la amplitud estimada.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\textwidth]{imaxes/esquema_2_flujo_android.png}
+  \caption{Flujo Android: captura, procesado on-device, visualización y exportación.}
+  \label{fig:plantilla-android}
+\end{figure}
 
-Una configuración sensible que mostró buen comportamiento fue:
+\section{Pipeline de procesado adoptado}
+
+El método seleccionado es un pipeline espectral tipo OpenMetBuoy, aplicado a la aceleración vertical:
+
+\begin{enumerate}
+  \item Estimación de \(\,f_s\,\) a partir del vector temporal.
+  \item Separación de gravedad para obtener aceleración dinámica vertical.
+  \item Estimación de PSD de aceleración mediante Welch.
+  \item Conversión de espectro de aceleración a espectro de elevación:
+  \[
+    S_\eta(f) = \frac{S_a(f)}{(2\pi f)^4}
+  \]
+  \item Cálculo de momentos espectrales y métricas:
+  \[
+    H_s = 4\sqrt{m_0}, \qquad
+    T_z = \frac{1}{\sqrt{m_2/m_0}}, \qquad
+    T_c = \frac{1}{\sqrt{m_4/m_2}}
+  \]
+\end{enumerate}
+
+Este enfoque está bien establecido en análisis de señales y caracterización espectral~\cite{Oppenheim2010}.
+
+\section{Estrategia temporal de cálculo}
+
+La validación realizada mostró una diferencia clara entre dos regímenes:
 
 \begin{itemize}
-  \item \texttt{g\_fc = 0.03}
-  \item \texttt{fmin = 0.02}
-  \item \texttt{fmax = 1.20}
-  \item \texttt{height\_min\_change = 0.00005}
-  \item \texttt{height\_step\_min = 0.000001}
-  \item \texttt{confirm\_samples = 6}
+  \item \textbf{Ventanas largas} (\(10\)--\(20\) min): resultados estables y repetibles para \(H_s\), \(T_z\), \(T_c\).
+  \item \textbf{Ventanas cortas} (por ejemplo \(30\) s): útiles para diagnóstico rápido, pero no para estimación robusta principal.
 \end{itemize}
 
-Se constató que valores estrictos (umbrales altos y confirmación larga) eliminan prácticamente toda la señal útil en capturas suaves, mientras que una configuración demasiado laxa aumenta sensibilidad al ruido.
+Por tanto, la estimación principal del TFG se fundamenta en ventanas largas, mientras que el modo rápido queda como soporte operativo.
 
-\subsection{Gráficas de validación}
+\section{Implementación de referencia y trazabilidad}
 
-La Figura~\ref{fig:imu-pipeline-all} muestra la vista completa del pipeline
-sobre la sesión de prueba principal.
-Incluye señal cruda, eliminación de gravedad, filtrado en banda y altura estimada.
+Como banco de pruebas reproducible, se desarrollaron scripts de captura/procesado en Python para acelerar iteración de parámetros y validación experimental.
+Estos scripts forman parte del entorno de desarrollo, no del objetivo final de despliegue.
+
+La Figura~\ref{fig:imu-pipeline-all} muestra la vista por etapas utilizada para depuración del pipeline.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{imaxes/imu_pipeline_all.png}
-  \caption{Pipeline completo de procesado IMU en modo \texttt{all}.}
+  \caption{Visualización por etapas del pipeline utilizada en la fase de validación.}
   \label{fig:imu-pipeline-all}
 \end{figure}
 
-La Figura~\ref{fig:imu-step4-estricto} corresponde a un ajuste estricto,
-con valores:
-\begin{itemize}
-  \item \texttt{height\_min\_change=0.005}
-  \item \texttt{height\_step\_min=0.00008}
-  \item \texttt{confirm\_samples=20}
-\end{itemize}
-Con esta configuración, la estimación queda prácticamente anulada por filtrado de ruido.
+\section{Comparativa Android vs ESP32+MPU6050}
+
+La fase de comparación se plantea con mismo protocolo físico y mismo formato de salida en ambas plataformas para evitar sesgos.
+El flujo de comparación se resume en la Figura~\ref{fig:plantilla-comparativa}.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{imaxes/imu_step4_estricto.png}
-  \caption{Estimación de altura en modo estricto: se minimizan falsos positivos, pero también se pierde señal útil.}
-  \label{fig:imu-step4-estricto}
+  \includegraphics[width=0.62\textwidth]{imaxes/esquema_3_comparativa.png}
+  \caption{Flujo de comparativa entre plataformas con métricas unificadas.}
+  \label{fig:plantilla-comparativa}
 \end{figure}
 
-La Figura~\ref{fig:imu-step4-sensible} muestra la configuración sensible seleccionada durante las pruebas.
-Parámetros utilizados:
+Las métricas a contrastar son:
+
 \begin{itemize}
-  \item \texttt{g\_fc=0.03}
-  \item \texttt{fmin=0.02}
-  \item \texttt{fmax=1.20}
-  \item \texttt{height\_min\_change=0.00005}
-  \item \texttt{height\_step\_min=0.000001}
-  \item \texttt{confirm\_samples=6}
-\end{itemize}
-Esta configuración ofrece mejor compromiso entre detección y robustez.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.95\textwidth]{imaxes/imu_step4_sensible.png}
-  \caption{Estimación de altura con ajuste sensible: mayor capacidad de detección manteniendo control de ruido.}
-  \label{fig:imu-step4-sensible}
-\end{figure}
-
-\section{Trazabilidad y documentación}
-
-Como apoyo a la memoria se generó una bitácora técnica en \texttt{INFORME\_IMU.md}, donde se registran decisiones, comandos de prueba, resultados de calibración y estado del pipeline por fecha.
-
-\section{Comparación de plataformas (Fase 1 vs Fase 2)}
-
-El objetivo del TFG no se limita al prototipo Android.
-La estrategia completa contempla:
-\begin{itemize}
-  \item \textbf{Fase 1 (actual):} validación funcional y metodológica con Android (\(\approx 50\) Hz).
-  \item \textbf{Fase 2 (prevista):} implementación en ESP32 + IMU + LoRa, con adquisición local de mayor frecuencia (hasta \(\approx 1000\) Hz según sensor/configuración).
+  \item \(H_s\), \(T_z\), \(T_c\) y estabilidad temporal.
+  \item Frecuencia efectiva de muestreo y jitter.
+  \item Latencia de cálculo/visualización.
+  \item Ruido residual y robustez del resultado.
+  \item Consumo energético por sesión.
 \end{itemize}
 
-Para justificar la migración de plataforma se definieron los siguientes criterios de comparación:
-\begin{itemize}
-  \item Frecuencia de muestreo efectiva y estabilidad temporal.
-  \item Calidad de señal tras procesado (\(T_p\), \(\mathrm{std}(h)\), \(H_s\)).
-  \item Latencia extremo a extremo y continuidad de transmisión.
-  \item Consumo energético y autonomía estimada en escenario de boya.
-  \item Robustez de enlace en campo (pérdida de paquetes y alcance útil).
-\end{itemize}
-
-La Tabla~\ref{tab:comparativa-plataformas} resume la plantilla de evaluación experimental.
+La Tabla~\ref{tab:comparativa-plataformas} define la plantilla de evaluación.
 
 \begin{table}[htbp]
   \centering
   \rowcolors{2}{white}{udcgray!25}
-  \begin{tabular}{p{0.20\textwidth} p{0.20\textwidth} p{0.20\textwidth} p{0.30\textwidth}}
+  \begin{tabular}{p{0.22\textwidth} p{0.19\textwidth} p{0.19\textwidth} p{0.30\textwidth}}
   \rowcolor{udcpink!25}
-  \textbf{Métrica} & \textbf{Android (Fase 1)} & \textbf{ESP32+LoRa (Fase 2)} & \textbf{Observación} \\\hline
-  Frecuencia efectiva (Hz) & \(\approx 50\) & Pendiente de medir & Variabilidad por carga y configuración \\
-  Jitter temporal & Medido en CSV & Pendiente de medir & Evaluar estabilidad del reloj \\
-  \(T_p\), \(\mathrm{std}(h)\), \(H_s\) & Disponible & Pendiente de comparar & Misma metodología de procesado \\
-  Pérdida de muestras & Baja en LAN & Pendiente de medir & Considerar canal LoRa y buffers \\
-  Latencia de transmisión & Baja en WiFi LAN & Pendiente de medir & Medir en escenario real \\
-  Consumo/autonomía & No optimizado & Objetivo de optimización & Clave para despliegue en boya \\
+  \textbf{Métrica} & \textbf{Android} & \textbf{ESP32+MPU6050} & \textbf{Criterio de evaluación} \\\hline
+  Frecuencia efectiva (Hz) & Medida en sesión & Medida en sesión & Estabilidad temporal y jitter \\
+  \(H_s\), \(T_z\), \(T_c\) & Serie temporal & Serie temporal & Concordancia entre plataformas \\
+  Ruido residual & Estimado tras procesado & Estimado tras procesado & Robustez de la estimación \\
+  Latencia & On-device / display & Envío + display & Respuesta en uso real \\
+  Consumo energético & Por sesión de prueba & Por sesión de prueba & Viabilidad operativa \\
   \end{tabular}
-  \caption{Plantilla de comparación entre prototipo Android y plataforma embebida ESP32+LoRa.}
+  \caption{Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo.}
   \label{tab:comparativa-plataformas}
 \end{table}
 
-Como resultado esperado, la plataforma embebida debería mejorar resolución temporal y control de adquisición, a costa de mayor complejidad de integración hardware y comunicaciones.
+La base de adquisición de sensores en Android se apoyó en la documentación oficial de la plataforma~\cite{AndroidSensors}.

@@ -1,0 +1,57 @@
+\chapter{Implementación del sistema}
+\label{chap:implementacion}
+
+\lettrine{E}{n} este capítulo se describe la implementación técnica del producto y las decisiones adoptadas para garantizar reproducibilidad.
+
+\section{Captura y normalización}
+
+La captura en Android registra aceleración y velocidad angular con timestamp.
+La normalización posterior calcula la frecuencia efectiva de muestreo y corrige irregularidades temporales.
+
+\section{Pipeline de procesado integrado}
+
+El método implementado sigue una secuencia espectral tipo OpenMetBuoy:
+
+\begin{enumerate}
+  \item estimación de \(f_s\) real;
+  \item separación de gravedad para obtener aceleración dinámica vertical;
+  \item PSD de aceleración mediante Welch;
+  \item conversión a elevación:
+  \[
+    S_\eta(f) = \frac{S_a(f)}{(2\pi f)^4}
+  \]
+  \item cálculo de momentos y métricas:
+  \[
+    H_s = 4\sqrt{m_0}, \qquad
+    T_z = \frac{1}{\sqrt{m_2/m_0}}, \qquad
+    T_c = \frac{1}{\sqrt{m_4/m_2}}
+  \]
+\end{enumerate}
+
+Se trata de un método adoptado e integrado en la plataforma, no de una propuesta algorítmica original~\cite{Oppenheim2010}.
+
+\section{Visualización y exportación}
+
+La aplicación muestra:
+
+\begin{itemize}
+  \item evolución temporal de olas \(h(t)\);
+  \item panel de métricas actuales;
+  \item indicador de validez de ventana para resultado robusto.
+\end{itemize}
+
+La exportación de sesión incluye datos crudos, datos procesados, métricas y parámetros de ejecución.
+
+\section{Implementación de referencia para iteración técnica}
+
+Durante el desarrollo se empleó un entorno de scripts Python para acelerar pruebas de parámetros y depuración del pipeline.
+Esta capa de soporte queda documentada como herramienta de ingeniería, mientras que el producto objetivo es la ejecución en Android.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{imaxes/imu_pipeline_all.png}
+  \caption{Visualización por etapas del pipeline utilizada en la fase de validación.}
+  \label{fig:imu-pipeline-all}
+\end{figure}
+
+La base de captura de sensores en Android se apoyó en la documentación oficial~\cite{AndroidSensors}.

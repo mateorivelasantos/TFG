@@ -61,6 +61,14 @@ Copiar y pegar este bloque en cada actualización:
 
 ## Resumen técnico vivo
 - Estado técnico detallado del TFG: ver `INFORME_IMU.md`.
+- Decision metodologica activa (2026-02-28):
+  - Metodo principal de procesado: enfoque tipo OpenMetBuoy (Welch + momentos espectrales para `Hs/Tz/Tc`).
+  - Ventana recomendada para resultados robustos: 10-20 min.
+  - Ventanas cortas (30 s) se usan solo para monitorizacion/diagnostico rapido.
+- Flujo de proyecto acordado (2026-02-28):
+  1. Prioridad: plataforma ubicua Android (captura + procesado en el propio telefono).
+  2. Extension: replicar procesado en ESP32 + MPU6050.
+  3. Cierre: comparativa Android vs ESP32 con conclusiones de viabilidad y limites.
 - Scripts clave:
   - `capture_http_imu.py`
   - `process_imu_session.py`

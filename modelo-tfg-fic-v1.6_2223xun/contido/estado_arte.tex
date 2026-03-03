@@ -1,0 +1,37 @@
+\chapter{Estado del arte y contexto tecnológico}
+\label{chap:estado-arte}
+
+\lettrine{E}{ste} capítulo recoge únicamente el contexto técnico necesario para justificar la solución propuesta, manteniendo el foco en desarrollo de producto.
+
+\section{Plataforma móvil como nodo ubicuo}
+
+El uso de smartphone como nodo de captura aporta disponibilidad, conectividad y capacidad de cómputo en un único dispositivo.
+Para este TFG, Android se adopta como plataforma principal por:
+
+\begin{itemize}
+  \item acceso directo a sensores inerciales integrados;
+  \item ecosistema de desarrollo maduro y despliegue rápido;
+  \item capacidades locales de almacenamiento, visualización y exportación.
+\end{itemize}
+
+\section{Procesado inercial para oleaje}
+
+La estimación de estado de mar a partir de IMU se aborda en la literatura con técnicas espectrales.
+En este trabajo se adopta un enfoque tipo OpenMetBuoy por su trazabilidad y aplicabilidad práctica, evitando desarrollar un algoritmo propio desde cero.
+
+El objetivo del TFG no es investigar un nuevo método, sino integrar un método existente dentro de una plataforma usable y evaluable.
+
+\section{Ventanas temporales y robustez}
+
+Una conclusión técnica recurrente en trabajos y sistemas similares es la necesidad de ventanas de adquisición suficientemente largas para estabilizar métricas espectrales.
+Por ello, este trabajo diferencia dos modos:
+
+\begin{itemize}
+  \item modo robusto con ventanas de 10 a 20 minutos;
+  \item modo rápido para diagnóstico local, no equivalente al resultado robusto.
+\end{itemize}
+
+\section{Comparativa de plataformas}
+
+Además del modo Android autónomo, se plantea una segunda fase con ESP32+MPU6050 para contrastar viabilidad en hardware dedicado.
+La comparación se define con mismo protocolo físico y mismo formato de salida, para asegurar una evaluación justa de resultados.

@@ -1,39 +1,38 @@
 \chapter{Conclusiones}
 \label{chap:conclusions}
 
-\lettrine{E}{l} trabajo realizado permite concluir que es viable construir un sistema ligero de captura y procesado IMU con herramientas accesibles, manteniendo una cadena completa desde adquisición en Android hasta análisis técnico en escritorio.
-Esta fase constituye la validación metodológica inicial de una solución mayor orientada a boya instrumentada.
+\lettrine{E}{l} trabajo queda reorientado y consolidado en torno a una meta clara: demostrar que un teléfono móvil puede actuar como plataforma ubicua para captura y procesado inercial, con una metodología reproducible y extensible a otras plataformas.
 
 \section{Conclusiones principales}
 
 \begin{itemize}
-  \item Se implementó una solución funcional extremo a extremo para captura y análisis de aceleración vertical relativa.
-  \item Se consiguió una infraestructura reproducible de pruebas basada en sesiones temporales y scripts parametrizables.
-  \item El análisis por etapas facilitó identificar el impacto de cada filtro y corregir configuraciones demasiado agresivas.
-  \item La incorporación de confirmación temporal de cambios redujo falsos positivos asociados a ruido de muestra aislada.
-  \item Se establecieron criterios de comparación para la transición a una plataforma embebida ESP32+LoRa.
+  \item El enfoque de plataforma Android como núcleo funcional es viable y coherente con los objetivos del TFG.
+  \item El método espectral tipo OpenMetBuoy proporciona una base técnica sólida para estimar \(H_s\), \(T_z\) y \(T_c\).
+  \item La estabilidad del método depende críticamente de la ventana temporal: las ventanas largas (\(10\)--\(20\) min) son el modo principal de estimación robusta.
+  \item El modo rápido en ventanas cortas es útil para diagnóstico operativo, pero no debe considerarse equivalente al cálculo robusto.
+  \item La definición de un flujo común Android/ESP32 permite una comparativa final técnicamente defendible.
 \end{itemize}
 
 \section{Aportaciones}
 
-Las aportaciones más relevantes del trabajo son:
+Las aportaciones del trabajo en su estado actual son:
 
 \begin{itemize}
-  \item Diseño modular de scripts de captura y procesado.
-  \item Soporte de formatos de entrada/salida en distintos entornos de ejecución.
-  \item Estrategia práctica de validación basada en umbral mínimo y persistencia temporal.
-  \item Documentación técnica incremental útil para evolución futura del proyecto.
+  \item Definición de arquitectura dual en Android (modo autónomo y modo display).
+  \item Formalización de pipeline de procesado y métricas de salida unificadas.
+  \item Esquemas funcionales y plantilla de evaluación comparativa entre plataformas.
+  \item Entorno reproducible para validación previa de decisiones de diseño.
 \end{itemize}
 
 \section{Trabajo futuro}
 
-Como evolución natural del TFG se proponen las siguientes líneas:
+Las siguientes líneas continúan directamente el flujo definido:
 
 \begin{itemize}
-  \item Implementación completa de la Fase 2 en ESP32 con IMU y transmisión LoRa.
-  \item Comparativa experimental Android vs ESP32+LoRa con métricas homogéneas.
-  \item Proyección de aceleración al eje vertical global usando información de orientación del dispositivo.
-  \item Calibración automática de umbrales a partir de un tramo inicial en reposo.
-  \item Generación automática de informes por sesión con métricas y figuras.
-  \item Validación con campañas experimentales controladas y comparación frente a referencia externa.
+  \item Implementar el procesado on-device completo en Android como camino principal.
+  \item Implementar el flujo equivalente en ESP32+MPU6050 con mismo formato de resultados.
+  \item Ejecutar campaña de pruebas comparativas con protocolo físico común.
+  \item Incorporar estimación de calidad de señal y criterios automáticos de validez por sesión.
+  \item Automatizar exportación de informe por sesión para análisis y memoria final.
 \end{itemize}
+

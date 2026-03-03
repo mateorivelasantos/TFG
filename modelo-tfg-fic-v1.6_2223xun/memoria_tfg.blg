@@ -1,10 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2025/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: memoria_tfg.aux
 A level-1 auxiliary file: portada/portada.aux
 A level-1 auxiliary file: portada/resumo.aux
 A level-1 auxiliary file: contido/introducion.aux
-A level-1 auxiliary file: contido/demo.aux
+A level-1 auxiliary file: contido/estado_arte.aux
+A level-1 auxiliary file: contido/metodoloxia_planificacion.aux
+A level-1 auxiliary file: contido/diseno_plataforma.aux
+A level-1 auxiliary file: contido/implementacion.aux
+A level-1 auxiliary file: contido/validacion.aux
 A level-1 auxiliary file: contido/conclusions.aux
 A level-1 auxiliary file: anexos/adicional.aux
 The style file: IEEEtranN.bst
@@ -27,7 +31,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Done.
 You've used 5 entries,
             4855 wiz_defined-function locations,
-            980 strings with 8929 characters,
+            984 strings with 9050 characters,
 and the built_in function-call counts, 2290 in all, are:
 = -- 172
 > -- 51

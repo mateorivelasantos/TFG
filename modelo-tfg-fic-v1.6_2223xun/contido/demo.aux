@@ -1,45 +1,33 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\citation{AndroidSensors}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Desarrollo del sistema y validación}{4}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:demo}{{2}{4}{Desarrollo del sistema y validación}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Arquitectura general}{4}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Captura de datos}{4}{section.2.2}\protected@file@percent }
-\citation{Oppenheim2010}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Pipeline de procesado}{5}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Estimación de frecuencia de muestreo}{5}{subsection.2.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Separación de gravedad}{5}{subsection.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Filtrado en banda}{5}{subsection.2.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Periodo dominante}{5}{subsection.2.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Altura relativa por integración espectral}{5}{subsection.2.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Reducción de ruido y validación temporal}{5}{section.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Resultados experimentales}{6}{section.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Gráficas de validación}{6}{subsection.2.5.1}\protected@file@percent }
-\@writefile{lof}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\setforeignlanguage {spanish}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Pipeline completo de procesado IMU en modo \texttt  {all}.}}{7}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Arquitectura funcional}{4}{section.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Arquitectura funcional del TFG con Android como plataforma central.}}{4}{figure.caption.4}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:imu-pipeline-all}{{2.1}{7}{Pipeline completo de procesado IMU en modo \texttt {all}}{figure.caption.4}{}}
-\@writefile{lof}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\setforeignlanguage {spanish}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Estimación de altura en modo estricto: se minimizan falsos positivos, pero también se pierde señal útil.}}{7}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:imu-step4-estricto}{{2.2}{7}{Estimación de altura en modo estricto: se minimizan falsos positivos, pero también se pierde señal útil}{figure.caption.5}{}}
-\@writefile{lof}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\setforeignlanguage {spanish}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimación de altura con ajuste sensible: mayor capacidad de detección manteniendo control de ruido.}}{8}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:imu-step4-sensible}{{2.3}{8}{Estimación de altura con ajuste sensible: mayor capacidad de detección manteniendo control de ruido}{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Trazabilidad y documentación}{8}{section.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}Comparación de plataformas (Fase 1 vs Fase 2)}{8}{section.2.7}\protected@file@percent }
-\@writefile{lof}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Plantilla de comparación entre prototipo Android y plataforma embebida ESP32+LoRa.}}{9}{table.caption.7}\protected@file@percent }
-\newlabel{tab:comparativa-plataformas}{{2.1}{9}{Plantilla de comparación entre prototipo Android y plataforma embebida ESP32+LoRa}{table.caption.7}{}}
+\newlabel{fig:plantilla-arquitectura}{{2.1}{4}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Arquitectura funcional del TFG con Android como plataforma central}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Flujo funcional definido}{4}{section.2.2}\protected@file@percent }
+\citation{Oppenheim2010}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Apartado IMU dentro del producto}{5}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Pipeline de procesado adoptado}{5}{section.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo Android: captura, procesado on-device, visualización y exportación.}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:plantilla-android}{{2.2}{6}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Flujo Android: captura, procesado on-device, visualización y exportación}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Estrategia temporal de cálculo}{7}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Implementación de referencia y trazabilidad}{7}{section.2.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Visualización por etapas del pipeline utilizada en la fase de validación.}}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:imu-pipeline-all}{{2.3}{7}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Visualización por etapas del pipeline utilizada en la fase de validación}{figure.caption.6}{}}
+\citation{AndroidSensors}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Comparativa Android vs ESP32+MPU6050}{8}{section.2.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de comparativa entre plataformas con métricas unificadas.}}{8}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:plantilla-comparativa}{{2.4}{8}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Flujo de comparativa entre plataformas con métricas unificadas}{figure.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo.}}{9}{table.caption.8}\protected@file@percent }
+\newlabel{tab:comparativa-plataformas}{{2.1}{9}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo}{table.caption.8}{}}
 \@setckpt{contido/demo}{
 \setcounter{page}{10}
 \setcounter{equation}{0}
-\setcounter{enumi}{6}
+\setcounter{enumi}{5}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -47,12 +35,12 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
-\setcounter{section}{7}
+\setcounter{section}{6}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{3}
+\setcounter{figure}{4}
 \setcounter{table}{1}
 \setcounter{DefaultLines}{2}
 \setcounter{DefaultDepth}{0}
@@ -82,12 +70,11 @@
 \setcounter{blind@pangramcount}{0}
 \setcounter{blind@pangrammax}{0}
 \setcounter{section@level}{0}
-\setcounter{Item}{6}
+\setcounter{Item}{15}
 \setcounter{Hfootnote}{0}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{22}
+\setcounter{bookmark@seq@number}{16}
 \setcounter{BackrefHyperFootnoteCounter}{0}
-\setcounter{su@anzahl}{0}
 \setcounter{LT@tables}{0}
 \setcounter{LT@chunks}{0}
 \setcounter{lstlisting}{0}

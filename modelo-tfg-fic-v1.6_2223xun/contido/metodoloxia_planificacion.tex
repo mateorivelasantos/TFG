@@ -1,0 +1,49 @@
+\chapter{Metodología, planificación y presupuesto}
+\label{chap:metodologia-plan}
+
+\lettrine{L}{a} ejecución del TFG se organiza como un desarrollo incremental de producto, con validación continua sobre datos reales y simulados.
+
+\section{Enfoque de trabajo}
+
+Se adopta una estrategia por bloques funcionales:
+
+\begin{enumerate}
+  \item Captura IMU y normalización temporal.
+  \item Procesado espectral on-device.
+  \item Visualización y exportación de sesión.
+  \item Modo display para integración con ESP32.
+  \item Validación comparativa final entre plataformas.
+\end{enumerate}
+
+\section{Fases del proyecto}
+
+\begin{itemize}
+  \item \textbf{Fase 1.} Definición de arquitectura del producto y formato común de datos.
+  \item \textbf{Fase 2.} Prototipado de captura/procesado con scripts de referencia para reducir riesgo técnico.
+  \item \textbf{Fase 3.} Integración on-device en Android y diseño de interfaz operativa.
+  \item \textbf{Fase 4.} Integración ESP32+MPU6050 y modo Android display.
+  \item \textbf{Fase 5.} Campaña comparativa y elaboración de conclusiones.
+\end{itemize}
+
+\section{Plan de pruebas y control de riesgos}
+
+Los principales riesgos y su mitigación son:
+
+\begin{itemize}
+  \item Ventanas insuficientes para estabilidad espectral: imponer ventana robusta mínima.
+  \item Variabilidad de frecuencia de muestreo: medir \(f_s\) real por sesión y registrar jitter.
+  \item Diferencias de formato Android/ESP32: fijar esquema de salida común desde el inicio.
+  \item Deriva o ruido excesivo: incluir validación de calidad y descarte de sesiones no válidas.
+\end{itemize}
+
+\section{Presupuesto orientativo}
+
+El trabajo prioriza bajo coste de hardware:
+
+\begin{itemize}
+  \item teléfono Android: plataforma principal;
+  \item ESP32 con LoRa: disponible en laboratorio personal;
+  \item IMU MPU6050: disponible para fase comparativa.
+\end{itemize}
+
+El coste principal del proyecto se concentra en tiempo de desarrollo, integración y validación experimental.
