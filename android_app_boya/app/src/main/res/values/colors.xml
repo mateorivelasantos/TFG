@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ocean_900">#0B1D3A</color>
+    <color name="ocean_700">#123B6D</color>
+    <color name="ocean_500">#1E5EA8</color>
+    <color name="ocean_100">#D7E8FF</color>
+    <color name="mint_400">#3CC9B0</color>
+    <color name="sand_100">#F4F8FF</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_alt">#F0F5FF</color>
+    <color name="text_primary">#102138</color>
+    <color name="text_secondary">#4A607F</color>
+    <color name="divider">#D9E3F2</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Boya" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ocean_500</item>
+        <item name="colorPrimaryVariant">@color/ocean_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/mint_400</item>
+        <item name="colorSecondaryVariant">@color/ocean_700</item>
+        <item name="colorOnSecondary">@color/ocean_900</item>
+        <item name="android:statusBarColor">@color/ocean_700</item>
+        <item name="android:navigationBarColor">@color/sand_100</item>
+        <item name="android:windowBackground">@drawable/bg_screen_gradient</item>
+    </style>
+</resources>
