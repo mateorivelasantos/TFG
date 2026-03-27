@@ -8,6 +8,21 @@
 La captura en Android registra aceleración y velocidad angular con timestamp.
 La normalización posterior calcula la frecuencia efectiva de muestreo y corrige irregularidades temporales.
 
+\subsection{Implementación de la captura en Android}
+
+La aplicación Android implementa un modo de captura local basado en los sensores integrados del dispositivo.
+Esta implementación constituye el primer camino funcional completo del sistema y sirve como referencia para el diseño del resto de subsistemas.
+
+\subsection{Implementación del formato de sesión}
+
+Cada sesión se persiste con un formato uniforme, pensado para soportar reprocesado, exportación y comparación entre dispositivos.
+Además de los datos crudos, se incluyen metadatos relevantes como duración, frecuencia efectiva o modo de adquisición.
+
+\subsection{Decisiones de diseño del almacenamiento}
+
+El formato de sesión se diseñó para priorizar trazabilidad y reutilización.
+Esto permite usar la misma sesión para depuración, validación experimental y visualización, evitando bifurcar formatos específicos para cada plataforma.
+
 \section{Pipeline de procesado integrado}
 
 El método implementado sigue una secuencia espectral tipo OpenMetBuoy:
@@ -30,6 +45,103 @@ El método implementado sigue una secuencia espectral tipo OpenMetBuoy:
 
 Se trata de un método adoptado e integrado en la plataforma, no de una propuesta algorítmica original~\cite{Oppenheim2010}.
 
+En este capítulo, la implementación debe leerse como la concreción práctica de la metodología de procesado descrita en el diseño.
+Es decir, no se trata solo de una secuencia de funciones, sino de la materialización software de un enfoque espectral elegido por su coherencia con el dominio del problema y con las limitaciones reales del sistema.
+
+La implementación práctica del pipeline no consiste únicamente en traducir fórmulas a código.
+En un sistema real, el rendimiento del método depende de cómo se trate la irregularidad temporal, de la forma en que se estabilice la señal de entrada y de que la salida final conserve trazabilidad suficiente para poder justificar cada valor obtenido.
+Por ello, la implementación se diseñó como una cadena de etapas claramente separadas, cada una con entradas, salidas y magnitudes de control verificables.
+
+\subsection{Estimación de frecuencia efectiva y calidad temporal}
+
+La primera operación consiste en estimar la frecuencia efectiva real de adquisición a partir de los \textit{timestamps} registrados.
+Esta decisión es importante porque, en la práctica, ni Android ni un sistema embebido genérico garantizan exactamente la frecuencia teórica solicitada.
+
+El pipeline calcula:
+
+\begin{itemize}
+  \item la duración efectiva de la sesión;
+  \item el espaciado medio entre muestras;
+  \item la frecuencia efectiva \(f_s\);
+  \item indicadores simples de jitter o irregularidad temporal.
+\end{itemize}
+
+Estas magnitudes no son accesorias: afectan directamente a la interpretación del eje de frecuencias y, por tanto, al valor final de los parámetros derivados.
+
+\subsection{Obtención de la señal dinámica útil}
+
+Una vez caracterizada la base temporal, la implementación selecciona y transforma las señales inerciales para aproximarse a la componente dinámica de interés.
+En particular, se busca aislar la aceleración útil frente a la contribución gravitatoria y frente a cambios lentos que podrían contaminar el análisis espectral.
+
+Esta etapa constituye uno de los puntos más delicados del pipeline, ya que una mala separación entre señal útil y componentes espurias puede degradar el espectro y falsear de manera sistemática los momentos calculados.
+
+\figplaceholder{%
+Figura recomendada:\\
+comparativa entre señal cruda y señal dinámica preprocesada
+}{Ejemplo de señal inercial antes y después del preprocesado.}
+\label{fig:placeholder-senal-preprocesada}
+
+\subsection{Estimación de PSD mediante Welch}
+
+La implementación de Welch se apoya en segmentación, solapamiento y promediado espectral.
+Su objetivo no es únicamente producir una PSD suave, sino hacerlo con un coste asumible para el contexto del trabajo: ejecución \textit{on-device}, necesidad de repetición sobre múltiples sesiones y comparabilidad entre plataformas con distinta calidad de adquisición.
+
+En términos operativos, el bloque genera una estimación \(S_a(f)\) para la aceleración y posteriormente deriva el espectro de elevación:
+
+\[
+  S_\eta(f) = \frac{S_a(f)}{(2\pi f)^4}
+\]
+
+Este paso merece una interpretación cuidadosa.
+La división por \((2\pi f)^4\) traduce el problema desde el dominio de la aceleración al dominio de la elevación bajo el marco lineal adoptado.
+Sin embargo, también amplifica la sensibilidad a bajas frecuencias, por lo que la estabilidad del preprocesado y la elección de bandas válidas resultan críticas.
+
+\figplaceholder{%
+Figura recomendada:\\
+PSD de aceleración y espectro de elevación derivados\\
+en una misma sesión
+}{Ejemplo de estimación espectral y conversión a elevación.}
+\label{fig:placeholder-psd-elevacion}
+
+\subsection{Implementación de modos de procesado}
+
+La implementación contempla distintos modos de procesado según la frecuencia efectiva y el contexto de captura.
+Esto permite mantener coherencia entre datos procedentes del teléfono móvil y sesiones generadas o transferidas desde el sistema embebido.
+
+En la práctica, esta distinción permite separar:
+
+\begin{itemize}
+  \item un modo orientado a resultados robustos sobre ventanas largas;
+  \item un modo más rápido o exploratorio para diagnóstico de sesiones cortas;
+  \item un modo de análisis equivalente para datos descargados desde el subsistema embebido.
+\end{itemize}
+
+De este modo, el sistema no fuerza una única configuración rígida, pero mantiene un contrato común sobre qué métricas son comparables y bajo qué condiciones pueden considerarse válidas.
+
+\subsection{Cálculo de momentos espectrales}
+
+La implementación obtiene momentos como \(m_0\), \(m_2\) y \(m_4\) a partir del espectro estimado, y los reutiliza como base común para el cálculo de métricas de oleaje.
+Este diseño evita introducir fórmulas desconectadas entre sí y facilita verificar la coherencia del pipeline completo.
+
+Concretamente, la implementación utiliza:
+
+\[
+  H_s = 4\sqrt{m_0}, \qquad
+  T_z = \frac{1}{\sqrt{m_2/m_0}}, \qquad
+  T_c = \frac{1}{\sqrt{m_4/m_2}}
+\]
+
+Además, \(T_p\) se obtiene a partir de la frecuencia correspondiente al máximo del espectro de elevación.
+La ventaja de esta formulación es que todas las métricas quedan ancladas a una misma representación espectral, lo que simplifica la validación cruzada y evita incoherencias internas del sistema.
+
+\subsection{Trazabilidad del resultado}
+
+Una decisión importante de implementación ha sido conservar no solo las métricas finales, sino también señales y resultados intermedios cuando el flujo de trabajo lo requiere.
+Esto incluye frecuencia efectiva, espectro estimado, serie temporal preprocesada y parámetros de configuración utilizados en el cálculo.
+
+Esta trazabilidad tiene valor ingenieril directo:
+permite depurar, comparar sesiones, justificar discrepancias entre plataformas y explicar por qué un resultado concreto debe considerarse robusto, dudoso o no válido.
+
 \section{Visualización y exportación}
 
 La aplicación muestra:
@@ -41,6 +153,41 @@ La aplicación muestra:
 \end{itemize}
 
 La exportación de sesión incluye datos crudos, datos procesados, métricas y parámetros de ejecución.
+
+\section{Implementación de la aplicación Android}
+
+La aplicación se implementa como interfaz principal del sistema, integrando captura, gestión de sesiones, procesado y visualización.
+Su función es coordinar el flujo extremo a extremo y presentar resultados homogéneos independientemente del origen de la captura.
+
+\subsection{Modo móvil}
+
+El modo móvil permite capturar datos con los sensores del teléfono, almacenarlos y procesarlos localmente.
+Representa la versión autónoma y autosuficiente del sistema.
+
+\subsection{Modo ESP32}
+
+El modo ESP32 se implementa como vía de conexión con el subsistema embebido.
+Incluye funciones de verificación de conexión, gestión de capturas, descarga de sesiones y presentación de resultados de forma equivalente al modo móvil.
+
+\subsection{Gestión de sesiones y visualización}
+
+La aplicación incluye mecanismos de nombrado, selección, borrado y reprocesado de sesiones, así como vistas para espectro, serie temporal y métricas resumidas.
+
+\subsection{Estructura funcional de la app}
+
+La aplicación se organiza en torno a flujos diferenciados de captura, consulta y procesado.
+Esta estructura permite extender el sistema sin convertir la interfaz en una colección de pantallas inconexas y facilita mantener un comportamiento comparable entre modo móvil y modo ESP32.
+
+\figplaceholder{%
+Diagrama recomendado:\\
+navegación principal de la app y relación entre pantallas
+}{Flujo de navegación de la aplicación Android.}
+\label{fig:placeholder-navegacion-app}
+
+\subsection{Decisiones de diseño software}
+
+La separación entre adquisición, almacenamiento, procesado y visualización responde a un criterio de mantenibilidad.
+Este enfoque también facilita depuración, introducción de nuevos modos y reutilización de componentes en fases posteriores del proyecto.
 
 \section{Implementación de referencia para iteración técnica}
 
@@ -55,3 +202,28 @@ Esta capa de soporte queda documentada como herramienta de ingeniería, mientras
 \end{figure}
 
 La base de captura de sensores en Android se apoyó en la documentación oficial~\cite{AndroidSensors}.
+
+\section{Implementación del subsistema embebido}
+
+La implementación embebida se ha centrado en el ESP32 como nodo de comunicación y experimentación, incorporando funciones de red, diagnóstico y simulación de capturas.
+Además, se desarrollaron herramientas específicas de diagnóstico para validar la integración del IMU y acotar problemas de bus, alimentación o cableado.
+
+\subsection{Firmware principal del ESP32}
+
+El firmware principal ofrece conectividad, mecanismos de intercambio con la aplicación Android y elementos de soporte al desarrollo, como la pantalla OLED y trazas de estado.
+
+\subsection{Firmware y scripts de diagnóstico}
+
+Durante el desarrollo se implementaron utilidades específicas para diagnóstico del bus I\textsuperscript{2}C y validación del IMU, tanto en C/ESP-IDF como en MicroPython.
+Estas herramientas se consideran parte del trabajo de ingeniería realizado para asegurar la trazabilidad de los problemas de integración hardware.
+
+\subsection{Estado actual y evolución prevista}
+
+En el estado actual del proyecto, el ESP32 ya funciona como nodo de comunicación, diagnóstico y simulación de sesiones.
+La línea de evolución pendiente consiste en consolidar la integración física del IMU/MCU, estabilizar el camino de adquisición externo y cerrar la comparativa experimental con el mismo pipeline analítico usado en Android.
+
+\figplaceholder{%
+Figura recomendada:\\
+captura del modo ESP32, OLED del dispositivo o monitor serie
+}{Estado actual del subsistema embebido durante desarrollo y diagnóstico.}
+\label{fig:placeholder-estado-esp32}

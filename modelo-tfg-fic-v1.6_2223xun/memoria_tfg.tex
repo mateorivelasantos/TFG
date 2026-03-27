@@ -43,7 +43,21 @@
 % \usepackage{rotating}    % permite diferentes tipos de rotacións para figuras e táboas
 % \usepackage{subcaption}  % permite a inclusión de varias subfiguras nunha figura
 % \usepackage{tabu}        % permite táboas flexibles
-% \usepackage{tabularx}    % permite táboas con columnas de anchura determinada
+\usepackage{tabularx}    % permite táboas con columnas de anchura determinada
+
+\newcommand{\figplaceholder}[3][0.9\textwidth]{%
+  \begin{figure}[htbp]
+    \centering
+    \fbox{%
+      \parbox[c][0.18\textheight][c]{#1}{%
+        \centering
+        \textbf{Figura pendiente}\\[4pt]
+        #2
+      }%
+    }
+    \caption{#3}
+  \end{figure}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Corpo                                                                        %

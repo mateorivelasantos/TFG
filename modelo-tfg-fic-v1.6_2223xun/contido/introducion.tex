@@ -4,10 +4,21 @@
 \lettrine{E}{ste} trabajo fin de grado se centra en una idea principal: usar el teléfono móvil como plataforma ubicua para capturar y procesar datos inerciales, y demostrar su viabilidad en un caso de uso de caracterización de oleaje.
 El valor del sistema no está en un sensor concreto, sino en el producto software: su arquitectura de plataforma, su operación en distintos modos y su capacidad de despliegue práctico.
 
-\section{Contexto y motivación}
+\section{Motivación del problema}
 
 La señal inercial medida por un dispositivo móvil combina aceleración útil, gravedad, ruido, deriva y cambios de orientación, lo que dificulta una interpretación directa~\cite{TittertonWeston2004}.
 Para transformar estas medidas en métricas útiles de estado de mar, se requiere un pipeline de procesado robusto y consistente.
+
+La motivación de este TFG no se limita al desarrollo de una aplicación móvil.
+El problema real es construir un sistema accesible de adquisición, procesado y visualización capaz de caracterizar el estado del mar con componentes de bajo coste y alta disponibilidad.
+En este contexto, los sensores inerciales permiten explorar una alternativa ligera frente a instrumentación oceanográfica más compleja o costosa, siempre que el tratamiento de señal y la arquitectura global del sistema sean adecuados.
+
+\figplaceholder{%
+Esquema conceptual recomendado:\\
+oleaje real $\rightarrow$ sensor IMU $\rightarrow$ adquisición\\
+$\rightarrow$ procesado espectral $\rightarrow$ parámetros estimados
+}{Esquema conceptual del problema abordado por el sistema.}
+\label{fig:placeholder-problema-general}
 
 En este trabajo se adopta como método principal un enfoque tipo OpenMetBuoy:
 estimación espectral mediante Welch, conversión de espectro de aceleración a elevación y cálculo de métricas de oleaje (\(H_s\), \(T_z\), \(T_c\)).
@@ -26,7 +37,8 @@ Diseñar e implementar una plataforma móvil capaz de capturar y procesar datos 
   \item Estandarizar formato de sesión y exportación (\texttt{CSV}/\texttt{JSON}) con metadatos de adquisición.
   \item Aplicar un pipeline espectral tipo OpenMetBuoy para estimar \(H_s\), \(T_z\) y \(T_c\).
   \item Incluir visualización de olas \(h(t)\), métricas y estado de validez de ventana.
-  \item Implementar un segundo modo en Android como pantalla de resultados de ESP32+MPU6050.
+  \item Implementar un segundo modo Android para mostrar
+  resultados procedentes de ESP32+MPU6050.
   \item Definir una comparativa experimental homogénea Android vs ESP32 con métricas comunes.
 \end{itemize}
 
@@ -42,11 +54,21 @@ Las limitaciones principales consideradas son:
   \item Necesidad de ventanas largas (\(10\) a \(20\) min) para resultados espectrales robustos.
   \item Menor fiabilidad del modo rápido en ventanas cortas (\(30\) s), útil solo como diagnóstico.
   \item Diferencias de tasa efectiva de muestreo entre plataformas.
+  \item Estado todavía iterativo de la integración hardware en la rama embebida.
 \end{itemize}
 
 \section{Metodología de desarrollo}
 
-La metodología aplicada es incremental y orientada a validación:
+La memoria se apoya en cuatro marcos metodológicos complementarios, cada uno orientado a una dimensión distinta del trabajo:
+
+\begin{itemize}
+  \item \textbf{metodología de desarrollo incremental}, para construir el sistema por fases y reducir riesgo técnico;
+  \item \textbf{enfoque de diseño modular de sistema ciberfísico}, para estructurar adquisición, comunicación, procesado y visualización como subsistemas coordinados;
+  \item \textbf{metodología de procesado espectral basada en Welch}, como núcleo técnico del tratamiento de señal;
+  \item \textbf{metodología experimental comparativa}, para evaluar Android y sistema embebido bajo un protocolo homogéneo.
+\end{itemize}
+
+En términos prácticos, la metodología de desarrollo aplicada es incremental y orientada a validación:
 
 \begin{enumerate}
   \item Definición de arquitectura funcional con Android como núcleo.

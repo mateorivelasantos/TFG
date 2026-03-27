@@ -338,6 +338,8 @@ INPUT ./bibliografia/glosario.tex
 INPUT ./bibliografia/glosario.tex
 INPUT ./bibliografia/glosario.tex
 INPUT bibliografia/glosario.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT ./memoria_tfg.aux
 INPUT ./memoria_tfg.aux
 INPUT memoria_tfg.aux
@@ -469,6 +471,17 @@ OUTPUT contido/estado_arte.aux
 INPUT ./contido/estado_arte.tex
 INPUT ./contido/estado_arte.tex
 INPUT contido/estado_arte.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT ./contido/metodoloxia_planificacion.tex
 INPUT ./contido/metodoloxia_planificacion.tex
 OUTPUT contido/metodoloxia_planificacion.aux

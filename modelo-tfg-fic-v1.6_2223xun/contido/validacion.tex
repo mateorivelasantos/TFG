@@ -3,6 +3,33 @@
 
 \lettrine{L}{a} validación se enfoca en comprobar la viabilidad del producto en condiciones de uso real y en preparar una comparación defendible entre plataformas.
 
+\section{Metodología experimental}
+
+La evaluación se diseña con enfoque de ingeniería aplicada, es decir, no solo para comprobar que el sistema produce salidas, sino para estudiar bajo qué condiciones dichas salidas son estables, comparables y útiles.
+Esto obliga a distinguir claramente entre pruebas funcionales, pruebas de procesado y pruebas de comparación entre plataformas.
+
+En consecuencia, la validación sigue una \textbf{metodología experimental comparativa}.
+Su objetivo no es únicamente verificar que Android y el sistema embebido producen algún resultado, sino comprobar si dichos resultados pueden contrastarse de forma técnica y defendible bajo condiciones de adquisición homogéneas.
+
+Esta metodología comparativa se apoya en tres principios:
+
+\begin{itemize}
+  \item \textbf{mismo protocolo de observación}: condiciones físicas y ventanas temporales equivalentes;
+  \item \textbf{mismo marco analítico}: uso de métricas y pipeline de procesado compatibles;
+  \item \textbf{misma lógica de interpretación}: evaluación tanto cuantitativa como cualitativa de la robustez del sistema.
+\end{itemize}
+
+\subsection{Escenarios de prueba}
+
+Los escenarios de prueba contemplan sesiones en modo móvil, sesiones transferidas o simuladas desde el sistema embebido y pruebas específicas de integración hardware.
+Esta separación permite analizar tanto el comportamiento algorítmico como la robustez real del sistema completo.
+
+\figplaceholder{%
+Diagrama recomendado:\\
+protocolo experimental, escenarios y flujo de comparación
+}{Protocolo experimental seguido en la validación.}
+\label{fig:placeholder-protocolo-experimental}
+
 \section{Estrategia temporal de evaluación}
 
 La validación distingue dos escenarios:
@@ -14,12 +41,32 @@ La validación distingue dos escenarios:
 
 Los resultados robustos del TFG se reportan sobre ventana larga.
 
+\section{Configuración de las pruebas}
+
+Para cada campaña experimental deben documentarse explícitamente:
+
+\begin{itemize}
+  \item plataforma utilizada (Android o sistema embebido);
+  \item duración de captura;
+  \item frecuencia efectiva de muestreo;
+  \item condiciones físicas de la prueba;
+  \item versión del software o firmware empleado.
+\end{itemize}
+
+Esta información resulta crítica para reproducibilidad y para interpretación correcta de los resultados.
+
+\subsection{Procedimiento de análisis}
+
+Para cada sesión se sigue un procedimiento común: revisión de metadatos, cálculo de frecuencia efectiva, procesado espectral, extracción de parámetros de oleaje y almacenamiento de métricas finales.
+Solo a partir de ese flujo homogéneo puede realizarse una comparación defendible entre plataformas.
+
 \section{Métricas de evaluación}
 
 Las métricas principales son:
 
 \begin{itemize}
   \item \(H_s\), \(T_z\), \(T_c\) y su estabilidad temporal;
+  \item \(T_p\) como descriptor del pico dominante;
   \item frecuencia efectiva de muestreo y jitter;
   \item latencia de cálculo y visualización;
   \item consumo por sesión;
@@ -30,8 +77,11 @@ Las métricas principales son:
 
 \begin{table}[htbp]
   \centering
+  \small
+  \setlength{\tabcolsep}{6pt}
+  \renewcommand{\arraystretch}{1.2}
   \rowcolors{2}{white}{udcgray!25}
-  \begin{tabular}{p{0.22\textwidth} p{0.19\textwidth} p{0.19\textwidth} p{0.30\textwidth}}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.27\textwidth}}
   \rowcolor{udcpink!25}
   \textbf{Métrica} & \textbf{Android} & \textbf{ESP32+MPU6050} & \textbf{Criterio de evaluación} \\\hline
   Frecuencia efectiva (Hz) & Medida en sesión & Medida en sesión & Estabilidad temporal y jitter \\
@@ -39,7 +89,7 @@ Las métricas principales son:
   Ruido residual & Estimado tras procesado & Estimado tras procesado & Robustez de la estimación \\
   Latencia & On-device / display & Envío + display & Respuesta en uso real \\
   Consumo energético & Por sesión de prueba & Por sesión de prueba & Viabilidad operativa \\
-  \end{tabular}
+  \end{tabularx}
   \caption{Plantilla de comparación Android vs ESP32+MPU6050 con protocolo homogéneo.}
   \label{tab:comparativa-plataformas}
 \end{table}
@@ -54,3 +104,106 @@ Se considerará la plataforma validada cuando:
   \item documente límites de precisión y condiciones de no validez;
   \item permita comparar Android y ESP32 con resultados trazables.
 \end{itemize}
+
+\section{Resultados}
+
+Este apartado se reserva para presentar los resultados de forma estructurada, separando claramente la procedencia de los datos y el tipo de análisis realizado.
+
+\subsection{Resultados del modo móvil}
+
+Aquí deben incluirse los parámetros obtenidos en sesiones capturadas íntegramente con el teléfono móvil, junto con ejemplos representativos de espectro, serie temporal y estabilidad temporal de las métricas.
+
+\figplaceholder{%
+Resultado pendiente:\\
+captura real del modo móvil con serie temporal y métricas
+}{Resultados representativos de una sesión en modo móvil.}
+\label{fig:placeholder-resultado-movil}
+
+\subsection{Resultados del sistema embebido}
+
+Este bloque debe documentar los resultados disponibles del modo embebido, incluyendo tanto sesiones válidas como limitaciones encontradas durante la integración de hardware cuando afecten a la interpretación de los datos.
+
+\figplaceholder{%
+Resultado pendiente:\\
+sesión procedente del sistema embebido o captura del modo ESP32
+}{Resultados representativos del modo embebido.}
+\label{fig:placeholder-resultado-embebido}
+
+\subsection{Resultados del procesado espectral}
+
+En esta subsección conviene mostrar ejemplos donde pueda observarse la relación entre señal de entrada, PSD estimada y parámetros derivados.
+Es una pieza importante para defender que el resultado no es una cifra aislada, sino la salida de un pipeline trazable.
+
+Para que esta parte sea realmente sólida en la memoria, conviene presentar al menos:
+
+\begin{itemize}
+  \item una serie temporal representativa de entrada;
+  \item la estimación espectral correspondiente;
+  \item los momentos relevantes calculados;
+  \item la traducción final a \(H_s\), \(T_z\), \(T_p\) y \(T_c\).
+\end{itemize}
+
+Este encadenamiento ayuda a demostrar que el sistema no actúa como una ``caja negra'', sino como una implementación verificable de un método espectral bien definido.
+
+\figplaceholder{%
+Figura recomendada:\\
+serie temporal, PSD y parámetros finales de una misma sesión
+}{Ejemplo completo del procesado espectral sobre una sesión.}
+\label{fig:placeholder-resultado-espectral}
+
+\subsection{Comparación móvil vs sistema embebido}
+
+La comparación debe presentarse con criterios cuantitativos y cualitativos:
+coherencia entre parámetros, estabilidad de muestreo, facilidad de operación y robustez de adquisición.
+
+\figplaceholder{%
+Figura recomendada:\\
+tabla o gráfico comparativo entre Android y sistema embebido
+}{Comparación de resultados entre plataforma móvil y sistema embebido.}
+\label{fig:placeholder-comparacion-final}
+
+\subsection{Resultados de robustez e integración}
+
+Además de los resultados numéricos, este apartado debe recoger incidencias de adquisición, estabilidad del bus, problemas de integración y su impacto sobre la validez experimental del sistema.
+
+\section{Discusión de resultados}
+
+Además de reportar valores numéricos, la evaluación debe incluir una discusión crítica sobre:
+
+\begin{itemize}
+  \item estabilidad de los parámetros espectrales;
+  \item sensibilidad a duración de ventana y frecuencia de muestreo;
+  \item diferencias observadas entre plataforma móvil y embebida;
+  \item impacto de las dificultades de integración hardware en la validez de las conclusiones.
+\end{itemize}
+
+Esta discusión es especialmente relevante en un TFG de ingeniería, ya que pone de manifiesto tanto el comportamiento del sistema como el criterio técnico aplicado durante el desarrollo.
+
+\subsection{Análisis crítico de los resultados}
+
+Aquí debe interpretarse qué resultados son sólidos, cuáles son provisionales y qué decisiones de diseño han influido en ellos.
+
+En particular, el análisis crítico debe relacionar estabilidad de resultados con:
+
+\begin{itemize}
+  \item duración de la ventana;
+  \item calidad temporal de la adquisición;
+  \item diferencias de hardware entre plataformas;
+  \item robustez del preprocesado frente a ruido y deriva.
+\end{itemize}
+
+\subsection{Validez del enfoque basado en IMU}
+
+Esta subsección debe remarcar qué magnitudes pueden estimarse con fiabilidad razonable y qué limitaciones son inherentes al uso de sensores inerciales para caracterizar el estado del mar.
+
+\subsection{Ventajas e inconvenientes de cada plataforma}
+
+La comparación entre móvil y sistema embebido debe ir más allá de las métricas finales e incluir facilidad de despliegue, control del hardware, reproducibilidad y esfuerzo de integración.
+
+\subsection{Limitaciones del trabajo}
+
+En este punto deben recogerse limitaciones de hardware, alcance experimental, validación disponible y tiempo de desarrollo.
+
+\subsection{Lecciones aprendidas}
+
+Este cierre de discusión permite destacar criterio de ingeniería, especialmente en lo relativo a integración extremo a extremo, depuración hardware y separación entre hipótesis del sistema y restricciones observadas en la práctica.

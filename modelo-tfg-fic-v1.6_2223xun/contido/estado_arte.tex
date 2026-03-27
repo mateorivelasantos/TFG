@@ -3,6 +3,32 @@
 
 \lettrine{E}{ste} capítulo recoge únicamente el contexto técnico necesario para justificar la solución propuesta, manteniendo el foco en desarrollo de producto.
 
+\section{Medición de oleaje y parámetros de estado de mar}
+
+La caracterización del oleaje no se expresa normalmente mediante la altura instantánea de una ola concreta, sino mediante parámetros estadísticos del estado del mar calculados sobre una ventana temporal suficientemente larga.
+Entre los más utilizados destacan la altura significativa \(H_s\), el período medio por cruces por cero \(T_z\), el período de pico \(T_p\) y otros descriptores derivados del espectro de energía.
+
+Desde el punto de vista ingenieril, esta distinción es importante porque condiciona tanto la estrategia de adquisición como el tipo de validación experimental.
+El objetivo del sistema desarrollado en este TFG es, por tanto, estimar parámetros representativos del estado del mar, no reconstruir con precisión absoluta la elevación instantánea en cada muestra.
+
+\subsection{Parámetros característicos}
+
+\begin{itemize}
+  \item \textbf{\(H_s\)}: altura significativa, vinculada a la energía total contenida en el espectro.
+  \item \textbf{\(T_z\)}: período medio asociado a cruces por cero o a relaciones entre momentos espectrales.
+  \item \textbf{\(T_p\)}: período correspondiente al pico dominante del espectro.
+  \item \textbf{\(T_c\)}: período característico derivado de momentos de orden superior.
+\end{itemize}
+
+Estos parámetros son especialmente útiles porque resumen el estado del mar con magnitudes interpretables y comparables entre plataformas de medida heterogéneas.
+
+\figplaceholder{%
+Figura sugerida:\\
+relación entre espectro de energía, momentos espectrales\\
+y parámetros \(H_s\), \(T_z\), \(T_p\), \(T_c\)
+}{Relación conceptual entre espectro de oleaje y parámetros característicos.}
+\label{fig:placeholder-parametros-mar}
+
 \section{Plataforma móvil como nodo ubicuo}
 
 El uso de smartphone como nodo de captura aporta disponibilidad, conectividad y capacidad de cómputo en un único dispositivo.
@@ -14,12 +40,48 @@ Para este TFG, Android se adopta como plataforma principal por:
   \item capacidades locales de almacenamiento, visualización y exportación.
 \end{itemize}
 
+\subsection{Ventajas y limitaciones frente a un sistema dedicado}
+
+El smartphone reduce barrera de entrada y acelera el desarrollo extremo a extremo.
+Sin embargo, introduce condicionantes como control limitado del hardware sensor, variabilidad entre modelos y menor trazabilidad física que un diseño embebido dedicado.
+
 \section{Procesado inercial para oleaje}
 
 La estimación de estado de mar a partir de IMU se aborda en la literatura con técnicas espectrales.
 En este trabajo se adopta un enfoque tipo OpenMetBuoy por su trazabilidad y aplicabilidad práctica, evitando desarrollar un algoritmo propio desde cero.
 
 El objetivo del TFG no es investigar un nuevo método, sino integrar un método existente dentro de una plataforma usable y evaluable.
+
+\subsection{Qué puede y qué no puede estimarse con una IMU}
+
+Una IMU permite observar dinámica inercial y, mediante procesado adecuado, derivar parámetros estadísticos de oleaje.
+No obstante, la reconstrucción directa y precisa de altura instantánea mediante doble integración presenta problemas bien conocidos de deriva y acumulación de error, por lo que la estrategia del trabajo se orienta a estimación espectral por ventana.
+
+\section{Métodos espectrales y estimación mediante Welch}
+
+Entre los métodos de estimación espectral, la técnica de Welch presenta un compromiso adecuado entre robustez, coste computacional y facilidad de integración en plataformas de recursos limitados.
+Su uso permite estimar la densidad espectral de potencia a partir de segmentos solapados y posteriormente calcular momentos espectrales a partir de los cuales se obtienen los parámetros de oleaje.
+
+La relevancia de este enfoque para el proyecto es doble.
+Por una parte, proporciona una base técnica alineada con sistemas reales de observación del mar.
+Por otra, evita depender de doble integración directa de la aceleración en el dominio temporal, una operación muy sensible a deriva, orientación y ruido acumulado.
+
+\section{Sistemas embebidos para adquisición inercial}
+
+Además del uso de sensores integrados en el teléfono móvil, la literatura y la práctica industrial emplean soluciones embebidas con IMU dedicadas para separar la adquisición física del subsistema de visualización o supervisión.
+En este trabajo, la arquitectura embebida se plantea mediante un bloque MCU+ESP32+IMU, donde el ESP32 actúa como nodo de comunicación con la aplicación Android.
+
+Esta aproximación permite estudiar el equilibrio entre dos estrategias de diseño:
+
+\begin{itemize}
+  \item una solución integrada y ubicua basada en smartphone;
+  \item una solución más dedicada y modular basada en electrónica embebida.
+\end{itemize}
+
+\subsection{Soluciones móviles frente a soluciones embebidas}
+
+La comparación entre ambas arquitecturas no debe entenderse como una sustitución directa, sino como una evaluación de compromisos:
+ubicidad frente a control de hardware, simplicidad de despliegue frente a modularidad física, y rapidez de iteración frente a robustez instrumental.
 
 \section{Ventanas temporales y robustez}
 
@@ -35,3 +97,32 @@ Por ello, este trabajo diferencia dos modos:
 
 Además del modo Android autónomo, se plantea una segunda fase con ESP32+MPU6050 para contrastar viabilidad en hardware dedicado.
 La comparación se define con mismo protocolo físico y mismo formato de salida, para asegurar una evaluación justa de resultados.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+    \rowcolor{udcpink!25}
+    \textbf{Aspecto} & \textbf{Trabajos y soluciones previas} & \textbf{Enfoque del TFG} \\
+    Procesado & Estimación espectral o pipelines cerrados & Pipeline Welch integrado y trazable \\
+    Plataforma principal & Boyas dedicadas o prototipos específicos & Android como interfaz principal y núcleo de explotación \\
+    Comparación entre nodos & No siempre homogénea & Comparativa Android vs embebido con formato común \\
+    Integración extremo a extremo & Frecuentemente fragmentada & Adquisición, procesado, visualización y validación en un mismo sistema \\
+  \end{tabularx}
+  \caption{Posicionamiento resumido del trabajo frente a soluciones previas.}
+  \label{tab:estado-arte-posicionamiento}
+\end{table}
+
+\section{Posicionamiento del trabajo}
+
+La aportación del TFG no reside únicamente en el desarrollo de una aplicación Android, sino en la construcción de un sistema completo de ingeniería que integra:
+
+\begin{itemize}
+  \item adquisición de datos inerciales;
+  \item arquitectura de comunicación entre subsistemas;
+  \item procesado espectral reproducible;
+  \item visualización y explotación de resultados;
+  \item comparación entre dos plataformas de medida.
+\end{itemize}
+
+Por ello, la memoria se orienta a describir un sistema ciberfísico de adquisición y procesado, donde la aplicación móvil actúa como interfaz principal pero no constituye por sí sola el objeto completo del trabajo.

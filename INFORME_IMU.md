@@ -112,6 +112,10 @@ Comandos:
   - relación señal/ruido de aceleración vertical.
 - Con movimientos suaves a mano, mucha energía cae en muy baja frecuencia y se puede perder si los filtros son estrictos.
 - La confirmación por persistencia (N muestras) ayuda a evitar falsos positivos por ruido instantáneo.
+- Conclusión metodológica para scripts y memoria:
+  - El enfoque OMB (Welch + momentos espectrales) debe presentarse como estimador de **estado de mar por ventana** (`Hs`, `Tz`, `Tc`, `Tp`).
+  - No debe presentarse como estimador robusto de **altura instantánea absoluta** muestra a muestra.
+  - La señal temporal derivada de aceleración se usa como apoyo visual/diagnóstico, no como verdad de referencia.
 
 ## Próximos pasos sugeridos
 - Hacer una sesión de calibración controlada:

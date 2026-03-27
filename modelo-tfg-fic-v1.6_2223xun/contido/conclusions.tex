@@ -13,6 +13,26 @@
   \item La definición de un flujo común Android/ESP32 permite una comparativa final técnicamente defendible.
 \end{itemize}
 
+\section{Conclusión metodológica clave (a remarcar en la defensa)}
+
+\begin{itemize}
+  \item El pipeline adoptado (Welch + momentos espectrales \(m_0,m_2,m_4\)) debe presentarse como un estimador de \textbf{estado de mar por ventana}, no como estimador de \textbf{altura instantánea absoluta} muestra a muestra.
+  \item La razón técnica es estructural: obtener altura instantánea desde IMU implica doble integración de aceleración, muy sensible a deriva, orientación y ruido acumulado.
+  \item Por ello, los resultados principales del TFG son \(H_s\), \(T_z\), \(T_c\) y \(T_p\) sobre ventanas temporales, y no una ``verdad de referencia'' en cada instante.
+  \item La señal temporal \(h(t)\) se mantiene como apoyo visual y diagnóstico de dinámica, pero no como magnitud primaria de validación cuantitativa.
+\end{itemize}
+
+\noindent Esta conclusión no es una limitación accidental de implementación, sino una propiedad del enfoque inercial empleado y está alineada con la literatura revisada (OpenMetBuoy, comparativas smartphone--boya y trabajos de validación operacional).
+
+\section{Implicaciones prácticas para el diseño experimental}
+
+\begin{itemize}
+  \item Sí es válido dividir una captura larga en subventanas para observar evolución temporal, pero con compromiso entre resolución temporal y robustez estadística.
+  \item Subventanas muy cortas (por ejemplo, 1--2 min) pueden usarse para tendencia, aunque con mayor varianza y menor fiabilidad que una ventana de referencia larga.
+  \item Aumentar la frecuencia de muestreo mejora la representación de altas frecuencias y reduce aliasing, pero \textbf{no} elimina la necesidad de una duración mínima de ventana para estimar métricas espectrales estables.
+  \item La comparativa Android vs ESP32 debe realizarse con mismo protocolo físico, mismo algoritmo y mismas ventanas para que la conclusión sea defendible.
+\end{itemize}
+
 \section{Aportaciones}
 
 Las aportaciones del trabajo en su estado actual son:
@@ -22,6 +42,7 @@ Las aportaciones del trabajo en su estado actual son:
   \item Formalización de pipeline de procesado y métricas de salida unificadas.
   \item Esquemas funcionales y plantilla de evaluación comparativa entre plataformas.
   \item Entorno reproducible para validación previa de decisiones de diseño.
+  \item Integración de una visión de sistema completo que combina adquisición, comunicación, procesado y visualización.
 \end{itemize}
 
 \section{Trabajo futuro}
@@ -36,3 +57,6 @@ Las siguientes líneas continúan directamente el flujo definido:
   \item Automatizar exportación de informe por sesión para análisis y memoria final.
 \end{itemize}
 
+\subsection{Líneas futuras prioritarias}
+
+Las líneas futuras con mayor impacto académico y técnico son la validación comparativa en condiciones físicas homogéneas, la consolidación del sistema embebido y la mejora de la trazabilidad experimental mediante campañas más largas y repetibles.

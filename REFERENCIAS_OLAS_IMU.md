@@ -53,6 +53,20 @@
   - Ventanas largas (objetivo 10-20 min) para estimacion robusta con modo OMB puro.
   - Ventanas cortas (p.ej. 30 s) se mantienen como modo de monitorizacion rapida, no como estimacion principal.
 
+## Conclusión clave a remarcar al presentar los scripts
+- El pipeline OMB (Welch + momentos `m0/m2/m4`) es un estimador de **estado de mar por ventana** (`Hs`, `Tz`, `Tc`, `Tp`), no un estimador fiable de **altura instantanea** en cada muestra.
+- La razon tecnica principal es que la altura instantanea requiere doble integracion de aceleracion, proceso muy sensible a deriva, orientacion y ruido.
+- Implicacion para el TFG:
+  - Los scripts principales deben presentarse como herramientas de estimacion espectral por ventana (10-20 min recomendado).
+  - La señal temporal tipo `h(t)` se interpreta como apoyo visual/diagnostico, no como medida absoluta de referencia.
+
+## Estudios/proyectos que respaldan esta interpretación (mencionar en memoria)
+- OpenMetBuoy-v2021 (Geosciences, 2022): referencia principal de implementacion abierta del enfoque espectral.
+- Smartphone vs buoy (The Cryosphere, 2025): comparativa multi-instrumento alineada con Android vs plataforma alternativa.
+- SKIB (Ocean Science, 2018): validacion operacional basada en parametros de oleaje, no en altura instantanea absoluta.
+- Miniaturized strapdown inertial wave sensor (Frontiers, 2022): discute algoritmo inercial y limitaciones practicas de estimacion.
+- Methods and Errors of Wave Measurements Using Conventional IMUs: marco de errores/sesgos en sensores inerciales convencionales.
+
 ## Flujo funcional propuesto del TFG
 
 ### Bloque Captura (Android)

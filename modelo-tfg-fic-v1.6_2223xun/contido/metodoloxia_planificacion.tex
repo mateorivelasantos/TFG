@@ -1,11 +1,76 @@
-\chapter{Metodología, planificación y presupuesto}
+\chapter{Análisis del problema, requisitos, planificación y presupuesto}
 \label{chap:metodologia-plan}
 
 \lettrine{L}{a} ejecución del TFG se organiza como un desarrollo incremental de producto, con validación continua sobre datos reales y simulados.
 
+\section{Descripción general del sistema a desarrollar}
+
+El sistema se plantea como un conjunto ciberfísico en el que intervienen adquisición de datos, comunicación, procesado de señal y visualización.
+La arquitectura final debe permitir tanto el funcionamiento autónomo del teléfono móvil como la integración de un nodo embebido basado en MCU+ESP32+IMU.
+
+\section{Requisitos funcionales}
+
+Los requisitos funcionales principales del sistema son:
+
+\begin{itemize}
+  \item capturar datos inerciales en modo móvil;
+  \item almacenar sesiones con metadatos de adquisición;
+  \item procesar sesiones mediante un pipeline espectral homogéneo;
+  \item visualizar serie temporal, espectro y métricas derivadas;
+  \item conectarse al ESP32 y gestionar sesiones procedentes del modo embebido;
+  \item comparar resultados entre plataformas con criterios comunes.
+\end{itemize}
+
+\section{Requisitos no funcionales}
+
+Además de las funciones visibles para el usuario, el diseño debe satisfacer criterios de:
+
+\begin{itemize}
+  \item fiabilidad en sesiones largas;
+  \item modularidad entre adquisición, procesado y visualización;
+  \item portabilidad del flujo de trabajo entre plataformas;
+  \item facilidad de uso en campo o en laboratorio;
+  \item bajo coste y viabilidad de despliegue.
+\end{itemize}
+
+\section{Restricciones técnicas}
+
+Las restricciones más relevantes del proyecto son:
+
+\begin{itemize}
+  \item limitaciones de frecuencia efectiva y jitter en Android;
+  \item disponibilidad y comportamiento real de sensores inerciales integrados;
+  \item limitaciones de memoria, conectividad y temporización en ESP32;
+  \item dificultad práctica de integración hardware del IMU externo;
+  \item necesidad de ventanas largas para obtener métricas defendibles.
+\end{itemize}
+
+\section{Casos de uso principales}
+
+Los casos de uso que estructuran el sistema son:
+
+\begin{itemize}
+  \item captura y procesado en modo móvil;
+  \item conexión y consulta de estado del modo ESP32;
+  \item descarga y reprocesado de sesiones externas;
+  \item revisión de resultados y comparación entre plataformas.
+\end{itemize}
+
+\figplaceholder{%
+Diagrama de casos de uso recomendado:\\
+usuario, modo móvil, modo ESP32, procesado, consulta de resultados
+}{Casos de uso principales del sistema.}
+\label{fig:placeholder-casos-uso}
+
 \section{Enfoque de trabajo}
 
-Se adopta una estrategia por bloques funcionales:
+Se adopta una \textbf{metodología de desarrollo incremental e iterativa}.
+La razón de esta elección es que el trabajo combina varias fuentes de incertidumbre: disponibilidad real de sensores, diferencias entre plataformas, integración hardware progresiva y necesidad de validar el procesado antes de cerrar la instrumentación final.
+
+En lugar de plantear un desarrollo lineal cerrado, el proyecto se organizó como una sucesión de iteraciones con entregables funcionales.
+Cada iteración debía dejar operativo, al menos de forma parcial, uno de los bloques relevantes del sistema y producir evidencia suficiente para decidir el siguiente paso.
+
+De forma resumida, la estrategia de trabajo por bloques funcionales fue la siguiente:
 
 \begin{enumerate}
   \item Captura IMU y normalización temporal.
@@ -14,6 +79,15 @@ Se adopta una estrategia por bloques funcionales:
   \item Modo display para integración con ESP32.
   \item Validación comparativa final entre plataformas.
 \end{enumerate}
+
+Este enfoque incremental tiene varias ventajas en el contexto del TFG:
+
+\begin{itemize}
+  \item permite validar hipótesis del pipeline antes de depender del hardware definitivo;
+  \item facilita aislar errores de adquisición, de procesado o de integración;
+  \item evita que los problemas de una rama del sistema bloqueen el avance del conjunto;
+  \item produce versiones parciales ya defendibles desde el punto de vista ingenieril.
+\end{itemize}
 
 \section{Fases del proyecto}
 

@@ -1,12 +1,29 @@
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Esquema conceptual del problema abordado por el sistema.}}{2}{figure.caption.4}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Relación conceptual entre espectro de oleaje y parámetros característicos.}}{6}{figure.caption.5}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Casos de uso principales del sistema.}}{12}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Arquitectura funcional del TFG con Android como plataforma central.}}{8}{figure.caption.4}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo Android: captura, procesado on-device, visualización y exportación.}}{10}{figure.caption.5}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de comparativa entre plataformas con métricas unificadas.}}{11}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Arquitectura funcional del TFG con Android como plataforma central.}}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Arquitectura física del sistema y conexiones entre subsistemas.}}{15}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo Android: captura, procesado on-device, visualización y exportación.}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de datos extremo a extremo del sistema.}}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de comparativa entre plataformas con métricas unificadas.}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Bloque de entrada y preprocesado del pipeline.}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Conversión desde espectro de elevación a parámetros de oleaje.}}{22}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Esquema del subsistema embebido y conexiones principales.}}{23}{figure.caption.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Visualización por etapas del pipeline utilizada en la fase de validación.}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Ejemplo de señal inercial antes y después del preprocesado.}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Ejemplo de estimación espectral y conversión a elevación.}}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de navegación de la aplicación Android.}}{29}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Visualización por etapas del pipeline utilizada en la fase de validación.}}{30}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Estado actual del subsistema embebido durante desarrollo y diagnóstico.}}{31}{figure.caption.20}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Protocolo experimental seguido en la validación.}}{33}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Resultados representativos de una sesión en modo móvil.}}{35}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Resultados representativos del modo embebido.}}{35}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Ejemplo completo del procesado espectral sobre una sesión.}}{36}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Comparación de resultados entre plataforma móvil y sistema embebido.}}{37}{figure.caption.26}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

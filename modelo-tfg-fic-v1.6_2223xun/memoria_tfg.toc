@@ -2,47 +2,118 @@
 \xpg@aux {}{english}
 \xpg@aux {}{spanish}
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Contexto y motivación}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Objetivos}{1}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Objetivo general}{1}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.1}Motivación del problema}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objetivos}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Objetivo general}{2}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Objetivos específicos}{2}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}Alcance y limitaciones}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Metodología de desarrollo}{2}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Estructura de la memoria}{3}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Estado del arte y contexto tecnológico}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Plataforma móvil como nodo ubicuo}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Procesado inercial para oleaje}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Ventanas temporales y robustez}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Comparativa de plataformas}{5}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Metodología, planificación y presupuesto}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Enfoque de trabajo}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Fases del proyecto}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Plan de pruebas y control de riesgos}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Presupuesto orientativo}{7}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Diseño de la plataforma}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Arquitectura funcional}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Diseño del bloque IMU}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Diseño del flujo Android}{9}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Diseño de comparativa entre plataformas}{9}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Implementación del sistema}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Captura y normalización}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Pipeline de procesado integrado}{12}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Visualización y exportación}{13}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Implementación de referencia para iteración técnica}{13}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Validación y evaluación}{14}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Estrategia temporal de evaluación}{14}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Métricas de evaluación}{14}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Plantilla de comparativa Android vs ESP32+MPU6050}{15}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Criterios de aceptación}{15}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusiones}{16}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusiones principales}{16}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Aportaciones}{16}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Trabajo futuro}{17}{section.7.3}%
-\contentsline {chapter}{\numberline {A}Material adicional}{19}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Scripts principales}{19}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Comandos de referencia}{19}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Captura}{19}{subsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Procesado rápido sin gráfica}{19}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Procesado paso a paso con validación temporal}{19}{subsection.A.2.3}%
-\contentsline {section}{\numberline {A.3}Datos de prueba}{20}{section.A.3}%
-\contentsline {chapter}{Bibliografía}{22}{appendix*.9}%
+\contentsline {section}{\numberline {1.4}Metodología de desarrollo}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Estructura de la memoria}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Estado del arte y contexto tecnológico}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Medición de oleaje y parámetros de estado de mar}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Parámetros característicos}{5}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Plataforma móvil como nodo ubicuo}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Ventajas y limitaciones frente a un sistema dedicado}{6}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Procesado inercial para oleaje}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Qué puede y qué no puede estimarse con una IMU}{6}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Métodos espectrales y estimación mediante Welch}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Sistemas embebidos para adquisición inercial}{7}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Soluciones móviles frente a soluciones embebidas}{7}{subsection.2.5.1}%
+\contentsline {section}{\numberline {2.6}Ventanas temporales y robustez}{8}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Comparativa de plataformas}{8}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Posicionamiento del trabajo}{8}{section.2.8}%
+\contentsline {chapter}{\numberline {3}Análisis del problema, requisitos, planificación y presupuesto}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Descripción general del sistema a desarrollar}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Requisitos funcionales}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Requisitos no funcionales}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Restricciones técnicas}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Casos de uso principales}{11}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Enfoque de trabajo}{12}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Fases del proyecto}{13}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Plan de pruebas y control de riesgos}{13}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Presupuesto orientativo}{13}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Diseño de la plataforma}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Enfoque metodológico de diseño}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Arquitectura funcional}{14}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Arquitectura física}{15}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Arquitectura lógica y software}{15}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Diseño del bloque IMU}{15}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Diseño del subsistema de adquisición}{16}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Adquisición en modo móvil}{16}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Adquisición en modo embebido}{16}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Diseño del almacenamiento de sesiones}{16}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Ventanas temporales y duración de captura}{16}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Diseño del flujo Android}{17}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Flujo de datos del sistema}{17}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Diseño de comparativa entre plataformas}{17}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Modo móvil}{17}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Modo sistema embebido}{17}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Diseño del subsistema de procesado}{17}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Metodología de procesado espectral}{20}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Entrada y preprocesado}{20}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Bloque espectral}{21}{subsection.4.8.3}%
+\contentsline {subsection}{\numberline {4.8.4}Cálculo de momentos espectrales}{21}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.5}Obtención de parámetros de oleaje}{22}{subsection.4.8.5}%
+\contentsline {subsection}{\numberline {4.8.6}Interpretación física de resultados}{22}{subsection.4.8.6}%
+\contentsline {subsection}{\numberline {4.8.7}Salida de resultados}{23}{subsection.4.8.7}%
+\contentsline {section}{\numberline {4.9}Diseño hardware del sistema embebido}{23}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Implementación del sistema}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Captura y normalización}{24}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Implementación de la captura en Android}{24}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Implementación del formato de sesión}{24}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Decisiones de diseño del almacenamiento}{24}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Pipeline de procesado integrado}{25}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Estimación de frecuencia efectiva y calidad temporal}{25}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Obtención de la señal dinámica útil}{26}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Estimación de PSD mediante Welch}{26}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Implementación de modos de procesado}{27}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Cálculo de momentos espectrales}{27}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}Trazabilidad del resultado}{28}{subsection.5.2.6}%
+\contentsline {section}{\numberline {5.3}Visualización y exportación}{28}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Implementación de la aplicación Android}{28}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Modo móvil}{28}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Modo ESP32}{28}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Gestión de sesiones y visualización}{29}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Estructura funcional de la app}{29}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Decisiones de diseño software}{29}{subsection.5.4.5}%
+\contentsline {section}{\numberline {5.5}Implementación de referencia para iteración técnica}{29}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Implementación del subsistema embebido}{29}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Firmware principal del ESP32}{30}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Firmware y scripts de diagnóstico}{30}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Estado actual y evolución prevista}{30}{subsection.5.6.3}%
+\contentsline {chapter}{\numberline {6}Validación y evaluación}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Metodología experimental}{32}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Escenarios de prueba}{32}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Estrategia temporal de evaluación}{33}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Configuración de las pruebas}{33}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Procedimiento de análisis}{33}{subsection.6.3.1}%
+\contentsline {section}{\numberline {6.4}Métricas de evaluación}{34}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Plantilla de comparativa Android vs ESP32+MPU6050}{34}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Criterios de aceptación}{34}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Resultados}{35}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Resultados del modo móvil}{35}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Resultados del sistema embebido}{35}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Resultados del procesado espectral}{36}{subsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.7.4}Comparación móvil vs sistema embebido}{36}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Resultados de robustez e integración}{36}{subsection.6.7.5}%
+\contentsline {section}{\numberline {6.8}Discusión de resultados}{37}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Análisis crítico de los resultados}{37}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Validez del enfoque basado en IMU}{38}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}Ventajas e inconvenientes de cada plataforma}{38}{subsection.6.8.3}%
+\contentsline {subsection}{\numberline {6.8.4}Limitaciones del trabajo}{38}{subsection.6.8.4}%
+\contentsline {subsection}{\numberline {6.8.5}Lecciones aprendidas}{38}{subsection.6.8.5}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusiones principales}{39}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Conclusión metodológica clave (a remarcar en la defensa)}{39}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Implicaciones prácticas para el diseño experimental}{40}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Aportaciones}{40}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Trabajo futuro}{41}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Líneas futuras prioritarias}{41}{subsection.7.5.1}%
+\contentsline {chapter}{\numberline {A}Material adicional}{43}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Scripts principales}{43}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Comandos de referencia}{43}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Captura}{43}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Procesado rápido sin gráfica}{43}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Procesado paso a paso con validación temporal}{43}{subsection.A.2.3}%
+\contentsline {section}{\numberline {A.3}Datos de prueba}{44}{section.A.3}%
+\contentsline {chapter}{Bibliografía}{46}{appendix*.27}%
