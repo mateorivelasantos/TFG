@@ -1,36 +1,38 @@
 \chapter{Conclusiones}
 \label{chap:conclusions}
 
-\lettrine{E}{l} trabajo queda reorientado y consolidado en torno a una meta clara: demostrar que un teléfono móvil puede actuar como plataforma ubicua para captura y procesado inercial, con una metodología reproducible y extensible a otras plataformas.
+\lettrine{E}{l} trabajo se consolida en torno a una idea principal: construir una arquitectura modular de captura inercial que pueda operar con nodo móvil y nodo embebido bajo contratos comunes.
 
 \section{Conclusiones principales}
 
 \begin{itemize}
-  \item El enfoque de plataforma Android como núcleo funcional es viable y coherente con los objetivos del TFG.
-  \item El método espectral tipo OpenMetBuoy proporciona una base técnica sólida para estimar \(H_s\), \(T_z\) y \(T_c\).
-  \item La estabilidad del método depende críticamente de la ventana temporal: las ventanas largas (\(10\)--\(20\) min) son el modo principal de estimación robusta.
-  \item El modo rápido en ventanas cortas es útil para diagnóstico operativo, pero no debe considerarse equivalente al cálculo robusto.
-  \item La definición de un flujo común Android/ESP32 permite una comparativa final técnicamente defendible.
+  \item El enfoque Android como plataforma operativa principal es viable para captura, gestión de sesiones y operación de campo.
+  \item La separación por capas (adquisición, comunicación, backend, visualización/control) reduce acoplamiento y mejora mantenibilidad.
+  \item La integración con ESP32 aporta una ruta realista para adquisición dedicada y validación de interoperabilidad.
+  \item El uso de contratos comunes entre nodos evita bifurcar el sistema y facilita evolución tecnológica.
+  \item El estado actual permite un flujo funcional local extremo a extremo y deja preparada la expansión a backend remoto.
 \end{itemize}
 
-\section{Conclusión metodológica clave (a remarcar en la defensa)}
+\section{Conclusión metodológica}
+
+La principal conclusión metodológica del TFG es que, en un proyecto de este alcance, resulta más sólido cerrar primero una arquitectura operativa por capas que comprometer desde el inicio una infraestructura definitiva.
+
+Este criterio ha permitido:
 
 \begin{itemize}
-  \item El pipeline adoptado (Welch + momentos espectrales \(m_0,m_2,m_4\)) debe presentarse como un estimador de \textbf{estado de mar por ventana}, no como estimador de \textbf{altura instantánea absoluta} muestra a muestra.
-  \item La razón técnica es estructural: obtener altura instantánea desde IMU implica doble integración de aceleración, muy sensible a deriva, orientación y ruido acumulado.
-  \item Por ello, los resultados principales del TFG son \(H_s\), \(T_z\), \(T_c\) y \(T_p\) sobre ventanas temporales, y no una ``verdad de referencia'' en cada instante.
-  \item La señal temporal \(h(t)\) se mantiene como apoyo visual y diagnóstico de dinámica, pero no como magnitud primaria de validación cuantitativa.
+  \item reducir riesgo técnico por integración progresiva;
+  \item mantener trazabilidad entre decisiones y resultados;
+  \item diferenciar claramente funcionalidades implementadas frente a líneas de evolución.
 \end{itemize}
 
-\noindent Esta conclusión no es una limitación accidental de implementación, sino una propiedad del enfoque inercial empleado y está alineada con la literatura revisada (OpenMetBuoy, comparativas smartphone--boya y trabajos de validación operacional).
+\section{Implicaciones prácticas}
 
-\section{Implicaciones prácticas para el diseño experimental}
+Desde el punto de vista de ingeniería, la arquitectura propuesta permite:
 
 \begin{itemize}
-  \item Sí es válido dividir una captura larga en subventanas para observar evolución temporal, pero con compromiso entre resolución temporal y robustez estadística.
-  \item Subventanas muy cortas (por ejemplo, 1--2 min) pueden usarse para tendencia, aunque con mayor varianza y menor fiabilidad que una ventana de referencia larga.
-  \item Aumentar la frecuencia de muestreo mejora la representación de altas frecuencias y reduce aliasing, pero \textbf{no} elimina la necesidad de una duración mínima de ventana para estimar métricas espectrales estables.
-  \item La comparativa Android vs ESP32 debe realizarse con mismo protocolo físico, mismo algoritmo y mismas ventanas para que la conclusión sea defendible.
+  \item reutilizar la misma lógica de operación con distintos nodos de adquisición;
+  \item introducir backend remoto sin rediseñar captura ni interfaz;
+  \item evaluar tecnologías de comunicación por evidencia, no por compromiso previo.
 \end{itemize}
 
 \section{Aportaciones}
@@ -38,25 +40,25 @@
 Las aportaciones del trabajo en su estado actual son:
 
 \begin{itemize}
-  \item Definición de arquitectura dual en Android (modo autónomo y modo display).
-  \item Formalización de pipeline de procesado y métricas de salida unificadas.
-  \item Esquemas funcionales y plantilla de evaluación comparativa entre plataformas.
-  \item Entorno reproducible para validación previa de decisiones de diseño.
-  \item Integración de una visión de sistema completo que combina adquisición, comunicación, procesado y visualización.
+  \item definición de una arquitectura ciberfísica modular para captura inercial;
+  \item implementación de modo móvil operativo con gestión de sesiones;
+  \item integración funcional Android-ESP32 para control y descarga de capturas;
+  \item formalización de contratos de sesión, control y explotación;
+  \item marco de validación orientado a interoperabilidad y operación.
 \end{itemize}
 
 \section{Trabajo futuro}
 
-Las siguientes líneas continúan directamente el flujo definido:
+Las líneas de continuidad más relevantes son:
 
 \begin{itemize}
-  \item Implementar el procesado on-device completo en Android como camino principal.
-  \item Implementar el flujo equivalente en ESP32+MPU6050 con mismo formato de resultados.
-  \item Ejecutar campaña de pruebas comparativas con protocolo físico común.
-  \item Incorporar estimación de calidad de señal y criterios automáticos de validez por sesión.
-  \item Automatizar exportación de informe por sesión para análisis y memoria final.
+  \item integrar una primera capa backend para sincronización de sesiones y estado;
+  \item ejecutar campaña de validación comparativa completa con protocolo homogéneo;
+  \item mejorar trazabilidad automática (versionado de configuración y registro de incidencias);
+  \item evaluar alternativas de comunicación externa si aportan mejoras medibles en operación;
+  \item reforzar automatización de pruebas de integración entre app y nodo embebido.
 \end{itemize}
 
-\subsection{Líneas futuras prioritarias}
+\subsection{Línea prioritaria inmediata}
 
-Las líneas futuras con mayor impacto académico y técnico son la validación comparativa en condiciones físicas homogéneas, la consolidación del sistema embebido y la mejora de la trazabilidad experimental mediante campañas más largas y repetibles.
+La prioridad inmediata es consolidar una primera versión funcional de capa backend y cerrar la validación de integración extremo a extremo sobre esa base.

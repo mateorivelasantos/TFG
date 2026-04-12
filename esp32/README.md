@@ -16,13 +16,12 @@ Si usas `usbipd` y no quieres repetir todos los pasos a mano:
 
 En PowerShell como administrador:
 ```powershell
-cd C:\Users\Mateo\AndroidStudioProjects\boya
-powershell -ExecutionPolicy Bypass -File \\wsl$\kali-linux\home\mrivela\TFG\esp32\attach_esp32_wsl.ps1
+powershell -ExecutionPolicy Bypass -File \\wsl$\Ubuntu\home\mateo\TFG\esp32\attach_esp32_wsl.ps1 -WslDistro Ubuntu
 ```
 
 En WSL:
 ```bash
-cd /home/mrivela/TFG/esp32
+cd ~/TFG/esp32
 ./wsl_usb_esp32.sh
 ./esp.sh fm /dev/ttyUSB0
 ```
@@ -64,6 +63,6 @@ sudo chmod 666 /dev/ttyUSB0
   - Heartbeat
 - Si la OLED no esta conectada o no responde, el firmware sigue funcionando sin bloquearse.
 
-Pines I2C actuales en [main.cpp](/home/mrivela/TFG/esp32/main/main.cpp):
+Pines I2C actuales en `main/main.cpp`:
 - OLED Heltec: `SDA = GPIO17`, `SCL = GPIO18`
 - MCU externo: `SDA = GPIO41`, `SCL = GPIO42`

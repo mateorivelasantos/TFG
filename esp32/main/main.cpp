@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cmath>
 #include <cstdlib>
+#include <cctype>
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
@@ -37,15 +38,23 @@ static constexpr int VEXT_ACTIVE_LEVEL = 0;
 
 static constexpr uint8_t MPU6050_ADDR_0 = 0x68;
 static constexpr uint8_t MPU6050_ADDR_1 = 0x69;
+static constexpr uint8_t MPU6050_REG_PWR_MGMT_1 = 0x6B;
 static constexpr uint8_t MPU6050_REG_WHO_AM_I = 0x75;
+static constexpr uint8_t MPU6050_REG_ACCEL_XOUT_H = 0x3B;
 static constexpr uint8_t MPU6050_WHO_AM_I_EXPECTED = 0x68;
-static constexpr float GRAVITY = 9.81f;
+static constexpr float MPU6050_ACCEL_LSB_PER_G = 16384.0f;   // +/-2g por defecto.
+static constexpr float MPU6050_GYRO_LSB_PER_DPS = 131.0f;    // +/-250 dps por defecto.
 static constexpr float PI_F = 3.14159265358979323846f;
+static constexpr float DEG_TO_RAD = PI_F / 180.0f;
+static constexpr float GRAVITY = 9.81f;
 static constexpr uint8_t OLED_ADDR_PRIMARY = 0x3C;
 static constexpr uint8_t OLED_ADDR_SECONDARY = 0x3D;
 static constexpr int OLED_WIDTH = 128;
 static constexpr int OLED_HEIGHT = 64;
 static constexpr int OLED_PAGES = OLED_HEIGHT / 8;
+static constexpr int CAPTURE_FS_DEFAULT_HZ = 10;
+static constexpr int CAPTURE_FS_MIN_HZ = 1;
+static constexpr int CAPTURE_FS_MAX_HZ = 200;
 
 static bool g_i2c_oled_ready = false;
 static bool g_i2c_mcu_ready = false;
@@ -68,6 +77,7 @@ static int g_download_progress_pct = 0;
 struct SimCaptureState {
     bool configured = false;
     int duration_sec = 30;
+    int sample_rate_hz = CAPTURE_FS_DEFAULT_HZ;
     char session_name[64] = "session";
 };
 
@@ -360,10 +370,11 @@ static void oled_render_status()
     std::snprintf(
             line3,
             sizeof(line3),
-            "CAP:%s %4d/%ds",
+            "CAP:%s %3d/%ds F:%d",
             g_capture_active ? "ON" : "OFF",
             cap_elapsed,
-            g_sim_capture.duration_sec);
+            g_sim_capture.duration_sec,
+            g_sim_capture.sample_rate_hz);
     std::snprintf(line4, sizeof(line4), "NAME:%.14s", g_sim_capture.session_name);
     std::snprintf(line5, sizeof(line5), "LAST:%.14s", g_last_action);
     std::snprintf(line6, sizeof(line6), "DL:%3d%% %s", g_download_progress_pct, bar);
@@ -541,6 +552,96 @@ static bool mpu6050_read_whoami(uint8_t addr, uint8_t *out)
     return true;
 }
 
+static bool mpu6050_read_regs(uint8_t addr, uint8_t reg, uint8_t *out, size_t len)
+{
+    if (out == nullptr || len == 0) {
+        return false;
+    }
+    if (!i2c_lock(g_i2c_mcu_mutex, pdMS_TO_TICKS(250))) {
+        return false;
+    }
+    esp_err_t err = i2c_master_write_read_device(
+            I2C_MCU_PORT,
+            addr,
+            &reg,
+            1,
+            out,
+            len,
+            pdMS_TO_TICKS(200));
+    i2c_unlock(g_i2c_mcu_mutex);
+    return err == ESP_OK;
+}
+
+static bool mpu6050_write_reg(uint8_t addr, uint8_t reg, uint8_t value)
+{
+    uint8_t payload[2] = {reg, value};
+    if (!i2c_lock(g_i2c_mcu_mutex, pdMS_TO_TICKS(250))) {
+        return false;
+    }
+    esp_err_t err = i2c_master_write_to_device(
+            I2C_MCU_PORT,
+            addr,
+            payload,
+            sizeof(payload),
+            pdMS_TO_TICKS(200));
+    i2c_unlock(g_i2c_mcu_mutex);
+    return err == ESP_OK;
+}
+
+static bool mpu6050_wake(uint8_t addr)
+{
+    return mpu6050_write_reg(addr, MPU6050_REG_PWR_MGMT_1, 0x00);
+}
+
+static int16_t be_to_i16(uint8_t hi, uint8_t lo)
+{
+    return static_cast<int16_t>((static_cast<uint16_t>(hi) << 8) | static_cast<uint16_t>(lo));
+}
+
+static bool mpu6050_read_sample(uint8_t addr, float *ax, float *ay, float *az, float *gx, float *gy, float *gz)
+{
+    if (ax == nullptr || ay == nullptr || az == nullptr || gx == nullptr || gy == nullptr || gz == nullptr) {
+        return false;
+    }
+
+    uint8_t raw[14] = {0};
+    if (!mpu6050_read_regs(addr, MPU6050_REG_ACCEL_XOUT_H, raw, sizeof(raw))) {
+        return false;
+    }
+
+    int16_t raw_ax = be_to_i16(raw[0], raw[1]);
+    int16_t raw_ay = be_to_i16(raw[2], raw[3]);
+    int16_t raw_az = be_to_i16(raw[4], raw[5]);
+    int16_t raw_gx = be_to_i16(raw[8], raw[9]);
+    int16_t raw_gy = be_to_i16(raw[10], raw[11]);
+    int16_t raw_gz = be_to_i16(raw[12], raw[13]);
+
+    *ax = (static_cast<float>(raw_ax) / MPU6050_ACCEL_LSB_PER_G) * GRAVITY;
+    *ay = (static_cast<float>(raw_ay) / MPU6050_ACCEL_LSB_PER_G) * GRAVITY;
+    *az = (static_cast<float>(raw_az) / MPU6050_ACCEL_LSB_PER_G) * GRAVITY;
+    *gx = (static_cast<float>(raw_gx) / MPU6050_GYRO_LSB_PER_DPS) * DEG_TO_RAD;
+    *gy = (static_cast<float>(raw_gy) / MPU6050_GYRO_LSB_PER_DPS) * DEG_TO_RAD;
+    *gz = (static_cast<float>(raw_gz) / MPU6050_GYRO_LSB_PER_DPS) * DEG_TO_RAD;
+    return true;
+}
+
+static bool starts_with_simulated(const char *name)
+{
+    static constexpr const char *prefix = "simulated";
+    if (name == nullptr) {
+        return false;
+    }
+    for (size_t i = 0; prefix[i] != '\0'; ++i) {
+        if (name[i] == '\0') {
+            return false;
+        }
+        if (std::tolower(static_cast<unsigned char>(name[i])) != prefix[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 static void wifi_event_handler(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)
 {
     if (event_base != WIFI_EVENT) {
@@ -584,6 +685,9 @@ static void probe_imu_once()
     g_imu_whoami = whoami;
     g_imu_detected = (whoami == MPU6050_WHO_AM_I_EXPECTED);
     if (g_imu_detected) {
+        if (!mpu6050_wake(g_imu_addr)) {
+            ESP_LOGW(TAG, "IMU detectado pero no se pudo sacar de sleep (addr=0x%02X)", g_imu_addr);
+        }
         ESP_LOGI(TAG, "IMU detectado (addr=0x%02X WHO_AM_I=0x%02X)", g_imu_addr, whoami);
         oled_set_last_action("IMU OK");
     } else {
@@ -620,9 +724,15 @@ static int clamp_int(int v, int lo, int hi)
     return v;
 }
 
-static void parse_capture_query(httpd_req_t *req, int *duration_sec_out, char *name_out, size_t name_out_len)
+static void parse_capture_query(
+        httpd_req_t *req,
+        int *duration_sec_out,
+        int *sample_rate_hz_out,
+        char *name_out,
+        size_t name_out_len)
 {
     *duration_sec_out = 30;
+    *sample_rate_hz_out = CAPTURE_FS_DEFAULT_HZ;
     if (name_out_len > 0) {
         std::snprintf(name_out, name_out_len, "session");
     }
@@ -640,11 +750,16 @@ static void parse_capture_query(httpd_req_t *req, int *duration_sec_out, char *n
 
     if (httpd_req_get_url_query_str(req, query, qlen) == ESP_OK) {
         char duration_buf[16] = {0};
+        char fs_buf[16] = {0};
         char name_buf[64] = {0};
 
         if (httpd_query_key_value(query, "duration", duration_buf, sizeof(duration_buf)) == ESP_OK) {
             int v = std::atoi(duration_buf);
             *duration_sec_out = clamp_int(v, 1, 60 * 60);
+        }
+        if (httpd_query_key_value(query, "fs", fs_buf, sizeof(fs_buf)) == ESP_OK) {
+            int v = std::atoi(fs_buf);
+            *sample_rate_hz_out = clamp_int(v, CAPTURE_FS_MIN_HZ, CAPTURE_FS_MAX_HZ);
         }
         if (httpd_query_key_value(query, "name", name_buf, sizeof(name_buf)) == ESP_OK && name_buf[0] != '\0') {
             std::snprintf(name_out, name_out_len, "%s", name_buf);
@@ -657,11 +772,13 @@ static void parse_capture_query(httpd_req_t *req, int *duration_sec_out, char *n
 static esp_err_t handle_capture_start(httpd_req_t *req)
 {
     int duration_sec = 30;
+    int sample_rate_hz = CAPTURE_FS_DEFAULT_HZ;
     char session_name[64] = {0};
-    parse_capture_query(req, &duration_sec, session_name, sizeof(session_name));
+    parse_capture_query(req, &duration_sec, &sample_rate_hz, session_name, sizeof(session_name));
 
     g_sim_capture.configured = true;
     g_sim_capture.duration_sec = duration_sec;
+    g_sim_capture.sample_rate_hz = sample_rate_hz;
     std::snprintf(g_sim_capture.session_name, sizeof(g_sim_capture.session_name), "%s", session_name);
     g_capture_active = true;
     g_capture_start_us = esp_timer_get_time();
@@ -672,11 +789,19 @@ static esp_err_t handle_capture_start(httpd_req_t *req)
     std::snprintf(
             resp,
             sizeof(resp),
-            "{\"ok\":true,\"capture\":\"started\",\"duration_sec\":%d,\"name\":\"%s\"}",
+            "{\"ok\":true,\"capture\":\"started\",\"duration_sec\":%d,\"fs\":%d,\"name\":\"%s\",\"mode\":\"%s\"}",
             g_sim_capture.duration_sec,
-            g_sim_capture.session_name);
+            g_sim_capture.sample_rate_hz,
+            g_sim_capture.session_name,
+            starts_with_simulated(g_sim_capture.session_name) ? "simulated" : "imu");
 
-    ESP_LOGI(TAG, "Captura simulada start: duration=%ds name=%s", g_sim_capture.duration_sec, g_sim_capture.session_name);
+    ESP_LOGI(
+            TAG,
+            "Captura start (%s): duration=%ds fs=%dHz name=%s",
+            starts_with_simulated(g_sim_capture.session_name) ? "simulada" : "imu",
+            g_sim_capture.duration_sec,
+            g_sim_capture.sample_rate_hz,
+            g_sim_capture.session_name);
     oled_set_last_action("CAP START");
     oled_render_status();
     httpd_resp_set_type(req, "application/json");
@@ -694,11 +819,19 @@ static esp_err_t handle_capture_stop(httpd_req_t *req)
     std::snprintf(
             resp,
             sizeof(resp),
-            "{\"ok\":true,\"capture\":\"stopped\",\"duration_sec\":%d,\"name\":\"%s\"}",
+            "{\"ok\":true,\"capture\":\"stopped\",\"duration_sec\":%d,\"fs\":%d,\"name\":\"%s\",\"mode\":\"%s\"}",
             g_sim_capture.duration_sec,
-            g_sim_capture.session_name);
+            g_sim_capture.sample_rate_hz,
+            g_sim_capture.session_name,
+            starts_with_simulated(g_sim_capture.session_name) ? "simulated" : "imu");
 
-    ESP_LOGI(TAG, "Captura simulada stop: duration=%ds name=%s", g_sim_capture.duration_sec, g_sim_capture.session_name);
+    ESP_LOGI(
+            TAG,
+            "Captura stop (%s): duration=%ds fs=%dHz name=%s",
+            starts_with_simulated(g_sim_capture.session_name) ? "simulada" : "imu",
+            g_sim_capture.duration_sec,
+            g_sim_capture.sample_rate_hz,
+            g_sim_capture.session_name);
     oled_set_last_action("CAP STOP");
     oled_render_status();
     httpd_resp_set_type(req, "application/json");
@@ -735,12 +868,27 @@ static esp_err_t handle_capture_download(httpd_req_t *req)
     if (!g_sim_capture.configured) {
         g_sim_capture.configured = true;
         g_sim_capture.duration_sec = 30;
+        g_sim_capture.sample_rate_hz = CAPTURE_FS_DEFAULT_HZ;
         std::snprintf(g_sim_capture.session_name, sizeof(g_sim_capture.session_name), "session");
     }
 
-    const int fs = 10;
+    const int fs = clamp_int(g_sim_capture.sample_rate_hz, CAPTURE_FS_MIN_HZ, CAPTURE_FS_MAX_HZ);
     const int total = g_sim_capture.duration_sec * fs;
     uint32_t seed = hash_name(g_sim_capture.session_name);
+    bool simulated = starts_with_simulated(g_sim_capture.session_name);
+
+    if (!simulated) {
+        if (!g_i2c_mcu_ready || !g_imu_detected || g_imu_addr == 0x00) {
+            const char *resp = "{\"ok\":false,\"error\":\"imu_not_ready\"}";
+            httpd_resp_set_status(req, "503 Service Unavailable");
+            httpd_resp_set_type(req, "application/json");
+            return httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
+        }
+        if (!mpu6050_wake(g_imu_addr)) {
+            ESP_LOGW(TAG, "No se pudo despertar IMU antes de captura real");
+        }
+    }
+
     g_download_active = true;
     g_download_progress_pct = 0;
     oled_set_last_action("DL START");
@@ -756,9 +904,28 @@ static esp_err_t handle_capture_download(httpd_req_t *req)
 
     char line[160];
     int last_reported_pct = -1;
+    int64_t t0_us = esp_timer_get_time();
     for (int i = 0; i < total; ++i) {
         float ax, ay, az, gx, gy, gz;
-        synthesize_sample(i, static_cast<float>(fs), seed, &ax, &ay, &az, &gx, &gy, &gz);
+
+        if (simulated) {
+            synthesize_sample(i, static_cast<float>(fs), seed, &ax, &ay, &az, &gx, &gy, &gz);
+        } else {
+            int64_t target_us = t0_us + (static_cast<int64_t>(i) * 1000000LL) / fs;
+            int64_t now_us = esp_timer_get_time();
+            if (target_us > now_us) {
+                int64_t wait_us = target_us - now_us;
+                vTaskDelay(pdMS_TO_TICKS((wait_us + 999) / 1000));
+            }
+            if (!mpu6050_read_sample(g_imu_addr, &ax, &ay, &az, &gx, &gy, &gz)) {
+                g_download_active = false;
+                g_download_progress_pct = 0;
+                oled_set_last_action("IMU ERR");
+                oled_render_status();
+                ESP_LOGW(TAG, "Fallo lectura IMU durante descarga CSV");
+                return ESP_FAIL;
+            }
+        }
         int t_ms = i * 1000 / fs;
 
         int n = std::snprintf(
@@ -785,7 +952,13 @@ static esp_err_t handle_capture_download(httpd_req_t *req)
         }
     }
 
-    ESP_LOGI(TAG, "CSV sintetico servido: duration=%ds samples=%d name=%s", g_sim_capture.duration_sec, total, g_sim_capture.session_name);
+    ESP_LOGI(
+            TAG,
+            "CSV %s servido: duration=%ds samples=%d name=%s",
+            simulated ? "sintetico" : "IMU real",
+            g_sim_capture.duration_sec,
+            total,
+            g_sim_capture.session_name);
     g_download_active = false;
     g_download_progress_pct = 100;
     g_capture_active = false;
@@ -801,14 +974,15 @@ static esp_err_t handle_status(httpd_req_t *req)
     std::snprintf(
             resp,
             sizeof(resp),
-            "{\"ok\":true,\"mode\":\"ap\",\"imu\":\"%s\",\"imu_addr\":\"0x%02X\",\"whoami\":\"0x%02X\",\"clients\":%d,\"capture_active\":%s,\"download_active\":%s,\"download_pct\":%d}",
+            "{\"ok\":true,\"mode\":\"ap\",\"imu\":\"%s\",\"imu_addr\":\"0x%02X\",\"whoami\":\"0x%02X\",\"clients\":%d,\"capture_active\":%s,\"download_active\":%s,\"download_pct\":%d,\"capture_fs_hz\":%d}",
             g_imu_detected ? "detected" : "not_detected",
             g_imu_addr,
             g_imu_whoami,
             g_ap_clients,
             g_capture_active ? "true" : "false",
             g_download_active ? "true" : "false",
-            g_download_progress_pct);
+            g_download_progress_pct,
+            g_sim_capture.sample_rate_hz);
 
     httpd_resp_set_type(req, "application/json");
     return httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);

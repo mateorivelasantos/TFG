@@ -44,6 +44,8 @@
 % \usepackage{subcaption}  % permite a inclusión de varias subfiguras nunha figura
 % \usepackage{tabu}        % permite táboas flexibles
 \usepackage{tabularx}    % permite táboas con columnas de anchura determinada
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
 \newcommand{\figplaceholder}[3][0.9\textwidth]{%
   \begin{figure}[htbp]
@@ -57,6 +59,30 @@
     }
     \caption{#3}
   \end{figure}
+}
+
+% Marcado de texto provisional para borrador.
+\newif\ifdraftmode
+\draftmodetrue % cambiar a \draftmodefalse para ocultar el marcado
+\newcommand{\temporal}[1]{%
+  \ifdraftmode
+    {\textcolor{orange!80!black}{\textbf{[TEXTO PROVISIONAL]} #1}}%
+  \else
+    #1%
+  \fi
+}
+
+% Para marcar bloques provisionales que incluyan listas/entornos.
+\newenvironment{temporalblock}{%
+  \ifdraftmode
+    \begingroup
+    \color{orange!80!black}
+    \textbf{[TEXTO PROVISIONAL]}\par\smallskip
+  \fi
+}{%
+  \ifdraftmode
+    \endgroup
+  \fi
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

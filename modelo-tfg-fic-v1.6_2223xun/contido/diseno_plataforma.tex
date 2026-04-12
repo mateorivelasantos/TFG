@@ -1,127 +1,184 @@
 \chapter{Diseño de la plataforma}
 \label{chap:diseno-plataforma}
 
-\lettrine{E}{l} diseño se centra en Android como núcleo del producto, con dos modos operativos y módulos desacoplados de captura, procesado, visualización y exportación.
+\lettrine{E}{l} diseño se centra en una arquitectura modular, con Android como interfaz principal y capacidad de integración con un nodo embebido basado en ESP32+IMU.
 
 \section{Enfoque metodológico de diseño}
 
-El diseño del sistema se formula siguiendo un \textbf{enfoque modular de sistema ciberfísico}.
-Este planteamiento resulta adecuado porque el TFG no se limita a un componente software aislado, sino que integra elementos físicos de medida, bloques de comunicación, tratamiento de señal y presentación de resultados.
+El sistema se diseña como un sistema ciberfísico por capas.
+Este enfoque permite separar responsabilidades y evolucionar componentes sin rehacer el producto completo.
 
-Desde esta perspectiva, el sistema puede entenderse como la coordinación de cuatro capas:
+Desde esta perspectiva, la plataforma se organiza en cuatro capas:
 
 \begin{itemize}
-  \item una capa de \textbf{adquisición}, donde se originan las medidas inerciales;
-  \item una capa de \textbf{comunicación}, que transporta datos o resultados entre nodos;
-  \item una capa de \textbf{procesado}, que transforma la señal en métricas de estado de mar;
-  \item una capa de \textbf{interfaz y visualización}, que hace explotable el resultado.
+  \item \textbf{adquisición}: captura de datos inerciales en nodos móvil y embebido;
+  \item \textbf{comunicación}: transporte de comandos, estado y sesiones;
+  \item \textbf{backend}: persistencia y sincronización de información;
+  \item \textbf{interfaz/control}: operación del sistema y explotación de resultados.
 \end{itemize}
-
-Este enfoque aporta coherencia arquitectónica al trabajo y justifica que Android no sea descrito simplemente como una aplicación, sino como la interfaz principal de un sistema completo.
 
 \section{Arquitectura funcional}
 
-La arquitectura global se divide en:
+La arquitectura global contempla dos modos operativos:
 
 \begin{itemize}
-  \item \textbf{Modo Android autónomo}: captura y procesa en el propio teléfono.
-  \item \textbf{Modo sistema embebido}: adquisición externa con MCU+ESP32+IMU y explotación desde Android.
+  \item \textbf{Modo móvil}: Android captura, almacena y explota sesiones de forma autónoma.
+  \item \textbf{Modo embebido}: ESP32 adquiere y Android supervisa, descarga y gestiona sesiones.
 \end{itemize}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.98\textwidth]{imaxes/esquema_1_arquitectura.png}
-  \caption{Arquitectura funcional del TFG con Android como plataforma central.}
+  \caption{Arquitectura funcional del sistema con Android como plataforma central de operación.}
   \label{fig:plantilla-arquitectura}
 \end{figure}
 
 \subsection{Arquitectura física}
 
-Desde el punto de vista físico, el sistema se compone de un teléfono Android, una IMU integrada o externa según el modo de operación, un bloque MCU y una placa ESP32 empleada como nodo de comunicación.
-Las conexiones entre estos elementos determinan el camino de adquisición y condicionan la robustez práctica del sistema.
+El despliegue físico básico se compone de teléfono Android, nodo ESP32 y IMU externa.
+Según el escenario, la adquisición puede realizarse íntegramente en el teléfono o delegarse en el subsistema embebido.
 
 \figplaceholder{%
 Diagrama físico recomendado:\\
-teléfono Android, ESP32, MCU, IMU, enlaces de comunicación\\
-y alimentación
+Android, ESP32, IMU, enlaces de comunicación y alimentación
 }{Arquitectura física del sistema y conexiones entre subsistemas.}
 \label{fig:placeholder-arquitectura-fisica}
 
 \subsection{Arquitectura lógica y software}
 
-La arquitectura lógica se organiza en módulos desacoplados:
-captura, persistencia de sesiones, procesado de señal, comunicación con el subsistema embebido y visualización de resultados.
-Esta separación reduce acoplamiento y facilita tanto la evolución del producto como la comparativa entre plataformas.
-
-\section{Diseño del bloque IMU}
-
-El bloque IMU se modela como un módulo de producto, no como experimento aislado:
+A nivel lógico, el sistema se divide en módulos desacoplados:
 
 \begin{itemize}
-  \item adquisición de \texttt{accelerometer} y \texttt{gyroscope};
-  \item normalización de tiempo y estimación de frecuencia efectiva;
-  \item serialización en formato común para procesado y exportación.
+  \item captura y normalización de muestras;
+  \item persistencia y catálogo de sesiones;
+  \item comunicación entre nodos;
+  \item visualización, operación y exportación.
 \end{itemize}
 
-Este diseño permite reutilizar el mismo contrato de datos tanto en Android como en ESP32.
+Esta separación facilita mantenimiento, pruebas y evolución de backend/transporte.
+
+\section{Diseño de contratos de interfaz}
+
+\subsection{Contrato de sesión}
+
+La sesión es la unidad principal de intercambio entre subsistemas.
+El contrato de sesión incluye, como mínimo:
+
+\begin{itemize}
+  \item \texttt{device\_id};
+  \item \texttt{source} (móvil/embebido/simulado);
+  \item \texttt{timestamps};
+  \item \texttt{fs} estimada;
+  \item \texttt{payload} de muestras inerciales;
+  \item metadatos de calidad y contexto.
+\end{itemize}
+
+\subsection{Contrato de control}
+
+Para operación remota y coordinación de nodos se define un contrato mínimo de control:
+
+\begin{itemize}
+  \item \texttt{start};
+  \item \texttt{stop};
+  \item \texttt{set\_config};
+  \item \texttt{status}.
+\end{itemize}
+
+\subsection{Contrato de explotación}
+
+La capa de explotación proporciona operaciones homogéneas de:
+
+\begin{itemize}
+  \item listado de sesiones;
+  \item detalle de sesión;
+  \item exportación de datos.
+\end{itemize}
 
 \section{Diseño del subsistema de adquisición}
 
-La adquisición se define como un subsistema independiente del procesado, con el fin de desacoplar la obtención de muestras de las etapas posteriores de almacenamiento, análisis y visualización.
-Este criterio permite mantener una arquitectura común para ambas plataformas y facilita la comparación experimental.
+La adquisición se mantiene desacoplada del resto de capas para permitir cambios de nodo sin romper el flujo global.
 
 \subsection{Adquisición en modo móvil}
 
-En el modo móvil, el teléfono se encarga de registrar las magnitudes inerciales disponibles mediante la API de sensores de Android.
-La captura produce sesiones temporales que posteriormente son normalizadas y procesadas localmente.
+Android registra sensores inerciales, crea sesiones locales y permite revisión inmediata de resultados.
+Este modo sirve como camino base del sistema por simplicidad operativa.
 
 \subsection{Adquisición en modo embebido}
 
-En el modo embebido, la adquisición se apoya en una IMU externa y un subsistema MCU+ESP32.
-La función del ESP32 es actuar como elemento de enlace con la aplicación Android, bien como nodo de diagnóstico, bien como pasarela de datos y resultados.
+En modo embebido, ESP32 se encarga de la captura y Android actúa como consola de operación y descarga.
+La comunicación entre ambos se basa en un conjunto acotado de endpoints y estados de captura.
 
-\subsection{Diseño del almacenamiento de sesiones}
+\subsection{Almacenamiento de sesiones}
 
-Las sesiones de captura se almacenan con formato homogéneo y metadatos explícitos, permitiendo:
+El almacenamiento se diseña para trazabilidad y reutilización:
 
 \begin{itemize}
-  \item persistir los datos en bruto;
-  \item reprocesar sesiones con distintos parámetros;
-  \item comparar resultados entre plataformas de forma reproducible.
+  \item persistencia local durante captura;
+  \item metadatos de origen y configuración;
+  \item compatibilidad con sincronización a backend.
 \end{itemize}
 
-\subsection{Ventanas temporales y duración de captura}
+\section{Diseño del subsistema de comunicación}
 
-El diseño de adquisición contempla explícitamente la duración de las sesiones como variable crítica del sistema.
-Las ventanas largas se reservan para resultados cuantitativos robustos, mientras que las ventanas cortas se interpretan como mecanismo de inspección rápida y diagnóstico operacional.
+La capa de comunicación se diseña para soportar dos escenarios:
+
+\begin{itemize}
+  \item \textbf{enlace local} Android-ESP32 para operación de laboratorio y pruebas de integración;
+  \item \textbf{sincronización remota} con backend para consulta y operación desacoplada.
+\end{itemize}
+
+El objetivo es evitar dependencia fuerte de un único transporte.
+
+\section{Diseño del backend}
+
+\subsection{Criterios de diseño de backend}
+
+El backend se diseña como capa intercambiable, con independencia de proveedor o tecnología concreta.
+En esta capa se contemplan las siguientes capacidades mínimas:
+
+\begin{itemize}
+  \item persistencia de metadatos de sesión;
+  \item almacenamiento de ficheros o exportaciones;
+  \item sincronización de estado entre nodos.
+\end{itemize}
+
+\subsection{Estrategia de evolución tecnológica}
+
+La selección tecnológica final del backend y del transporte de comunicaciones se plantea por criterios de validación práctica:
+latencia operativa, robustez de despliegue, mantenibilidad y coste.
+Este enfoque evita cerrar prematuramente la arquitectura a una única solución.
 
 \section{Diseño del flujo Android}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.65\textwidth]{imaxes/esquema_2_flujo_android.png}
-  \caption{Flujo Android: captura, procesado on-device, visualización y exportación.}
+  \caption{Flujo Android: captura/operación, gestión de sesiones y visualización.}
   \label{fig:plantilla-android}
 \end{figure}
 
-Cada sesión incluye:
+La app se diseña como interfaz de operación unificada:
 
 \begin{itemize}
-  \item series temporales inerciales;
-  \item metadatos de dispositivo y parámetros de cálculo;
-  \item métricas finales (\(H_s\), \(T_z\), \(T_c\), \(f_s\) real, indicadores de calidad).
+  \item control de captura y estado de nodo;
+  \item navegación por sesiones locales y externas;
+  \item visualización de datos y exportación.
 \end{itemize}
 
-\section{Flujo de datos del sistema}
+\section{Flujo de datos extremo a extremo}
 
-El flujo de datos completo va desde el sensor hasta la obtención de parámetros estimados.
-Primero se adquieren muestras y marcas temporales, después se normalizan y almacenan, a continuación se aplica el bloque espectral y finalmente se representan métricas y gráficas en la aplicación.
-Este flujo extremo a extremo es uno de los elementos que distinguen el trabajo como sistema de ingeniería completo.
+El flujo completo del sistema se define así:
+
+\begin{enumerate}
+  \item adquisición de muestras;
+  \item normalización y empaquetado de sesión;
+  \item persistencia local y/o sincronización remota;
+  \item recuperación para visualización, comparación y exportación.
+\end{enumerate}
 
 \figplaceholder{%
 Pipeline recomendado:\\
-sensor $\rightarrow$ sesión $\rightarrow$ preprocesado $\rightarrow$ Welch\\
-$\rightarrow$ momentos espectrales $\rightarrow$ métricas $\rightarrow$ visualización
+sensor $\rightarrow$ sesión $\rightarrow$ persistencia $\rightarrow$ consulta $\rightarrow$ visualización
 }{Flujo de datos extremo a extremo del sistema.}
 \label{fig:placeholder-flujo-datos}
 
@@ -130,144 +187,33 @@ $\rightarrow$ momentos espectrales $\rightarrow$ métricas $\rightarrow$ visuali
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.62\textwidth]{imaxes/esquema_3_comparativa.png}
-  \caption{Flujo de comparativa entre plataformas con métricas unificadas.}
+  \caption{Flujo de comparativa entre nodo móvil y nodo embebido con contratos comunes.}
   \label{fig:plantilla-comparativa}
 \end{figure}
 
-La comparativa se diseña para medir diferencias de estabilidad, ruido, latencia y consumo bajo un mismo protocolo de prueba.
-
-\subsection{Modo móvil}
-
-En este modo el teléfono concentra adquisición, procesado y visualización.
-Su principal ventaja es la simplicidad operativa y la disponibilidad inmediata; su principal limitación es el menor control sobre el sensor y la electrónica de medida.
-
-\subsection{Modo sistema embebido}
-
-En este modo el nodo externo asume la adquisición física y Android actúa como interfaz de supervisión, descarga y análisis.
-La ventaja principal es la modularidad del sistema; la principal dificultad reside en la integración hardware y en la estabilidad real del camino de adquisición.
+La comparativa se orienta a evaluar interoperabilidad y operación, no solo valores numéricos aislados.
+Los ejes principales son estabilidad de captura, trazabilidad de sesión, latencia operativa y robustez de integración.
 
 \section{Diseño del subsistema de procesado}
 
-El procesado se concibe como un bloque independiente que transforma datos inerciales en parámetros estadísticos del estado del mar.
-Su diseño debe ser lo bastante modular para ejecutarse tanto sobre datos capturados por el teléfono como sobre sesiones procedentes del sistema embebido.
+El procesado se mantiene como bloque desacoplado de la captura.
+Esto permite reemplazar o evolucionar métodos de análisis sin alterar los contratos de adquisición y comunicación.
 
-\subsection{Metodología de procesado espectral}
-
-La metodología de tratamiento de señal adoptada en este TFG es una \textbf{metodología de procesado espectral basada en Welch}.
-No se emplea únicamente como una técnica numérica puntual, sino como el marco metodológico principal para pasar de una señal inercial ruidosa y dependiente del sensor a parámetros estadísticos comparables entre plataformas.
-
-El motivo de esta elección es doble.
-Por una parte, el oleaje se caracteriza de forma natural mediante descriptores estadísticos obtenidos sobre ventanas temporales suficientemente largas.
-Por otra, el análisis espectral es más robusto que una doble integración temporal directa cuando se trabaja con medidas afectadas por ruido, deriva y variabilidad de frecuencia de muestreo.
-
-\subsection{Entrada y preprocesado}
-
-Las señales de entrada incluyen aceleración y velocidad angular junto con sus marcas temporales.
-Antes del cálculo espectral se realiza uniformización temporal, estimación de frecuencia efectiva de muestreo y obtención de las magnitudes dinámicas relevantes.
-
-Desde el punto de vista del diseño, el preprocesado cumple una función crítica:
-reducir la dependencia del resultado final respecto a irregularidades de adquisición, diferencias entre plataformas y ruido no informativo.
-Por ello, no se concibe como una etapa auxiliar, sino como una parte estructural del subsistema de procesado.
-
-Las operaciones de preprocesado consideradas son:
+La arquitectura exige que cualquier bloque de procesado cumpla:
 
 \begin{itemize}
-  \item validación básica de la sesión y descarte de capturas manifiestamente inválidas;
-  \item ordenación temporal y cálculo de \(\Delta t\) entre muestras;
-  \item estimación de la frecuencia efectiva \(f_s\) y del jitter temporal;
-  \item selección de la componente o magnitud inercial más útil para representar el movimiento vertical;
-  \item separación entre contribución gravitatoria y componente dinámica;
-  \item preparación de una serie temporal apta para análisis espectral.
+  \item entrada basada en contrato de sesión;
+  \item salida estructurada y trazable;
+  \item compatibilidad con ambos orígenes (móvil y embebido).
 \end{itemize}
-
-Este enfoque persigue que el mismo pipeline pueda operar sobre datos procedentes de Android y del sistema embebido sin introducir ramificaciones algorítmicas excesivamente distintas.
-
-\figplaceholder{%
-Diagrama de preprocesado recomendado:\\
-timestamps, \(f_s\) real, jitter, selección de canal,\\
-señal dinámica útil
-}{Bloque de entrada y preprocesado del pipeline.}
-\label{fig:placeholder-preprocesado}
-
-\subsection{Bloque espectral}
-
-El bloque espectral implementa un estimador tipo Welch y la obtención de momentos espectrales.
-Este bloque constituye el núcleo analítico del sistema, al producir las métricas principales \(H_s\), \(T_z\), \(T_p\) y \(T_c\).
-
-La elección de Welch responde a un compromiso ingenieril entre tres necesidades del proyecto:
-robustez frente a ruido y variabilidad temporal, coste computacional razonable para ejecución \textit{on-device} y trazabilidad conceptual del resultado.
-Frente a métodos temporales más directos, la estimación espectral permite explotar mejor el carácter estadístico del problema y desacoplar la solución de la reconstrucción instantánea de altura.
-
-El diseño del bloque espectral contempla:
-
-\begin{itemize}
-  \item segmentación de la señal en ventanas parciales;
-  \item aplicación de una función ventana para reducir fuga espectral;
-  \item solapamiento entre segmentos consecutivos;
-  \item promedio de densidades espectrales parciales;
-  \item cálculo de momentos sobre el espectro resultante.
-\end{itemize}
-
-La salida intermedia de esta etapa no es únicamente un conjunto de métricas, sino también una representación física interpretable del contenido energético de la señal a distintas frecuencias.
-
-\subsection{Cálculo de momentos espectrales}
-
-Los momentos espectrales proporcionan un puente directo entre la PSD estimada y los parámetros de estado de mar.
-Si \(S_\eta(f)\) representa el espectro de elevación, los momentos se obtienen mediante:
-
-\[
-  m_n = \int f^n S_\eta(f)\,df
-\]
-
-En el contexto de este trabajo, los momentos más relevantes son \(m_0\), \(m_2\) y \(m_4\), ya que permiten construir métricas comparables entre plataformas con una formulación compacta y trazable.
-
-\subsection{Obtención de parámetros de oleaje}
-
-A partir de los momentos y del espectro estimado, el sistema calcula:
-
-\begin{itemize}
-  \item \textbf{\(H_s\)} como estimador de altura significativa, ligado a la energía total contenida en la señal;
-  \item \textbf{\(T_z\)} como descriptor temporal medio derivado de la relación entre momentos;
-  \item \textbf{\(T_p\)} como período asociado al máximo espectral dominante;
-  \item \textbf{\(T_c\)} como período característico adicional sensible a la forma global del espectro.
-\end{itemize}
-
-Estos parámetros forman el núcleo del resultado cuantitativo del sistema y, por tanto, del diseño experimental posterior.
-
-\figplaceholder{%
-Diagrama recomendado:\\
-PSD $\rightarrow$ momentos \(m_0,m_2,m_4\) $\rightarrow$ \(H_s,T_z,T_p,T_c\)
-}{Conversión desde espectro de elevación a parámetros de oleaje.}
-\label{fig:placeholder-parametros-pipeline}
-
-\subsection{Interpretación física de resultados}
-
-Las salidas del procesado se interpretan como descriptores estadísticos del estado del mar.
-Este matiz es esencial para evitar una lectura incorrecta del sistema como si midiese altura instantánea de una ola individual con precisión absoluta.
-
-En consecuencia, el objetivo del diseño no es producir una trayectoria vertical absoluta libre de deriva, sino una estimación suficientemente robusta de parámetros agregados sobre una ventana temporal.
-Esta decisión es coherente con la literatura técnica, con la naturaleza del sensado inercial y con el tipo de validación que puede defenderse en el marco de este TFG.
-
-\subsection{Salida de resultados}
-
-La salida del procesado incluye:
-
-\begin{itemize}
-  \item parámetros finales de oleaje;
-  \item indicadores de calidad o validez de la ventana;
-  \item representación gráfica de serie temporal y espectro.
-\end{itemize}
-
-El diseño de salida también contempla que el sistema conserve información suficiente para auditoría técnica:
-frecuencia efectiva, trazas intermedias, parámetros de ejecución y, cuando proceda, advertencias sobre limitaciones de la sesión analizada.
 
 \section{Diseño hardware del sistema embebido}
 
-Desde el punto de vista físico, el sistema embebido se compone de una placa ESP32, una IMU y la electrónica auxiliar necesaria para adquisición y comunicación.
-La memoria debe tratar este bloque como parte de la arquitectura global del sistema, incluyendo tanto su diseño funcional como las dificultades reales de integración detectadas durante el desarrollo.
+El subsistema embebido se compone de ESP32, IMU y electrónica auxiliar de conexión/alimentación.
+Su papel en la arquitectura es doble: adquisición dedicada y validación de interoperabilidad con la app Android.
 
 \figplaceholder{%
 Esquema hardware recomendado:\\
-ESP32, MCU, IMU, OLED y pinout de conexiones relevantes
+ESP32, IMU, conexiones relevantes y elementos de diagnóstico
 }{Esquema del subsistema embebido y conexiones principales.}
 \label{fig:placeholder-hardware-embebido}

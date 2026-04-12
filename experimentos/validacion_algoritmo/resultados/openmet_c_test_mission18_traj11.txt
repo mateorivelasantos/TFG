@@ -1,0 +1,5 @@
+CSV=resultados/android_ready/dunex_mission_18_traj11_android.csv
+muestras=27001 | dur=37.50 min | fs~12.0482 Hz | beta=0.0800
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=28.13258 m | Tz=17.13969 s | Tc=11.55241 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=21.80792 m | dTz=1.77177 s | dTc=2.95172 s | dTp=0.00000 s

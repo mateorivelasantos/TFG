@@ -1,36 +1,36 @@
 \chapter{Análisis del problema, requisitos, planificación y presupuesto}
 \label{chap:metodologia-plan}
 
-\lettrine{L}{a} ejecución del TFG se organiza como un desarrollo incremental de producto, con validación continua sobre datos reales y simulados.
+\lettrine{L}{a} ejecución del TFG se plantea como un desarrollo incremental de arquitectura, orientado a obtener un sistema funcional por fases y a reducir riesgo técnico en integración.
 
 \section{Descripción general del sistema a desarrollar}
 
-El sistema se plantea como un conjunto ciberfísico en el que intervienen adquisición de datos, comunicación, procesado de señal y visualización.
-La arquitectura final debe permitir tanto el funcionamiento autónomo del teléfono móvil como la integración de un nodo embebido basado en MCU+ESP32+IMU.
+El sistema se define como una arquitectura ciberfísica para captura y gestión de datos inerciales.
+La propuesta integra adquisición, comunicación, persistencia y visualización/control bajo una estructura modular, de forma que Android y el nodo embebido puedan interoperar sin depender de implementaciones rígidas.
 
 \section{Requisitos funcionales}
 
 Los requisitos funcionales principales del sistema son:
 
 \begin{itemize}
-  \item capturar datos inerciales en modo móvil;
-  \item almacenar sesiones con metadatos de adquisición;
-  \item procesar sesiones mediante un pipeline espectral homogéneo;
-  \item visualizar serie temporal, espectro y métricas derivadas;
-  \item conectarse al ESP32 y gestionar sesiones procedentes del modo embebido;
-  \item comparar resultados entre plataformas con criterios comunes.
+  \item capturar datos inerciales desde nodo móvil Android;
+  \item capturar o descargar sesiones desde nodo embebido ESP32+IMU;
+  \item almacenar sesiones con metadatos trazables;
+  \item visualizar estado de nodo, sesiones y resultados de forma operativa;
+  \item exportar sesiones para análisis externo;
+  \item soportar comandos básicos de control remoto (inicio, parada, estado y configuración).
 \end{itemize}
 
 \section{Requisitos no funcionales}
 
-Además de las funciones visibles para el usuario, el diseño debe satisfacer criterios de:
+Además de la funcionalidad visible, el diseño debe cumplir:
 
 \begin{itemize}
-  \item fiabilidad en sesiones largas;
-  \item modularidad entre adquisición, procesado y visualización;
-  \item portabilidad del flujo de trabajo entre plataformas;
-  \item facilidad de uso en campo o en laboratorio;
-  \item bajo coste y viabilidad de despliegue.
+  \item modularidad entre adquisición, comunicación, backend y visualización;
+  \item mantenibilidad para evolucionar backend/transporte sin rehacer el sistema;
+  \item bajo coste de despliegue en entorno de TFG;
+  \item trazabilidad de sesiones y de parámetros de ejecución;
+  \item facilidad de operación en laboratorio y escenarios remotos.
 \end{itemize}
 
 \section{Restricciones técnicas}
@@ -38,11 +38,11 @@ Además de las funciones visibles para el usuario, el diseño debe satisfacer cr
 Las restricciones más relevantes del proyecto son:
 
 \begin{itemize}
-  \item limitaciones de frecuencia efectiva y jitter en Android;
-  \item disponibilidad y comportamiento real de sensores inerciales integrados;
-  \item limitaciones de memoria, conectividad y temporización en ESP32;
-  \item dificultad práctica de integración hardware del IMU externo;
-  \item necesidad de ventanas largas para obtener métricas defendibles.
+  \item heterogeneidad de sensores y temporización en Android;
+  \item limitaciones de recursos y estabilidad de integración en ESP32;
+  \item necesidad de definir contratos de datos comunes entre nodos;
+  \item tiempo de desarrollo limitado para cerrar integración extremo a extremo;
+  \item incertidumbre sobre qué transporte remoto aporta mejor equilibrio en este alcance.
 \end{itemize}
 
 \section{Casos de uso principales}
@@ -50,64 +50,87 @@ Las restricciones más relevantes del proyecto son:
 Los casos de uso que estructuran el sistema son:
 
 \begin{itemize}
-  \item captura y procesado en modo móvil;
-  \item conexión y consulta de estado del modo ESP32;
-  \item descarga y reprocesado de sesiones externas;
-  \item revisión de resultados y comparación entre plataformas.
+  \item captura y registro local desde Android;
+  \item operación de captura desde ESP32 con supervisión desde la app;
+  \item consulta histórica y reprocesado de sesiones;
+  \item comparación de sesiones entre nodos/dispositivos;
+  \item configuración remota y consulta de estado.
 \end{itemize}
 
 \figplaceholder{%
 Diagrama de casos de uso recomendado:\\
-usuario, modo móvil, modo ESP32, procesado, consulta de resultados
+usuario, nodo móvil, nodo embebido, backend, panel de consulta
 }{Casos de uso principales del sistema.}
 \label{fig:placeholder-casos-uso}
 
 \section{Enfoque de trabajo}
 
-Se adopta una \textbf{metodología de desarrollo incremental e iterativa}.
-La razón de esta elección es que el trabajo combina varias fuentes de incertidumbre: disponibilidad real de sensores, diferencias entre plataformas, integración hardware progresiva y necesidad de validar el procesado antes de cerrar la instrumentación final.
+Se adopta una \textbf{metodología incremental e iterativa}.
+La razón principal es separar riesgos por capas: primero análisis del problema y diseño arquitectónico, después integración entre nodos y finalmente validación operativa.
 
-En lugar de plantear un desarrollo lineal cerrado, el proyecto se organizó como una sucesión de iteraciones con entregables funcionales.
-Cada iteración debía dejar operativo, al menos de forma parcial, uno de los bloques relevantes del sistema y producir evidencia suficiente para decidir el siguiente paso.
+Este enfoque permite validar decisiones con entregables funcionales y evitar bloqueos por dependencias tempranas de infraestructura. El trabajo parte de un análisis inicial del problema, del estado del arte y de las tecnologías disponibles para definir la arquitectura final del sistema.
 
-De forma resumida, la estrategia de trabajo por bloques funcionales fue la siguiente:
+De forma resumida, la estrategia por bloques funcionales es:
 
 \begin{enumerate}
-  \item Captura IMU y normalización temporal.
-  \item Procesado espectral on-device.
-  \item Visualización y exportación de sesión.
-  \item Modo display para integración con ESP32.
-  \item Validación comparativa final entre plataformas.
+  \item captura y persistencia de sesión en local;
+  \item interfaz operativa Android y gestión de sesiones;
+  \item integración local con ESP32 vía interfaz de red;
+  \item incorporación progresiva de supervisión y acceso externo a datos;
+  \item evaluación final del sistema y propuestas de mejora.
 \end{enumerate}
-
-Este enfoque incremental tiene varias ventajas en el contexto del TFG:
-
-\begin{itemize}
-  \item permite validar hipótesis del pipeline antes de depender del hardware definitivo;
-  \item facilita aislar errores de adquisición, de procesado o de integración;
-  \item evita que los problemas de una rama del sistema bloqueen el avance del conjunto;
-  \item produce versiones parciales ya defendibles desde el punto de vista ingenieril.
-\end{itemize}
 
 \section{Fases del proyecto}
 
 \begin{itemize}
-  \item \textbf{Fase 1.} Definición de arquitectura del producto y formato común de datos.
-  \item \textbf{Fase 2.} Prototipado de captura/procesado con scripts de referencia para reducir riesgo técnico.
-  \item \textbf{Fase 3.} Integración on-device en Android y diseño de interfaz operativa.
-  \item \textbf{Fase 4.} Integración ESP32+MPU6050 y modo Android display.
-  \item \textbf{Fase 5.} Campaña comparativa y elaboración de conclusiones.
+  \item \textbf{Fase 1.} Análisis de trabajos relacionados en sensores inerciales, análisis de movimiento y arquitecturas de captura de datos.
+  \item \textbf{Fase 2.} Estudio de limitaciones y características de sensores IMU y técnicas de análisis aplicables.
+  \item \textbf{Fase 3.} Definición de la arquitectura del sistema y de la interacción entre módulos.
+  \item \textbf{Fase 4.} Implementación de captura y gestión de datos en diferentes plataformas.
+  \item \textbf{Fase 5.} Evaluación del sistema desarrollado y análisis de comportamiento, limitaciones y mejoras.
+  \item \textbf{Fase 6.} Aplicación del sistema al caso práctico propuesto.
+  \item \textbf{Fase 7.} Documentación final y presentación.
 \end{itemize}
+
+\section{Planificación de operación remota (borrador)}
+\label{sec:plan-operacion-remota}
+
+La operación remota se plantea como evolución del sistema y no como requisito cerrado desde el inicio.
+En el estado actual, el objetivo es dejar una base operativa con sincronización de sesiones y estado de nodos.
+
+Para ello se propone:
+
+\begin{itemize}
+  \item \textbf{Implementación base:} integración con mecanismo de almacenamiento/sincronización externo según viabilidad del entorno de pruebas.
+  \item \textbf{Sincronización mínima:} metadatos de sesión, estado de nodo y referencias a ficheros.
+  \item \textbf{Control básico:} comandos start/stop/set\_config/status bajo contrato común.
+  \item \textbf{Evolución opcional:} evaluar alternativas de comunicación si mejoran latencia, robustez o escalabilidad.
+\end{itemize}
+
+Este planteamiento evita comprometer decisiones de infraestructura que no estén justificadas por evidencia experimental.
 
 \section{Plan de pruebas y control de riesgos}
 
-Los principales riesgos y su mitigación son:
+Los riesgos principales y su mitigación son:
 
 \begin{itemize}
-  \item Ventanas insuficientes para estabilidad espectral: imponer ventana robusta mínima.
-  \item Variabilidad de frecuencia de muestreo: medir \(f_s\) real por sesión y registrar jitter.
-  \item Diferencias de formato Android/ESP32: fijar esquema de salida común desde el inicio.
-  \item Deriva o ruido excesivo: incluir validación de calidad y descarte de sesiones no válidas.
+  \item \textbf{Desalineación entre nodos:} fijar contrato de sesión y validarlo en ambos modos.
+  \item \textbf{Inestabilidad de integración embebida:} mantener diagnósticos de conexión, bus y captura.
+  \item \textbf{Acoplamiento excesivo al backend:} desacoplar capa de comunicación y persistencia.
+  \item \textbf{Sobrecarga de alcance:} priorizar MVP funcional antes de añadir extensiones opcionales.
+\end{itemize}
+
+\section{Material y medios necesarios}
+
+Los medios necesarios para ejecutar el proyecto son:
+
+\begin{itemize}
+  \item PC para desarrollo, pruebas y análisis de resultados.
+  \item Dispositivo móvil Android con sensores inerciales.
+  \item Plataforma embebida para captura de datos con conectividad inalámbrica.
+  \item Sensor IMU externo (acelerómetro y/o giróscopo).
+  \item Herramientas de desarrollo software y entornos de programación.
+  \item Herramientas para almacenamiento, visualización y análisis de datos.
 \end{itemize}
 
 \section{Presupuesto orientativo}
@@ -115,9 +138,9 @@ Los principales riesgos y su mitigación son:
 El trabajo prioriza bajo coste de hardware:
 
 \begin{itemize}
-  \item teléfono Android: plataforma principal;
-  \item ESP32 con LoRa: disponible en laboratorio personal;
-  \item IMU MPU6050: disponible para fase comparativa.
+  \item teléfono Android como nodo principal;
+  \item placa ESP32 disponible para integración embebida;
+  \item IMU MPU6050 para pruebas de adquisición dedicada.
 \end{itemize}
 
-El coste principal del proyecto se concentra en tiempo de desarrollo, integración y validación experimental.
+El coste principal se concentra en tiempo de desarrollo, integración y validación del sistema extremo a extremo.

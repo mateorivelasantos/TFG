@@ -1,0 +1,9 @@
+CSV=resultados/android_ready/dunex_mission_18_traj11_android.csv
+muestras=27001 | dur=37.50 min | fs~12.0482 Hz | beta=0.0800 | alpha_lpf=0.950
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=28.13258 m | Tz=17.13969 s | Tc=11.55241 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (proj accel instant) -> Hs=2.38283 m | Tz=10.37300 s | Tc=5.63567 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (proj accel LPF) -> Hs=5.58463 m | Tz=14.92542 s | Tc=8.01853 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=21.80792 m | dTz=1.77177 s | dTc=2.95172 s | dTp=0.00000 s
+delta_inst_vs_raw | dHs=-3.94182 m | dTz=-4.99493 s | dTc=-2.96502 s | dTp=0.00000 s
+delta_lpf_vs_raw | dHs=-0.74002 m | dTz=-0.44250 s | dTc=-0.58217 s | dTp=0.00000 s

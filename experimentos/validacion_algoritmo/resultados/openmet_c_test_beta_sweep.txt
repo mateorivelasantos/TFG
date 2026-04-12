@@ -1,0 +1,29 @@
+# Barrido beta
+\n=== beta=0.005 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=39.38786 m | Tz=17.74301 s | Tc=11.52630 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=33.06321 m | dTz=2.37509 s | dTc=2.92561 s | dTp=0.00000 s
+\n=== beta=0.01 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=43.84981 m | Tz=17.80342 s | Tc=12.53816 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=37.52516 m | dTz=2.43550 s | dTc=3.93747 s | dTp=0.00000 s
+\n=== beta=0.02 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=37.12226 m | Tz=17.68504 s | Tc=11.62428 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=30.79760 m | dTz=2.31712 s | dTc=3.02359 s | dTp=0.00000 s
+\n=== beta=0.04 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=29.73315 m | Tz=16.87839 s | Tc=10.45402 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=23.40850 m | dTz=1.51046 s | dTc=1.85333 s | dTp=0.00000 s
+\n=== beta=0.08 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=28.13258 m | Tz=17.13969 s | Tc=11.55241 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=21.80792 m | dTz=1.77177 s | dTc=2.95172 s | dTp=0.00000 s
+\n=== beta=0.12 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=27.37673 m | Tz=17.26723 s | Tc=11.89021 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=21.05208 m | dTz=1.89930 s | dTc=3.28952 s | dTp=0.00000 s
+\n=== beta=0.2 ===
+OpenMet (az cruda) -> Hs=6.32465 m | Tz=15.36792 s | Tc=8.60069 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+OpenMet (IMU orientada) -> Hs=26.14675 m | Tz=17.23177 s | Tc=12.13572 s | Tp=22.75556 s | fp=0.04395 Hz | fs=10.00 | N=22500 | seg=21
+delta | dHs=19.82210 m | dTz=1.86384 s | dTc=3.53502 s | dTp=0.00000 s

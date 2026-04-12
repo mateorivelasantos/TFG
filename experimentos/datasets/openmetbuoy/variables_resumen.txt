@@ -1,0 +1,69 @@
+file: 2022_CAGE.nc
+num_dims: 4
+num_vars: 16
+dims: trajectory, frequencies_waves_imu, obs, obs_waves_imu
+vars:
+  - trajectory
+  - frequencies_waves_imu
+  - time
+  - lat
+  - lon
+  - time_waves_imu
+  - accel_energy_spectrum
+  - elevation_energy_spectrum
+  - processed_elevation_energy_spectrum
+  - pcutoff
+  - pHs0
+  - pT02
+  - pT24
+  - Hs0
+  - T02
+  - T24
+
+raw_imu_vars:
+  (none)
+
+file: 2022_AWI_UTOKYO.nc
+num_dims: 4
+num_vars: 16
+dims: trajectory, frequencies_waves_imu, obs, obs_waves_imu
+vars:
+  - trajectory
+  - frequencies_waves_imu
+  - time
+  - lat
+  - lon
+  - time_waves_imu
+  - accel_energy_spectrum
+  - elevation_energy_spectrum
+  - processed_elevation_energy_spectrum
+  - pcutoff
+  - pHs0
+  - pT02
+  - pT24
+  - Hs0
+  - T02
+  - T24
+
+raw_imu_vars:
+  (none)
+
+file: data_drift_waves_Greenland_2022_seals_cruise.nc
+num_dims: 4
+num_vars: 11
+dims: trajectory, observation, len_of_name, frequency
+vars:
+  - frequency
+  - trajectory_id
+  - message_kind
+  - time
+  - lon
+  - lat
+  - wave_spectrum
+  - swh
+  - hs
+  - tp
+  - tz0
+
+raw_imu_vars:
+  (none)
