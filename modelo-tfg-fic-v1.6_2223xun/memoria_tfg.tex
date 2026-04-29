@@ -66,7 +66,7 @@
 \draftmodetrue % cambiar a \draftmodefalse para ocultar el marcado
 \newcommand{\temporal}[1]{%
   \ifdraftmode
-    {\textcolor{orange!80!black}{\textbf{[TEXTO PROVISIONAL]} #1}}%
+    {\textcolor{orange!80!black}{\textbf{[AÑADIDO]} #1}}%
   \else
     #1%
   \fi
@@ -76,8 +76,21 @@
 \newenvironment{temporalblock}{%
   \ifdraftmode
     \begingroup
-    \color{orange!80!black}
-    \textbf{[TEXTO PROVISIONAL]}\par\smallskip
+    \color{blue!65!black}
+    \textbf{[AÑADIDO]}\par\smallskip
+  \fi
+}{%
+  \ifdraftmode
+    \endgroup
+  \fi
+}
+
+% Para marcar líneas de búsqueda, referencias o notas de integración.
+\newenvironment{referenciablock}{%
+  \ifdraftmode
+    \begingroup
+    \color{teal!60!black}
+    \textbf{[REFERENCIAS A INCORPORAR]}\par\smallskip
   \fi
 }{%
   \ifdraftmode

@@ -23,7 +23,8 @@ Los escenarios principales considerados son:
   \item captura y gestión de sesión en modo móvil;
   \item operación remota local sobre ESP32 (estado, inicio/parada y descarga);
   \item consistencia del contrato de sesión entre orígenes móvil y embebido;
-  \item robustez de operación tras múltiples iteraciones de captura y consulta.
+  \item robustez de operación tras múltiples iteraciones de captura y consulta;
+  \item ensayo preliminar de capacidad de comunicación en escenario multi-nodo, para estimar el rango operativo del sistema ante concurrencia de varios emisores.
 \end{itemize}
 
 \figplaceholder{%
@@ -41,7 +42,8 @@ Para cada prueba se documentan, como mínimo:
   \item parámetros de captura usados en la sesión;
   \item versión de app/firmware empleada;
   \item ruta de comunicación utilizada (local o sincronizada);
-  \item resultado de operación (éxito, error o comportamiento degradado).
+  \item resultado de operación (éxito, error o comportamiento degradado);
+  \item número de nodos concurrentes, tasa de envío y tamaño de carga útil en las pruebas de capacidad.
 \end{itemize}
 
 Esta documentación permite reproducibilidad y facilita análisis de incidencias.
@@ -55,7 +57,8 @@ Las métricas se centran en comportamiento del sistema:
   \item latencia percibida en operaciones de control (start/stop/descarga);
   \item consistencia de metadatos y formato de sesión;
   \item estabilidad de conexión en modo embebido;
-  \item esfuerzo operativo (pasos necesarios por flujo).
+  \item esfuerzo operativo (pasos necesarios por flujo);
+  \item degradación de latencia o pérdida de operaciones al aumentar el número de nodos concurrentes.
 \end{itemize}
 
 \section{Plantilla de comparativa móvil vs embebido}
@@ -113,6 +116,26 @@ Resultado pendiente:\\
 captura de estado y sesión en modo embebido
 }{Resultados representativos del modo embebido.}
 \label{fig:placeholder-resultado-embebido}
+
+\subsection{Evaluación del subsistema de comunicación}
+
+Este bloque debe recoger la comparación entre los mecanismos de comunicación considerados para el enlace Android-ESP32. La evaluación debe centrarse en latencia, estabilidad de operación, simplicidad de integración y comportamiento cuando aumenta la carga de mensajes o el número de nodos concurrentes.
+
+Como guía de redacción, conviene documentar:
+
+\begin{itemize}
+  \item tecnologías comparadas;
+  \item tamaño de mensaje y frecuencia de envío usados en la prueba;
+  \item tiempos de respuesta observados en operaciones de control;
+  \item pérdidas, errores o degradación bajo carga;
+  \item criterio seguido para seleccionar la opción más adecuada.
+\end{itemize}
+
+\figplaceholder{%
+Resultado pendiente:\\
+comparativa de latencia, estabilidad y carga entre mecanismos de comunicación
+}{Evaluación comparativa del subsistema de comunicación Android-ESP32.}
+\label{fig:placeholder-resultado-comunicacion}
 
 \subsection{Resultados de integración por contratos}
 

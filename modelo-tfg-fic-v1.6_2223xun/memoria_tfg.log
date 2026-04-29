@@ -1,296 +1,381 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.2.18)  11 APR 2026 17:49
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.2.28)  29 APR 2026 13:00
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/mateo/TFG/modelo-tfg-fic-v1.6_2223xun/memoria_tfg.tex
-(/home/mateo/TFG/modelo-tfg-fic-v1.6_2223xun/memoria_tfg.tex
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
+**memoria_tfg.tex
+(./memoria_tfg.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count183
-\c@chapter=\count184
-\c@section=\count185
-\c@subsection=\count186
-\c@subsubsection=\count187
-\c@paragraph=\count188
-\c@subparagraph=\count189
-\c@figure=\count190
-\c@table=\count191
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
+\c@part=\count271
+\c@chapter=\count272
+\c@section=\count273
+\c@subsection=\count274
+\c@subsubsection=\count275
+\c@paragraph=\count276
+\c@subparagraph=\count277
+\c@figure=\count278
+\c@table=\count279
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
 ) (./estilo_tfg.sty
 Package: estilo_tfg 
 
 =============== Estilo LaTeX para TFGs GEI FIC ===============
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 274.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
- (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen141
-\ar@mcellbox=\box51
-\extrarowheight=\dimen142
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+\col@sep=\dimen149
+\ar@mcellbox=\box53
+\extrarowheight=\dimen150
 \NC@list=\toks17
-\extratabsurround=\skip50
-\backup@length=\skip51
-\ar@cellbox=\box52
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box54
 )
 \everycr=\toks18
-\minrowclearance=\skip52
-\rownum=\count192
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+\minrowclearance=\skip53
+\rownum=\count280
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 107.
+Package graphics Info: Driver file: xetex.def on input line 106.
 )
-\Gin@req@height=\dimen143
-\Gin@req@width=\dimen144
-) (/usr/share/texlive/texmf-dist/tex/latex/lettrine/lettrine.sty
-File: lettrine.sty 2024-01-20 v2.60 (Daniel Flipo)
- (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-01-22 L3 programming layer (loader) 
- (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
-\g__graphics_track_int=\count193
-\l__pdf_internal_box=\box53
-\g__pdf_backend_object_int=\count194
-\g__pdf_backend_annotation_int=\count195
-\g__pdf_backend_link_int=\count196
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lettrine/lettrine.sty
+File: lettrine.sty 2025-01-30 v2.80 (Daniel Flipo)
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-09-02 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2025-06-09 L3 backend support: XeTeX
+\g__graphics_track_int=\count281
+\g__pdfannot_backend_int=\count282
+\g__pdfannot_backend_link_int=\count283
 ))
-Package: xfp 2023-10-10 L3 Floating point unit
+Package: xfp 2024-08-16 L3 Floating point unit
 )
-\c@DefaultLines=\count197
-\c@DefaultDepth=\count198
-\DefaultFindent=\dimen145
-\DefaultNindent=\dimen146
-\DefaultSlope=\dimen147
-\DiscardVskip=\dimen148
-\L@lettrine=\box54
-\L@lbox=\box55
-\L@tbox=\box56
-\c@L@lines=\count199
-\c@L@depth=\count266
-\L@Pindent=\dimen149
-\L@Findent=\dimen150
-\L@Nindent=\dimen151
-\L@lraise=\dimen152
-\L@first=\dimen153
-\L@next=\dimen154
-\L@slope=\dimen155
-\L@height=\dimen156
-\L@novskip=\dimen157
-\L@ruleht=\dimen158
-\L@target@ht=\dimen159
-\L@target@dp=\dimen160
-\L@target@tht=\dimen161
-\LettrineWidth=\dimen162
-\LettrineHeight=\dimen163
-\LettrineDepth=\dimen164
+\c@DefaultLines=\count284
+\c@DefaultDepth=\count285
+\DefaultFindent=\dimen153
+\DefaultNindent=\dimen154
+\DefaultSlope=\dimen155
+\DiscardVskip=\dimen156
+\L@lettrine=\box55
+\L@lbox=\box56
+\L@tbox=\box57
+\c@L@lines=\count286
+\c@L@depth=\count287
+\L@Pindent=\dimen157
+\L@Findent=\dimen158
+\L@Nindent=\dimen159
+\L@lraise=\dimen160
+\L@first=\dimen161
+\L@next=\dimen162
+\L@slope=\dimen163
+\L@height=\dimen164
+\L@novskip=\dimen165
+\L@target@ht=\dimen166
+\L@target@dp=\dimen167
+\L@target@tht=\dimen168
+\LettrineWidth=\dimen169
+\LettrineHeight=\dimen170
+\LettrineDepth=\dimen171
+\L@finalht=\dimen172
+\L@finaldp=\dimen173
 
 Loading lettrine.cfg
 (/usr/share/texlive/texmf-dist/tex/latex/lettrine/lettrine.cfg)
-\Llist@everypar=\toks20
-) (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+\Lettrine@tweaks=\toks20
+\Llist@everypar=\toks21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count267
-\c@@ppsavesec=\count268
-\c@@ppsaveapp=\count269
-) (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
-Package: polyglossia 2023/12/11 v1.66 Modern multilingual typesetting with XeLaTeX and LuaLaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count270
-) (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks21
-\XKV@tempa@toks=\toks22
+\c@@pps=\count288
+\c@@ppsavesec=\count289
+\c@@ppsaveapp=\count290
 )
-\XKV@depth=\count271
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-10-10 L3 Experimental document command parser
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2025/09/22 v2.8 Modern multilingual typesetting with XeLaT
+eX and LuaLaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count291
 )
-Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
-Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count272
-\l__fontspec_language_int=\count273
-\l__fontspec_strnum_int=\count274
-\l__fontspec_tmp_int=\count275
-\l__fontspec_tmpa_int=\count276
-\l__fontspec_tmpb_int=\count277
-\l__fontspec_tmpc_int=\count278
-\l__fontspec_em_int=\count279
-\l__fontspec_emdef_int=\count280
-\l__fontspec_strong_int=\count281
-\l__fontspec_strongdef_int=\count282
-\l__fontspec_tmpa_dim=\dimen165
-\l__fontspec_tmpb_dim=\dimen166
-\l__fontspec_tmpc_dim=\dimen167
- (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
 )
-\xpg@normalclass=\XeTeXcharclass1
- (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-latex.lde
-Package: gloss-latex 2023/12/11 v1.66 polyglossia: module for default language
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count292
+\l__fontspec_language_int=\count293
+\l__fontspec_strnum_int=\count294
+\l__fontspec_tmp_int=\count295
+\l__fontspec_tmpa_int=\count296
+\l__fontspec_tmpb_int=\count297
+\l__fontspec_tmpc_int=\count298
+\l__fontspec_em_int=\count299
+\l__fontspec_emdef_int=\count300
+\l__fontspec_strong_int=\count301
+\l__fontspec_strongdef_int=\count302
+\l__fontspec_tmpa_dim=\dimen174
+\l__fontspec_tmpb_dim=\dimen175
+\l__fontspec_tmpc_dim=\dimen176
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
 )
-Package polyglossia Info: Default language is latex.
-) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) Estilo TFG: elixiuse como lingua do documento: esp Estilo TFG: cargando definicións para español (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-spanish.ldf
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+\l_xpg_alias_keyvals_int=\count303
+
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+Estilo TFG: elixiuse como lingua do documento: esp
+Estilo TFG: cargando definicións para español
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-spanish.ldf
 File: gloss-spanish.ldf polyglossia: module for Spanish
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
 )
-Package polyglossia Info: Default language is spanish.
- (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-galician.ldf
+
+Package polyglossia Info: Default language is spanish
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-galician.ldf
 File: gloss-galician.ldf polyglossia: module for Galician
-) (/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
+)
+(/usr/share/texlive/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
 File: gloss-english.ldf polyglossia: module for English
-Package polyglossia Info: Option: English, variant=american.
-) Estilo TFG: elixiuse como titulación do documento: gei Estilo TFG: elixiuse como mención: ENXEÑARÍA DE COMPUTADORES (/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+)
+Estilo TFG: elixiuse como titulación do documento: gei
+Estilo TFG: elixiuse como mención: ENXEÑARÍA DE COMPUTADORES
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
-) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2023/05/13 v2.17o AMS math features
-\@mathmargin=\skip53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/06/16 v2.17y AMS math features
+\@mathmargin=\skip54
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
- (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks23
-\ex@=\dimen168
-)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\@emptytoks=\toks22
+\ex@=\dimen177
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen169
-) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen178
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count283
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count284
-\leftroot@=\count285
-LaTeX Info: Redefining \overline on input line 399.
-LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count286
-\DOTSCASE@=\count287
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box57
-\strutbox@=\box58
-LaTeX Info: Redefining \big on input line 722.
-LaTeX Info: Redefining \Big on input line 723.
-LaTeX Info: Redefining \bigg on input line 724.
-LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen170
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count288
-LaTeX Info: Redefining \bmod on input line 905.
-LaTeX Info: Redefining \pmod on input line 910.
-LaTeX Info: Redefining \smash on input line 940.
-LaTeX Info: Redefining \relbar on input line 970.
-LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count289
-\dotsspace@=\muskip16
-\c@parentequation=\count290
-\dspbrk@lvl=\count291
-\tag@help=\toks24
-\row@=\count292
-\column@=\count293
-\maxfields@=\count294
-\andhelp@=\toks25
-\eqnshift@=\dimen171
-\alignsep@=\dimen172
-\tagshift@=\dimen173
-\tagwidth@=\dimen174
-\totwidth@=\dimen175
-\lineht@=\dimen176
-\@envbody=\toks26
-\multlinegap=\skip54
-\multlinetaggap=\skip55
-\mathdisplay@stack=\toks27
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+\inf@bad=\count304
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count305
+\leftroot@=\count306
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count307
+\DOTSCASE@=\count308
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box58
+\strutbox@=\box59
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count309
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count310
+\dotsspace@=\muskip17
+\c@parentequation=\count311
+\dspbrk@lvl=\count312
+\tag@help=\toks23
+\row@=\count313
+\column@=\count314
+\maxfields@=\count315
+\andhelp@=\toks24
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+\@envbody=\toks25
+\multlinegap=\skip55
+\multlinetaggap=\skip56
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup5
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count295
-\Gm@cntv=\count296
-\c@Gm@tempcnt=\count297
-\Gm@bindingoffset=\dimen177
-\Gm@wd@mp=\dimen178
-\Gm@odd@mp=\dimen179
-\Gm@even@mp=\dimen180
-\Gm@layoutwidth=\dimen181
-\Gm@layoutheight=\dimen182
-\Gm@layouthoffset=\dimen183
-\Gm@layoutvoffset=\dimen184
-\Gm@dimlist=\toks28
-) (/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
-Package: libertine 2023/11/26 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
- (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
+\Gm@cnth=\count316
+\Gm@cntv=\count317
+\c@Gm@tempcnt=\count318
+\Gm@bindingoffset=\dimen186
+\Gm@wd@mp=\dimen187
+\Gm@odd@mp=\dimen188
+\Gm@even@mp=\dimen189
+\Gm@layoutwidth=\dimen190
+\Gm@layoutheight=\dimen191
+\Gm@layouthoffset=\dimen192
+\Gm@layoutvoffset=\dimen193
+\Gm@dimlist=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/libertine.sty
+Package: libertine 2024/04/23 (Bob Tennent) Supports Libertine and Biolinum fon
+ts for all LaTeX engines.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks28
+\XKV@tempa@toks=\toks29
+)
+\XKV@depth=\count319
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
 
-Package fontspec Info: Font family 'LinLibertine(0)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(0)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
 (fontspec)             =
-(fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX,Numbers
+(fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX
+,Numbers
 (fontspec)             = {Monospaced,Lining},Scale = 1,UprightFont =
 (fontspec)             *_R,ItalicFont = *_RI,BoldFont = *_RB,BoldItalicFont =
 (fontspec)             *_RBI].
@@ -299,39 +384,74 @@ Package fontspec Info: Font family 'LinLibertine(0)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 307.
 
-
-Package fontspec Warning: OpenType feature 'Numbers=Uppercase' (lnum) not
-(fontspec)                available for font 'LinBiolinum_RB' with script
-(fontspec)                'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
 
 
-Package fontspec Warning: OpenType feature 'Numbers=Uppercase' (lnum) not
-(fontspec)                available for font 'LinBiolinum_RB' with script
-(fontspec)                'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
 
 
-Package fontspec Info: Font family 'LinBiolinum(0)' created for font
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinBiolinum(0)' created for font
 (fontspec)             'LinBiolinum' with options [Ligatures = TeX,Extension =
-(fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX,Numbers
+(fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX
+,Numbers
 (fontspec)             = {Monospaced, Lining},Scale = 1,UprightFont =
 (fontspec)             *_R,ItalicFont = *_RI,BoldFont = *_RB,BoldItalicFont =
 (fontspec)             *_RBO].
@@ -340,24 +460,69 @@ Package fontspec Info: Font family 'LinBiolinum(0)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Info: Font family 'LinLibertine(1)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(1)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
 (fontspec)             = .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             {Monospaced,Lining},Scale = 1,UprightFont =
@@ -368,34 +533,69 @@ Package fontspec Info: Font family 'LinLibertine(1)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Warning: OpenType feature 'Numbers= Monospaced, Lining'
-(fontspec)                (tnum) not available for font 'LinLibertine_RZI'
-(fontspec)                with script 'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinLibertine_RZ scale = 1.
 
 
-Package fontspec Warning: OpenType feature 'Numbers= Monospaced, Lining'
-(fontspec)                (tnum) not available for font 'LinLibertine_RZI'
-(fontspec)                with script 'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinLibertine_RZ scale = 1.
 
 
-Package fontspec Info: Font family 'LinLibertine(2)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_RZ scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RZI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RZI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(2)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
 (fontspec)             = .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             { Monospaced, Lining},Scale = 1,UprightFont =
@@ -406,24 +606,69 @@ Package fontspec Info: Font family 'LinLibertine(2)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RZ.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RZ.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RZ.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RZ.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RZI.otf]/OT:script=latn;language=dflt;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RZI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RZI.otf]/OT:script=latn;language=dflt;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RZI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Info: Font family 'LinLibertine(3)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_RBI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(3)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
 (fontspec)             = .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             {Monospaced,OldStyle},Scale = 1,UprightFont =
@@ -434,24 +679,37 @@ Package fontspec Info: Font family 'LinLibertine(3)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_R.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RB.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RI.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=
+dflt;+tnum;+onum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Info: Font family 'LinLibertine(4)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(4)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
 (fontspec)             = .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             {Monospaced,Lining},UprightFont = *_DR,ItalicFont =
@@ -461,33 +719,66 @@ Package fontspec Info: Font family 'LinLibertine(4)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_DR.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             <->"[LinLibertine_DR.otf]/OT:script=latn;language=dflt;+
+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+
+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+
+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+
+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+
+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;
++tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;
++tnum;+lnum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Warning: OpenType feature 'Numbers=Uppercase' (lnum) not
-(fontspec)                available for font 'LinBiolinum_RB' with script
-(fontspec)                'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
 
 
-Package fontspec Warning: OpenType feature 'Numbers=Uppercase' (lnum) not
-(fontspec)                available for font 'LinBiolinum_RB' with script
-(fontspec)                'CustomDefault' and language 'Default'.
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
 
 
-Package fontspec Info: Font family 'LinBiolinum(1)' created for font
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinBiolinum(1)' created for font
 (fontspec)             'LinBiolinum' with options [Ligatures = TeX,Extension =
 (fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             {Monospaced, Lining},Scale = 1,UprightFont =
@@ -498,24 +789,69 @@ Package fontspec Info: Font family 'LinBiolinum(1)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+lnum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Info: Font family 'LinBiolinum(2)' created for font
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RI scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinBiolinum_RBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinBiolinum(2)' created for font
 (fontspec)             'LinBiolinum' with options [Ligatures = TeX,Extension =
 (fontspec)             .otf,SmallCapsFeatures={Letters=SmallCaps},Numbers =
 (fontspec)             {Monospaced, OldStyle},Scale = 1,UprightFont =
@@ -526,26 +862,60 @@ Package fontspec Info: Font family 'LinBiolinum(2)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_R.otf]/OT:script=latn;language=dfl
+t;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RB.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RI.otf]/OT:script=latn;language=df
+lt;+tnum;+onum;+smcp;mapping=tex-text;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;mapping=tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
+(fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=d
+flt;+tnum;+onum;+smcp;mapping=tex-text;"
 
 
-Package fontspec Info: Font family 'LinLibertine(5)' created for font
+Package fontspec Info: 
+(fontspec)             LinBiolinum_R scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_M scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_M scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(5)' created for font
 (fontspec)             'LinLibertine' with options [Extension =
-(fontspec)             .otf,HyphenChar=None,WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace,Scale
+(fontspec)             .otf,HyphenChar=None,WordSpace={1,0,0},HyphenChar=None,P
+unctuationSpace=WordSpace,Scale
 (fontspec)             = 1,UprightFont = *_M,ItalicFont = *_MO,BoldFont =
 (fontspec)             *_MB,BoldItalicFont = *_MBO].
 (fontspec)              
@@ -553,44 +923,41 @@ Package fontspec Info: Font family 'LinLibertine(5)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_M.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_M.otf]/OT:script=latn;language=df
+lt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MB.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MB.otf]/OT:script=latn;language=d
+flt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MO.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MO.otf]/OT:script=latn;language=d
+flt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MBO.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
-(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
-(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MBO.otf]/OT:script=latn;language=
+dflt;"
 
 
-Package fontspec Info: Font family 'LinLibertine(6)' created for font
+Package fontspec Info: 
+(fontspec)             LinLibertine_M scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_M scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MB scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             LinLibertine_MBO scale = 1.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine(6)' created for font
 (fontspec)             'LinLibertine' with options [Extension =
 (fontspec)             .otf,HyphenChar=None,Scale = 1,UprightFont =
 (fontspec)             *_M,ItalicFont = *_MO,BoldFont = *_MB,BoldItalicFont =
@@ -600,193 +967,240 @@ Package fontspec Info: Font family 'LinLibertine(6)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_M.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_M.otf]/OT:script=latn;language=df
+lt;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MB.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MB.otf]/OT:script=latn;language=d
+flt;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MO.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MO.otf]/OT:script=latn;language=d
+flt;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1]"[LinLibertine_MBO.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             <->s*[1]"[LinLibertine_MBO.otf]/OT:script=latn;language=
+dflt;"
 
 
-Package fontspec Info: Font family 'LinBiolinum_K(0)' created for font
+Package fontspec Info: 
+(fontspec)             Font family 'LinBiolinum_K(0)' created for font
 (fontspec)             'LinBiolinum_K' with options [Extension =
-(fontspec)             .otf,HyphenChar=None,BoldFont={},ItalicFont={},SmallCapsFont={}].
+(fontspec)             .otf,HyphenChar=None,BoldFont={},ItalicFont={},SmallCaps
+Font={}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"[LinBiolinum_K.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
 
-Package fontspec Info: Font family 'LinLibertine_I(0)' created for font
+Package fontspec Info: 
+(fontspec)             Font family 'LinLibertine_I(0)' created for font
 (fontspec)             'LinLibertine_I' with options [Extension =
-(fontspec)             .otf,HyphenChar=None,BoldFont={},ItalicFont={},SmallCapsFont={}].
+(fontspec)             .otf,HyphenChar=None,BoldFont={},ItalicFont={},SmallCaps
+Font={}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"[LinLibertine_I.otf]/OT:script=latn;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             and font adjustment code:
-(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
 LaTeX Info: Redefining \oldstylenums on input line 475.
 LaTeX Info: Redefining \liningnums on input line 476.
-(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_R.tex) (/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_R.tex) (/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_K.tex) (/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex) (/usr/share/texlive/texmf-dist/tex/latex/libertine/LKey.tex)
+
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_R.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_R.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinBiolinum_K.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LinLibertine_I.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/libertine/LKey.tex)
 LaTeX Info: Redefining \textsup on input line 552.
-) (/usr/share/texlive/texmf-dist/tex/latex/datetime2/datetime2.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2/datetime2.sty
 Package: datetime2 2021/03/21 v1.5.7 (NLCT) date and time formats
- (/usr/share/texlive/texmf-dist/tex/latex/tracklang/tracklang.sty
-Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
- (/usr/share/texlive/texmf-dist/tex/generic/tracklang/tracklang.tex)) (/usr/share/texlive/texmf-dist/tex/latex/datetime2-galician/datetime2-galician.ldf
+
+(/usr/share/texlive/texmf-dist/tex/latex/tracklang/tracklang.sty
+Package: tracklang 2025/03/11 v1.6.6 (NLCT) Track Languages
+
+(/usr/share/texlive/texmf-dist/tex/generic/tracklang/tracklang.tex)
+Package tracklang Info: Found polyglossia BCP `gl' on input line 264.
+Package tracklang Info: Tracking dialect `gl' (language `galician') on input li
+ne 264.
+Package tracklang Info: Found polyglossia BCP `en-US' on input line 264.
+Package tracklang Info: Tracking dialect `american' (language `english') on inp
+ut line 264.
+Package tracklang Info: Tracking dialect `spainspanish' (language `spanish') on
+ input line 264.
+)
+Package tracklang Info: Tracking dialect `galician' (language `galician') on in
+put line 217.
+
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-galician/datetime2-galician.
+ldf
 File: datetime2-galician.ldf 2018/04/13 v1.1
- (/usr/share/texlive/texmf-dist/tex/latex/datetime2-galician/datetime2-galician-utf8.ldf
+
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-galician/datetime2-galician-
+utf8.ldf
 File: datetime2-galician-utf8.ldf 2018/04/13 v1.1
-)) (/usr/share/texlive/texmf-dist/tex/latex/datetime2-english/datetime2-en-US.ldf
+))
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-english/datetime2-en-US.ldf
 File: datetime2-en-US.ldf 2019/10/21 v1.05 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
+
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-english/datetime2-english-ba
+se.ldf
 File: datetime2-english-base.ldf 2019/10/21 v1.05 (NLCT)
-)) (/usr/share/texlive/texmf-dist/tex/latex/datetime2-spanish/datetime2-spanish.ldf
+))
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-spanish/datetime2-spanish.ld
+f
 File: datetime2-spanish.ldf 2017/11/13 v1.1
- (/usr/share/texlive/texmf-dist/tex/latex/datetime2-spanish/datetime2-spanish-utf8.ldf
+
+(/usr/share/texlive/texmf-dist/tex/latex/datetime2-spanish/datetime2-spanish-ut
+f8.ldf
 File: datetime2-spanish-utf8.ldf 2017/11/13 v1.1
 )) (/usr/share/texlive/texmf-dist/tex/latex/datetime2/datetime2-calc.sty
 Package: datetime2-calc 2021/03/21 v1.5.7 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks31
-))) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks32
-\pgfutil@tempdima=\dimen185
-\pgfutil@tempdimb=\dimen186
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box59
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.tex
-File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
-\pgfcalendarcurrentjulian=\count298
-\pgf@cal@easter@Y=\count299
-\pgf@cal@easter@G=\count300
-\pgf@cal@easter@C=\count301
-\pgf@cal@easter@X=\count302
-\pgf@cal@easter@Z=\count303
-\pgf@cal@easter@D=\count304
-\pgf@cal@easter@E=\count305
-\pgf@cal@easter@N=\count306
-\pgf@cal@easter@M=\count307
-\pgf@cal@easter@julianday=\count308
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex
+\pgfkeys@tmptoks=\toks32
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks33
+\pgfutil@tempdima=\dimen194
+\pgfutil@tempdimb=\dimen195
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box60
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
-\@dtm@julianday=\count309
-)) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-\f@nch@headwidth=\skip56
-\f@nch@O@elh=\skip57
-\f@nch@O@erh=\skip58
-\f@nch@O@olh=\skip59
-\f@nch@O@orh=\skip60
-\f@nch@O@elf=\skip61
-\f@nch@O@erf=\skip62
-\f@nch@O@olf=\skip63
-\f@nch@O@orf=\skip64
-) (/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtrantools.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.tex
+File: pgfcalendar.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+\pgfcalendarcurrentjulian=\count320
+\pgf@cal@easter@Y=\count321
+\pgf@cal@easter@G=\count322
+\pgf@cal@easter@C=\count323
+\pgf@cal@easter@X=\count324
+\pgf@cal@easter@Z=\count325
+\pgf@cal@easter@D=\count326
+\pgf@cal@easter@E=\count327
+\pgf@cal@easter@N=\count328
+\pgf@cal@easter@M=\count329
+\pgf@cal@easter@julianday=\count330
+))
+\@dtm@julianday=\count331
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip57
+\f@nch@offset@elh=\skip58
+\f@nch@offset@erh=\skip59
+\f@nch@offset@olh=\skip60
+\f@nch@offset@orh=\skip61
+\f@nch@offset@elf=\skip62
+\f@nch@offset@erf=\skip63
+\f@nch@offset@olf=\skip64
+\f@nch@offset@orf=\skip65
+\f@nch@height=\skip66
+\f@nch@footalignment=\skip67
+\f@nch@widthL=\skip68
+\f@nch@widthC=\skip69
+\f@nch@widthR=\skip70
+\@temptokenb=\toks34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtrantools.sty
 Package: IEEEtrantools 2015/08/26 V1.5 by Michael Shell
 
 -- See the "IEEEtrantools_doc.txt" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/tools/
-\@IEEEtrantmpdimenA=\dimen187
-\@IEEEtrantmpdimenB=\dimen188
-\@IEEEtrantmpdimenC=\dimen189
-\@IEEEtrantmpcountA=\count310
-\@IEEEtrantmpcountB=\count311
-\@IEEEtrantmpcountC=\count312
-\@IEEEtrantmptoksA=\toks33
-\IEEEnormaljot=\dimen190
-\IEEEquantizedlength=\dimen191
-\IEEEquantizedlengthdiff=\dimen192
-\IEEEquantizedtextheightdiff=\dimen193
-\IEEEilabelindentA=\dimen194
-\IEEEilabelindentB=\dimen195
-\IEEEilabelindent=\dimen196
-\IEEEelabelindent=\dimen197
-\IEEEdlabelindent=\dimen198
-\IEEElabelindent=\dimen199
-\IEEEiednormlabelsep=\dimen256
-\IEEEiedmathlabelsep=\dimen257
-\IEEEiedtopsep=\skip65
-\c@IEEEsubequation=\count313
-\@IEEEeqnnumcols=\count314
-\@IEEEeqncolcnt=\count315
-\@IEEEsubeqnnumrollback=\count316
-\IEEEPARstartletwidth=\dimen258
+\@IEEEtrantmpdimenA=\dimen196
+\@IEEEtrantmpdimenB=\dimen197
+\@IEEEtrantmpdimenC=\dimen198
+\@IEEEtrantmpcountA=\count332
+\@IEEEtrantmpcountB=\count333
+\@IEEEtrantmpcountC=\count334
+\@IEEEtrantmptoksA=\toks35
+\IEEEnormaljot=\dimen199
+\IEEEquantizedlength=\dimen256
+\IEEEquantizedlengthdiff=\dimen257
+\IEEEquantizedtextheightdiff=\dimen258
+\IEEEilabelindentA=\dimen259
+\IEEEilabelindentB=\dimen260
+\IEEEilabelindent=\dimen261
+\IEEEelabelindent=\dimen262
+\IEEEdlabelindent=\dimen263
+\IEEElabelindent=\dimen264
+\IEEEiednormlabelsep=\dimen265
+\IEEEiedmathlabelsep=\dimen266
+\IEEEiedtopsep=\skip71
+\c@IEEEsubequation=\count335
+\@IEEEeqnnumcols=\count336
+\@IEEEeqncolcnt=\count337
+\@IEEEsubeqnnumrollback=\count338
+\IEEEPARstartletwidth=\dimen267
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count317
-\lst@gtempboxa=\box60
-\lst@token=\toks34
-\lst@length=\count318
-\lst@currlwidth=\dimen259
-\lst@column=\count319
-\lst@pos=\count320
-\lst@lostspace=\dimen260
-\lst@width=\dimen261
-\lst@newlines=\count321
-\lst@lineno=\count322
-\lst@maxwidth=\dimen262
- (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count323
-\lst@skipnumbers=\count324
-\lst@framebox=\box61
-) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
+\lst@mode=\count339
+\lst@gtempboxa=\box61
+\lst@token=\toks36
+\lst@length=\count340
+\lst@currlwidth=\dimen268
+\lst@column=\count341
+\lst@pos=\count342
+\lst@lostspace=\dimen269
+\lst@width=\dimen270
+\lst@newlines=\count343
+\lst@lineno=\count344
+\lst@maxwidth=\dimen271
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count345
+\lst@skipnumbers=\count346
+\lst@framebox=\box62
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
- (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
-\c@tracingmulticols=\count325
-\mult@box=\box62
-\multicol@leftmargin=\dimen263
-\c@unbalance=\count326
-\c@collectmore=\count327
-\doublecol@number=\count328
-\multicoltolerance=\count329
-\multicolpretolerance=\count330
-\full@width=\dimen264
-\page@free=\dimen265
-\premulticols=\dimen266
-\postmulticols=\dimen267
-\multicolsep=\skip66
-\multicolbaselineskip=\skip67
-\partial@page=\box63
-\last@line=\box64
-\mc@boxedresult=\box65
-\maxbalancingoverflow=\dimen268
-\mult@rightbox=\box66
-\mult@grightbox=\box67
-\mult@firstbox=\box68
-\mult@gfirstbox=\box69
-\@tempa=\box70
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
+\c@tracingmulticols=\count347
+\mult@box=\box63
+\multicol@leftmargin=\dimen272
+\c@unbalance=\count348
+\c@collectmore=\count349
+\doublecol@number=\count350
+\multicoltolerance=\count351
+\multicolpretolerance=\count352
+\full@width=\dimen273
+\page@free=\dimen274
+\premulticols=\dimen275
+\postmulticols=\dimen276
+\multicolsep=\skip72
+\multicolbaselineskip=\skip73
+\partial@page=\box64
+\last@line=\box65
+\mc@boxedresult=\box66
+\maxbalancingoverflow=\dimen277
+\mult@rightbox=\box67
+\mult@grightbox=\box68
+\mult@firstbox=\box69
+\mult@gfirstbox=\box70
 \@tempa=\box71
 \@tempa=\box72
 \@tempa=\box73
@@ -822,48 +1236,56 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \@tempa=\box103
 \@tempa=\box104
 \@tempa=\box105
-\c@minrows=\count331
-\c@columnbadness=\count332
-\c@finalcolumnbadness=\count333
-\last@try=\dimen269
-\multicolovershoot=\dimen270
-\multicolundershoot=\dimen271
-\mult@nat@firstbox=\box106
-\colbreak@box=\box107
-\mc@col@check@num=\count334
-) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+\@tempa=\box106
+\c@minrows=\count353
+\c@columnbadness=\count354
+\c@finalcolumnbadness=\count355
+\last@try=\dimen278
+\multicolovershoot=\dimen279
+\multicolundershoot=\dimen280
+\mult@nat@firstbox=\box107
+\colbreak@box=\box108
+\mc@col@check@num=\count356
+\g__mc_curr_col_int=\count357
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip68
-\bibsep=\skip69
+\bibhang=\skip74
+\bibsep=\skip75
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count335
-) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+\c@NAT@ctr=\count358
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
- (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen272
-\captionmargin=\dimen273
-\caption@leftmargin=\dimen274
-\caption@rightmargin=\dimen275
-\caption@width=\dimen276
-\caption@indent=\dimen277
-\caption@parindent=\dimen278
-\caption@hangindent=\dimen279
+\caption@tempdima=\dimen281
+\captionmargin=\dimen282
+\caption@leftmargin=\dimen283
+\caption@rightmargin=\dimen284
+\caption@width=\dimen285
+\caption@indent=\dimen286
+\caption@parindent=\dimen287
+\caption@hangindent=\dimen288
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count336
-\c@continuedfloat=\count337
+\c@caption@flags=\count359
+\c@continuedfloat=\count360
 Package caption Info: listings package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count338
+\c@subfigure=\count361
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count339
-) (/usr/share/texlive/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+\c@subtable=\count362
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
 
@@ -871,234 +1293,210 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box108
-\beforetitleunit=\skip70
-\aftertitleunit=\skip71
-\ttl@plus=\dimen280
-\ttl@minus=\dimen281
-\ttl@toksa=\toks35
-\titlewidth=\dimen282
-\titlewidthlast=\dimen283
-\titlewidthfirst=\dimen284
-) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip17
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box109
+\beforetitleunit=\skip76
+\aftertitleunit=\skip77
+\ttl@plus=\dimen289
+\ttl@minus=\dimen290
+\ttl@toksa=\toks37
+\titlewidth=\dimen291
+\titlewidthlast=\dimen292
+\titlewidthfirst=\dimen293
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
- (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count340
-\c@Blindtext=\count341
-\c@blind@countparstart=\count342
-\blind@countxx=\count343
-\blindtext@numBlindtext=\count344
-\blind@countyy=\count345
-\c@blindlist=\count346
-\c@blindlistlevel=\count347
-\c@blindlist@level=\count348
-\blind@listitem=\count349
-\c@blind@listcount=\count350
-\c@blind@levelcount=\count351
-\blind@mathformula=\count352
-\blind@Mathformula=\count353
-\c@blind@randomcount=\count354
-\c@blind@randommax=\count355
-\c@blind@pangramcount=\count356
-\c@blind@pangrammax=\count357
-) (/usr/share/texlive/texmf-dist/tex/latex/silence/silence.sty
-Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error messages
-\sl@Save=\count358
-\sl@StateNumber=\count359
-\sl@MessageCount=\count360
-\sl@Casualties=\count361
-\sl@Filter=\toks36
-\sl@Message=\toks37
-\sl@UnexpandedMessage=\toks38
-\sl@Mess@ge=\toks39
-\sl@WarningCount=\count362
-\sl@WarningNumber=\count363
-\sl@WarningCasualties=\count364
-\sl@TempBOW=\toks40
-\sl@BankOfWarnings=\toks41
+\c@blindtext=\count363
+\c@Blindtext=\count364
+\c@blind@countparstart=\count365
+\blind@countxx=\count366
+\blindtext@numBlindtext=\count367
+\blind@countyy=\count368
+\c@blindlist=\count369
+\c@blindlistlevel=\count370
+\c@blindlist@level=\count371
+\blind@listitem=\count372
+\c@blind@listcount=\count373
+\c@blind@levelcount=\count374
+\blind@mathformula=\count375
+\blind@Mathformula=\count376
+\c@blind@randomcount=\count377
+\c@blind@randommax=\count378
+\c@blind@pangramcount=\count379
+\c@blind@pangrammax=\count380
+)
+(/usr/share/texlive/texmf-dist/tex/latex/silence/silence.sty
+Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
+sages
+\sl@Save=\count381
+\sl@StateNumber=\count382
+\sl@MessageCount=\count383
+\sl@Casualties=\count384
+\sl@Filter=\toks38
+\sl@Message=\toks39
+\sl@UnexpandedMessage=\toks40
+\sl@Mess@ge=\toks41
+\sl@WarningCount=\count385
+\sl@WarningNumber=\count386
+\sl@WarningCasualties=\count387
+\sl@TempBOW=\toks42
+\sl@BankOfWarnings=\toks43
 LaTeX Info: Redefining \GenericWarning on input line 433.
-\sl@ErrorCount=\count365
-\sl@ErrorNumber=\count366
-\sl@ErrorCasualties=\count367
-\sl@TempBOE=\toks42
-\sl@BankOfErrors=\toks43
+\sl@ErrorCount=\count388
+\sl@ErrorNumber=\count389
+\sl@ErrorCasualties=\count390
+\sl@TempBOE=\toks44
+\sl@BankOfErrors=\toks45
 LaTeX Info: Redefining \GenericError on input line 601.
-) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
- (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-)) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count368
+\c@section@level=\count391
 )
-\@linkdim=\dimen285
-\Hy@linkcounter=\count369
-\Hy@pagecounter=\count370
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
-) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen294
+\Hy@linkcounter=\count392
+\Hy@pagecounter=\count393
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count371
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count394
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4062.
- (/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 4062.
-Package hyperref Info: Hyper figures OFF on input line 4179.
-Package hyperref Info: Link nesting OFF on input line 4184.
-Package hyperref Info: Hyper index ON on input line 4187.
-Package hyperref Info: Plain pages OFF on input line 4194.
-Package hyperref Info: Backreferencing OFF on input line 4199.
+Package hyperref Info: Option `unicode' set `true' on input line 4066.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4066.
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count372
-LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen286
- (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count395
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen295
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
-))
-\Fld@menulength=\count373
-\Field@Width=\dimen287
-\Fld@charsize=\dimen288
-Package hyperref Info: Hyper figures OFF on input line 6063.
-Package hyperref Info: Link nesting OFF on input line 6068.
-Package hyperref Info: Hyper index ON on input line 6071.
-Package hyperref Info: backreferencing OFF on input line 6078.
-Package hyperref Info: Link coloring ON on input line 6081.
-Package hyperref Info: Link coloring with OCG OFF on input line 6088.
-Package hyperref Info: PDF/A mode OFF on input line 6093.
- (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
-\Hy@abspage=\count374
-\c@Item=\count375
-\c@Hfootnote=\count376
+))
+\Fld@menulength=\count396
+\Field@Width=\dimen296
+\Fld@charsize=\dimen297
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring ON on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count397
+\c@Item=\count398
+\c@Hfootnote=\count399
 )
 Package hyperref Info: Driver (autodetected): hxetex.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
-\pdfm@box=\box109
-\c@Hy@AnnotLevel=\count377
-\HyField@AnnotCount=\count378
-\Fld@listcount=\count379
-\c@bookmark@seq@number=\count380
- (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
-with kernel methods
-) (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2025-07-12 v7.01o Hyperref driver for XeTeX
+\pdfm@box=\box110
+\c@Hy@AnnotLevel=\count400
+\HyField@AnnotCount=\count401
+\Fld@listcount=\count402
+\c@bookmark@seq@number=\count403
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
 )
-\Hy@SectionHShift=\skip72
-) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
+\Hy@SectionHShift=\skip78
+)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
-) (/usr/share/texlive/texmf-dist/tex/latex/footnotebackref/footnotebackref.sty
-Package: footnotebackref 2012/07/01 v1.0 Backreferences for footnotes (Holger Lange)
- (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+
+)
+(/usr/share/texlive/texmf-dist/tex/latex/footnotebackref/footnotebackref.sty
+Package: footnotebackref 2012/07/01 v1.0 Backreferences for footnotes (Holger L
+ange)
+
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-\c@BackrefHyperFootnoteCounter=\count381
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
-Package: glossaries 2023/09/29 v4.53 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
-Package: mfirstuc 2022/10/14 v2.08 (NLCT)
-\@glsmfirst=\toks44
-\@glsmrest=\toks45
-) (/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+\c@BackrefHyperFootnoteCounter=\count404
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
+Package: glossaries 2025/08/11 v4.8 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
+Package: mfirstuc 2025/04/03 v2.09 (NLCT)
+\@glsmfirst=\toks46
+\@glsmrest=\toks47
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
 Package: xfor 2009/02/05 v1.05 (NLCT)
-) (/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
-Package: datatool-base 2019/09/27 v2.32 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
-Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count382
-) (/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
-Package: datatool-fp 2019/09/27 v2.32 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
-Package: fp 1995/04/02
- `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
-Package: defpattern 1994/10/12
-\actioncount=\count383
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
-Package: fp-basic 1996/05/13
-\FP@xs=\count384
-\FP@xia=\count385
-\FP@xib=\count386
-\FP@xfa=\count387
-\FP@xfb=\count388
-\FP@rega=\count389
-\FP@regb=\count390
-\FP@regs=\count391
-\FP@times=\count392
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
-Package: fp-addons 1995/03/15
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
-Package: fp-snap 1995/04/05
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
-Package: fp-exp 1995/04/03
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
-Package: fp-trigo 1995/04/14
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
-Package: fp-pas 1994/08/29
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
-Package: fp-random 1995/02/23
-\FPseed=\count393
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
-Package: fp-eqn 1995/04/03
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
-Package: fp-upn 1996/10/21
-) (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
-Package: fp-eval 1995/04/03
-)))
-\@dtl@toks=\toks46
-\@dtl@tmpcount=\count394
-\dtl@tmplength=\skip73
-\dtl@sortresult=\count395
-\@dtl@numgrpsepcount=\count396
-\@dtl@datatype=\count397
-\dtl@codeA=\count398
-\dtl@codeB=\count399
-\@dtl@foreach@level=\count400
 )
 
 Package glossaries Warning: No language module detected for `gl'.
@@ -1106,351 +1504,546 @@ Package glossaries Warning: No language module detected for `gl'.
 (glossaries)                Please check on CTAN for a bundle called
 (glossaries)                `glossaries-galician' or similar.
 
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries-english/glossaries-english.ldf
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-english/glossaries-english.
+ldf
 File: glossaries-english.ldf 2014/11/23 v1.0
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries-spanish/glossaries-spanish.ldf
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-spanish/glossaries-spanish.
+ldf
 File: glossaries-spanish.ldf 2014/11/23 v1.0
- (/usr/share/texlive/texmf-dist/tex/latex/glossaries-spanish/glossaries-spanish-utf8.ldf))
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-spanish/glossaries-spanish-
+utf8.ldf))
 
 Package glossaries Warning: No language module detected for `galician'.
 (glossaries)                Language modules need to be installed separately.
 (glossaries)                Please check on CTAN for a bundle called
 (glossaries)                `glossaries-galician' or similar.
 
-\gls@level=\count401
-\@gls@tmpb=\toks47
-\gls@tmplen=\skip74
-\glskeylisttok=\toks48
-\glslabeltok=\toks49
-\glsshorttok=\toks50
-\glslongtok=\toks51
-(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.sty
-Package: glossary-hypernav 2023/09/29 v4.53 (NLCT)
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
-Package: glossary-list 2023/09/29 v4.53 (NLCT)
-\glslistdottedwidth=\skip75
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
-Package: glossary-long 2023/09/29 v4.53 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
-\LTleft=\skip76
-\LTright=\skip77
-\LTpre=\skip78
-\LTpost=\skip79
-\LTchunksize=\count402
-\LTcapwidth=\dimen289
-\LT@head=\box110
-\LT@firsthead=\box111
-\LT@foot=\box112
-\LT@lastfoot=\box113
-\LT@gbox=\box114
-\LT@cols=\count403
-\LT@rows=\count404
-\c@LT@tables=\count405
-\c@LT@chunks=\count406
-\LT@p@ftn=\toks52
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2025/04/25 v3.4.1 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-l3fp.def
+File: datatool-l3fp.def 2025/04/25 v3.4.1 (NLCT)
 )
-\glsdescwidth=\skip80
-\glspagelistwidth=\skip81
-) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
-Package: glossary-super 2023/09/29 v4.53 (NLCT)
- (/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
-Package: supertabular 2020/02/02 v4.1g the supertabular environment
-\c@tracingst=\count407
-\ST@wd=\dimen290
-\ST@rightskip=\skip82
-\ST@leftskip=\skip83
-\ST@parfillskip=\skip84
-\ST@pageleft=\dimen291
-\ST@headht=\dimen292
-\ST@tailht=\dimen293
-\ST@pagesofar=\dimen294
-\ST@pboxht=\dimen295
-\ST@lineht=\dimen296
-\ST@prevht=\dimen297
-\ST@toadd=\dimen298
-\ST@dimen=\dimen299
-\ST@pbox=\box115
-)) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
-Package: glossary-tree 2023/09/29 v4.53 (NLCT)
-\glstreeindent=\skip85
+\@dtl@toks=\toks48
+\@dtl@tmpcount=\count405
+\dtl@tmplength=\skip79
+\l__datatool_measure_box=\box111
+\dtl@sortresult=\count406
+
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-utf8.ldf
+File: datatool-utf8.ldf 2025/04/25 v3.4.1 (NLCT)
+)
+\@dtl@datatype=\count407
+\l__datatool_tmpa_int=\count408
+\l__datatool_tmpb_int=\count409
+\l__datatool_tmpc_int=\count410
+\l__datatool_tmpd_int=\count411
+\l__datatool_count_int=\count412
+\l__datatool_tmp_datatype_int=\count413
+\l__datatool_tmpa_dim=\dimen298
+\l__datatool_tmpb_dim=\dimen299
+\c_datatool_unknown_int=\count414
+\l__datatool_year_int=\count415
+\l__datatool_month_int=\count416
+\l__datatool_day_int=\count417
+\l__datatool_hour_int=\count418
+\l__datatool_minute_int=\count419
+\l__datatool_second_int=\count420
+\l__datatool_tzhour_int=\count421
+\l__datatool_tzminute_int=\count422
+\l__datatool_julian_int=\count423
+\l__datatool_local_julian_int=\count424
+\l__datatool_prefix_int=\count425
+\l__datatool_suffix_int=\count426
+\@dtl@foreach@level=\count427
+
+
+Package tracklang Warning: No `datatool' support for dialect `gl'  on input lin
+e 9908.
+
+(/usr/share/texlive/texmf-dist/tex/latex/datatool-regions/datatool-US.ldf
+File: datatool-US.ldf 2025/03/01 v1.0
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool-english/datatool-english.ldf
+File: datatool-english.ldf 2025/03/12 v1.1 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/datatool-english/datatool-english-utf8
+.ldf
+File: datatool-english-utf8.ldf 2025/03/12 v1.1 (NLCT)
+))
+
+Package tracklang Warning: No `datatool' support for dialect `spainspanish'  on
+ input line 9908.
+
+
+Package tracklang Warning: No `datatool' support for dialect `spainspanish'  on
+ input line 9908.
+
+
+Package tracklang Warning: No `datatool' support for dialect `galician'  on inp
+ut line 9908.
+
+\dtl@codeA=\count428
+\dtl@codeB=\count429
+)
+\gls@level=\count430
+\@gls@tmpb=\toks49
+\gls@tmplen=\skip80
+\l__glossaries_tmpa_dim=\dimen300
+\l__glossaries_tmpb_dim=\dimen301
+\glskeylisttok=\toks50
+\glslabeltok=\toks51
+\glsshorttok=\toks52
+\glslongtok=\toks53
+
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.st
+y
+Package: glossary-hypernav 2025/08/11 v4.8 (NLCT)
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
+Package: glossary-list 2025/08/11 v4.8 (NLCT)
+\glslistdottedwidth=\skip81
+) (/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
+Package: glossary-long 2025/08/11 v4.8 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
+\LTleft=\skip82
+\LTright=\skip83
+\LTpre=\skip84
+\LTpost=\skip85
+\LTchunksize=\count431
+\LTcapwidth=\dimen302
+\LT@head=\box112
+\LT@firsthead=\box113
+\LT@foot=\box114
+\LT@lastfoot=\box115
+\LT@gbox=\box116
+\LT@cols=\count432
+\LT@rows=\count433
+\c@LT@tables=\count434
+\c@LT@chunks=\count435
+\LT@p@ftn=\toks54
+)
+\glsdescwidth=\skip86
+\glspagelistwidth=\skip87
+)
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
+Package: glossary-super 2025/08/11 v4.8 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/supertabular/supertabular.sty
+Package: supertabular 2024/07/20 v4.2c the supertabular environment
+\c@tracingst=\count436
+\ST@wd=\dimen303
+\ST@rightskip=\skip88
+\ST@leftskip=\skip89
+\ST@parfillskip=\skip90
+\ST@pageleft=\dimen304
+\ST@headht=\dimen305
+\ST@tailht=\dimen306
+\ST@pagesofar=\dimen307
+\ST@pboxht=\dimen308
+\ST@rowht=\dimen309
+\ST@prevht=\dimen310
+\ST@toadd=\dimen311
+\ST@dimen=\dimen312
+\ST@pbox=\box117
+))
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
+Package: glossary-tree 2025/08/11 v4.8 (NLCT)
+\l__glossaries_tree_max_known_level_int=\count437
+\l__glossaries_tree_offset_dim=\dimen313
+\l__glossaries_tree_namewidth_dim=\dimen314
+\l__glossaries_tree_symbolwidth_dim=\dimen315
+\l__glossaries_tree_prenamesym_width_dim=\dimen316
+\l__glossaries_tree_presubnamesym_width_dim=\dimen317
+\l__glossaries_tree_namewidth_padding_dim=\dimen318
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen319
+\l__glossaries_tree_namesymbolwidth_dim=\dimen320
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen321
+\l__glossaries_tree_level_int=\count438
+\glstreeindent=\skip91
 ))
 \glswrite=\write3
 \glo@main@file=\write4
 \openout4 = `memoria_tfg.glo'.
 
-Package glossaries Info: Writing glossary file memoria_tfg.glo on input line 230.
+Package glossaries Info: Writing glossary file memoria_tfg.glo on input line 23
+0.
 \glo@acronym@file=\write5
 \openout5 = `memoria_tfg.acn'.
 
-Package glossaries Info: Writing glossary file memoria_tfg.acn on input line 230.
- (./bibliografia/acronimos.tex) (./bibliografia/glosario.tex)) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen300
-\TX@old@table=\dimen301
-\TX@old@col=\dimen302
-\TX@target=\dimen303
-\TX@delta=\dimen304
-\TX@cols=\count408
-\TX@ftn=\toks53
-) (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
-\pgf@x=\dimen305
-\pgf@y=\dimen306
-\pgf@xa=\dimen307
-\pgf@ya=\dimen308
-\pgf@xb=\dimen309
-\pgf@yb=\dimen310
-\pgf@xc=\dimen311
-\pgf@yc=\dimen312
-\pgf@xd=\dimen313
-\pgf@yd=\dimen314
+Package glossaries Info: Writing glossary file memoria_tfg.acn on input line 23
+0.
+
+(./bibliografia/acronimos.tex) (./bibliografia/glosario.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen322
+\TX@old@table=\dimen323
+\TX@old@col=\dimen324
+\TX@target=\dimen325
+\TX@delta=\dimen326
+\TX@cols=\count439
+\TX@ftn=\toks55
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@x=\dimen327
+\pgf@y=\dimen328
+\pgf@xa=\dimen329
+\pgf@ya=\dimen330
+\pgf@xb=\dimen331
+\pgf@yb=\dimen332
+\pgf@xc=\dimen333
+\pgf@yc=\dimen334
+\pgf@xd=\dimen335
+\pgf@yd=\dimen336
 \w@pgf@writea=\write6
 \r@pgf@reada=\read2
-\c@pgf@counta=\count409
-\c@pgf@countb=\count410
-\c@pgf@countc=\count411
-\c@pgf@countd=\count412
-\t@pgf@toka=\toks54
-\t@pgf@tokb=\toks55
-\t@pgf@tokc=\toks56
-\pgf@sys@id@count=\count413
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+\c@pgf@counta=\count440
+\c@pgf@countb=\count441
+\c@pgf@countc=\count442
+\c@pgf@countd=\count443
+\t@pgf@toka=\toks56
+\t@pgf@tokb=\toks57
+\t@pgf@tokc=\toks58
+\pgf@sys@id@count=\count444
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
 Driver file for pgf: pgfsys-xetex.def
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
-File: pgfsys-xetex.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
+File: pgfsys-xetex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 )
-\pgfsys@objnum=\count414
-))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count415
-\pgfsyssoftpath@bigbuffer@items=\count416
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen315
-\pgfmath@count=\count417
-\pgfmath@box=\box116
-\pgfmath@toks=\toks57
-\pgfmath@stack@operand=\toks58
-\pgfmath@stack@operation=\toks59
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count418
-)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen316
-\pgf@picmaxx=\dimen317
-\pgf@picminy=\dimen318
-\pgf@picmaxy=\dimen319
-\pgf@pathminx=\dimen320
-\pgf@pathmaxx=\dimen321
-\pgf@pathminy=\dimen322
-\pgf@pathmaxy=\dimen323
-\pgf@xx=\dimen324
-\pgf@xy=\dimen325
-\pgf@yx=\dimen326
-\pgf@yy=\dimen327
-\pgf@zx=\dimen328
-\pgf@zy=\dimen329
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen330
-\pgf@path@lasty=\dimen331
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen332
-\pgf@shorten@start@additional=\dimen333
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box117
-\pgf@hbox=\box118
-\pgf@layerbox@main=\box119
-\pgf@picture@serial@count=\count419
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen334
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen335
-\pgf@pt@y=\dimen336
-\pgf@pt@temp=\dimen337
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen338
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen339
-\pgf@sys@shading@range@num=\count420
-\pgf@shadingcount=\count421
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box120
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box121
+\pgfsys@objnum=\count445
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count446
+\pgfsyssoftpath@bigbuffer@items=\count447
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen337
+\pgfmath@count=\count448
+\pgfmath@box=\box118
+\pgfmath@toks=\toks59
+\pgfmath@stack@operand=\toks60
+\pgfmath@stack@operation=\toks61
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count449
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen338
+\pgf@picmaxx=\dimen339
+\pgf@picminy=\dimen340
+\pgf@picmaxy=\dimen341
+\pgf@pathminx=\dimen342
+\pgf@pathmaxx=\dimen343
+\pgf@pathminy=\dimen344
+\pgf@pathmaxy=\dimen345
+\pgf@xx=\dimen346
+\pgf@xy=\dimen347
+\pgf@yx=\dimen348
+\pgf@yy=\dimen349
+\pgf@zx=\dimen350
+\pgf@zy=\dimen351
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen352
+\pgf@path@lasty=\dimen353
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen354
+\pgf@shorten@start@additional=\dimen355
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box119
+\pgf@hbox=\box120
+\pgf@layerbox@main=\box121
+\pgf@picture@serial@count=\count450
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen356
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen357
+\pgf@pt@y=\dimen358
+\pgf@pt@temp=\dimen359
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen360
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen361
+\pgf@sys@shading@range@num=\count451
+\pgf@shadingcount=\count452
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box122
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box123
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen340
-\pgf@nodesepend=\dimen341
-) (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen342
-\pgffor@skip=\dimen343
-\pgffor@stack=\toks60
-\pgffor@toks=\toks61
-)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2023-01-15 v3.1.10 (3.1.10)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count422
-\pgfplotmarksize=\dimen344
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-\tikz@lastx=\dimen345
-\tikz@lasty=\dimen346
-\tikz@lastxsaved=\dimen347
-\tikz@lastysaved=\dimen348
-\tikz@lastmovetox=\dimen349
-\tikz@lastmovetoy=\dimen350
-\tikzleveldistance=\dimen351
-\tikzsiblingdistance=\dimen352
-\tikz@figbox=\box122
-\tikz@figbox@bg=\box123
-\tikz@tempbox=\box124
-\tikz@tempbox@bg=\box125
-\tikztreelevel=\count423
-\tikznumberofchildren=\count424
-\tikznumberofcurrentchild=\count425
-\tikz@fig@count=\count426
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count427
-\pgfmatrixcurrentcolumn=\count428
-\pgf@matrix@numberofcolumns=\count429
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen362
+\pgf@nodesepend=\dimen363
 )
-\tikz@expandcount=\count430
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen353
-\pgfarrowlength=\dimen354
-\pgfarrowwidth=\dimen355
-\pgfarrowlinewidth=\dimen356
-) (./memoria_tfg.aux (./portada/portada.aux) (./portada/resumo.aux) (./contido/introducion.aux) (./contido/estado_arte.aux) (./contido/metodoloxia_planificacion.aux) (./contido/diseno_plataforma.aux) (./contido/implementacion.aux) (./contido/validacion.aux) (./contido/conclusions.aux) (./anexos/adicional.aux))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen364
+\pgffor@skip=\dimen365
+\pgffor@stack=\toks62
+\pgffor@toks=\toks63
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count453
+\pgfplotmarksize=\dimen366
+)
+\tikz@lastx=\dimen367
+\tikz@lasty=\dimen368
+\tikz@lastxsaved=\dimen369
+\tikz@lastysaved=\dimen370
+\tikz@lastmovetox=\dimen371
+\tikz@lastmovetoy=\dimen372
+\tikzleveldistance=\dimen373
+\tikzsiblingdistance=\dimen374
+\tikz@figbox=\box124
+\tikz@figbox@bg=\box125
+\tikz@tempbox=\box126
+\tikz@tempbox@bg=\box127
+\tikztreelevel=\count454
+\tikznumberofchildren=\count455
+\tikznumberofcurrentchild=\count456
+\tikz@fig@count=\count457
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count458
+\pgfmatrixcurrentcolumn=\count459
+\pgf@matrix@numberofcolumns=\count460
+)
+\tikz@expandcount=\count461
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen375
+\pgfarrowlength=\dimen376
+\pgfarrowwidth=\dimen377
+\pgfarrowlinewidth=\dimen378
+) (./memoria_tfg.aux (./portada/portada.aux) (./portada/resumo.aux)
+(./contido/introducion.aux) (./contido/estado_arte.aux)
+(./contido/metodoloxia_planificacion.aux) (./contido/diseno_plataforma.aux)
+(./contido/implementacion.aux) (./contido/validacion.aux)
+(./contido/conclusions.aux) (./anexos/adicional.aux))
 \openout1 = `memoria_tfg.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 92.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
+LaTeX Font Info:    ... okay on input line 105.
 
-Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 92.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 92.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 92.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 92.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 92.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 92.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 92.
-LaTeX Font Info:    Redeclaring math accent \check on input line 92.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 92.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 92.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 92.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 92.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 92.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 105.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 105.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 105.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 105.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 105.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 105.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 105.
+LaTeX Font Info:    Redeclaring math accent \check on input line 105.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 105.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 105.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 105.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 105.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 105.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 92.
+(Font)              `operators' in the math version `normal' on input line 105.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/LinLibertine(0)/m/n on input line 92.
+(Font)                  OT1/cmr/m/n --> TU/LinLibertine(0)/m/n on input line 10
+5.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 92.
+(Font)              `operators' in the math version `bold' on input line 105.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/m/n on input line 92.
+(Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/m/n on input line 1
+05.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/m/n on input line 92.
+(Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/m/n on in
+put line 105.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/LinLibertine(0)/m/it on input line 92.
+(Font)                  OT1/cmr/m/it --> TU/LinLibertine(0)/m/it on input line 
+105.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/b/n on input line 92.
+(Font)                  OT1/cmr/bx/n --> TU/LinLibertine(0)/b/n on input line 1
+05.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/LinBiolinum(0)/m/n on input line 92.
+(Font)                  OT1/cmss/m/n --> TU/LinBiolinum(0)/m/n on input line 10
+5.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/m/n on input line 92.
+(Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/m/n on input line 1
+05.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/b/n on input line 92.
+(Font)                  TU/LinLibertine(0)/m/n --> TU/LinLibertine(0)/b/n on in
+put line 105.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/LinLibertine(0)/b/it on input line 92.
+(Font)                  OT1/cmr/bx/it --> TU/LinLibertine(0)/b/it on input line
+ 105.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/LinBiolinum(0)/b/n on input line 92.
+(Font)                  OT1/cmss/bx/n --> TU/LinBiolinum(0)/b/n on input line 1
+05.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/b/n on input line 92.
+(Font)                  OT1/cmtt/m/n --> TU/LinLibertine(5)/b/n on input line 1
+05.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1486,7 +2079,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count431
+\c@lstlisting=\count462
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -1495,19 +2088,19 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 92.
- (./memoria_tfg.out) (./memoria_tfg.out)
+Package hyperref Info: Link coloring ON on input line 105.
+
+(./memoria_tfg.out) (./memoria_tfg.out)
 \@outlinefile=\write7
 \openout7 = `memoria_tfg.out'.
 
-LaTeX Info: Redefining \rmfamily on input line 92.
-LaTeX Info: Redefining \sffamily on input line 92.
-LaTeX Info: Redefining \ttfamily on input line 92.
 \openout2 = `portada/portada.aux'.
 
  (./portada/portada.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 4.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
@@ -1518,7 +2111,8 @@ File: imaxes/udc.png Graphic file (type bmp)
 <imaxes/udc.png>
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 9.
-File: imaxes/euro_inf_seal_bachelor_light background.png Graphic file (type bmp)
+File: imaxes/euro_inf_seal_bachelor_light background.png Graphic file (type bmp
+)
 <imaxes/euro_inf_seal_bachelor_light background.png>
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 20.74pt on input line 15.
@@ -1528,49 +2122,51 @@ LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 8.0pt on input line 26.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 26.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 26.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 26
+.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 27.
- [1
+
+
+[1
 
 \openout3 = `memoria_tfg.ist'.
 
 
 ])
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
-(Font)              scaled to size 10.95pt on input line 99.
- [1
+(Font)              scaled to size 10.95pt on input line 112.
+
+
+[1
 
 
 ]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 101.
- [2
+(Font)              scaled to size 10.95pt on input line 114.
+
+
+[2
 
 ]
 \openout2 = `portada/resumo.aux'.
 
- (./portada/resumo.tex
-LaTeX Info: Redefining \rmfamily on input line 12.
-LaTeX Info: Redefining \sffamily on input line 12.
-LaTeX Info: Redefining \ttfamily on input line 12.
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
-LaTeX Info: Redefining \rmfamily on input line 22.
-LaTeX Info: Redefining \sffamily on input line 22.
-LaTeX Info: Redefining \ttfamily on input line 22.
- (./portada/palabras_chave.tex
+ (./portada/resumo.tex (./portada/palabras_chave.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -1580,157 +2176,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
+
+
+
+
+
+
 [1
 
 
-]) [2])
+]
+
+
+
+
+
+)
+
+[2])
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 111.
+(Font)              scaled to size 24.88pt on input line 124.
  (./memoria_tfg.toc
-LaTeX Info: Redefining \rmfamily on input line 2.
-LaTeX Info: Redefining \sffamily on input line 2.
-LaTeX Info: Redefining \ttfamily on input line 2.
-LaTeX Info: Redefining \rmfamily on input line 3.
-LaTeX Info: Redefining \sffamily on input line 3.
-LaTeX Info: Redefining \ttfamily on input line 3.
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
-LaTeX Info: Redefining \rmfamily on input line 4.
-LaTeX Info: Redefining \sffamily on input line 4.
-LaTeX Info: Redefining \ttfamily on input line 4.
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
-Package polyglossia Info: Option: spanish, variant=spanish.
-Package polyglossia Info: Option: Spanish, spanishoperators=none.
-LaTeX Info: Redefining \rmfamily on input line 5.
-LaTeX Info: Redefining \sffamily on input line 5.
-LaTeX Info: Redefining \ttfamily on input line 5.
- [1
+
+[1
 
 
 
 ]
+
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 69.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/sl' in size <10> not available
-(Font)              Font shape `TU/LinLibertine(0)/m/it' tried instead on input line 69.
+(Font)              scaled to size 10.0pt on input line 65.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/sl' in size <10> not avail
+able
+(Font)              Font shape `TU/LinLibertine(0)/m/it' tried instead on input
+ line 65.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 69.
- [2])
+(Font)              scaled to size 10.0pt on input line 65.
+[2])
 \tf@toc=\write8
 \openout8 = `memoria_tfg.toc'.
 
- [3] (./memoria_tfg.lof
-LaTeX Info: Redefining \rmfamily on input line 3.
-LaTeX Info: Redefining \sffamily on input line 3.
-LaTeX Info: Redefining \ttfamily on input line 3.
-LaTeX Info: Redefining \rmfamily on input line 6.
-LaTeX Info: Redefining \sffamily on input line 6.
-LaTeX Info: Redefining \ttfamily on input line 6.
-LaTeX Info: Redefining \rmfamily on input line 8.
-LaTeX Info: Redefining \sffamily on input line 8.
-LaTeX Info: Redefining \ttfamily on input line 8.
-LaTeX Info: Redefining \rmfamily on input line 11.
-LaTeX Info: Redefining \sffamily on input line 11.
-LaTeX Info: Redefining \ttfamily on input line 11.
-LaTeX Info: Redefining \rmfamily on input line 13.
-LaTeX Info: Redefining \sffamily on input line 13.
-LaTeX Info: Redefining \ttfamily on input line 13.
-LaTeX Info: Redefining \rmfamily on input line 15.
-LaTeX Info: Redefining \sffamily on input line 15.
-LaTeX Info: Redefining \ttfamily on input line 15.
-LaTeX Info: Redefining \rmfamily on input line 17.
-LaTeX Info: Redefining \sffamily on input line 17.
-LaTeX Info: Redefining \ttfamily on input line 17.
-LaTeX Info: Redefining \rmfamily on input line 19.
-LaTeX Info: Redefining \sffamily on input line 19.
-LaTeX Info: Redefining \ttfamily on input line 19.
-LaTeX Info: Redefining \rmfamily on input line 21.
-LaTeX Info: Redefining \sffamily on input line 21.
-LaTeX Info: Redefining \ttfamily on input line 21.
-LaTeX Info: Redefining \rmfamily on input line 24.
-LaTeX Info: Redefining \sffamily on input line 24.
-LaTeX Info: Redefining \ttfamily on input line 24.
-LaTeX Info: Redefining \rmfamily on input line 27.
-LaTeX Info: Redefining \sffamily on input line 27.
-LaTeX Info: Redefining \ttfamily on input line 27.
-LaTeX Info: Redefining \rmfamily on input line 29.
-LaTeX Info: Redefining \sffamily on input line 29.
-LaTeX Info: Redefining \ttfamily on input line 29.
-LaTeX Info: Redefining \rmfamily on input line 30.
-LaTeX Info: Redefining \sffamily on input line 30.
-LaTeX Info: Redefining \ttfamily on input line 30.
-LaTeX Info: Redefining \rmfamily on input line 32.
-LaTeX Info: Redefining \sffamily on input line 32.
-LaTeX Info: Redefining \ttfamily on input line 32.
-LaTeX Info: Redefining \rmfamily on input line 34.
-LaTeX Info: Redefining \sffamily on input line 34.
-LaTeX Info: Redefining \ttfamily on input line 34.
-LaTeX Info: Redefining \rmfamily on input line 36.
-LaTeX Info: Redefining \sffamily on input line 36.
-LaTeX Info: Redefining \ttfamily on input line 36.
-)
+
+
+[3] (./memoria_tfg.lof
+
+[4
+
+])
 \tf@lof=\write9
 \openout9 = `memoria_tfg.lof'.
 
- [4
 
-] (./memoria_tfg.lot
-LaTeX Info: Redefining \rmfamily on input line 3.
-LaTeX Info: Redefining \sffamily on input line 3.
-LaTeX Info: Redefining \ttfamily on input line 3.
-LaTeX Info: Redefining \rmfamily on input line 5.
-LaTeX Info: Redefining \sffamily on input line 5.
-LaTeX Info: Redefining \ttfamily on input line 5.
-LaTeX Info: Redefining \rmfamily on input line 8.
-LaTeX Info: Redefining \sffamily on input line 8.
-LaTeX Info: Redefining \ttfamily on input line 8.
-LaTeX Info: Redefining \rmfamily on input line 10.
-LaTeX Info: Redefining \sffamily on input line 10.
-LaTeX Info: Redefining \ttfamily on input line 10.
-LaTeX Info: Redefining \rmfamily on input line 11.
-LaTeX Info: Redefining \sffamily on input line 11.
-LaTeX Info: Redefining \ttfamily on input line 11.
-LaTeX Info: Redefining \rmfamily on input line 12.
-LaTeX Info: Redefining \sffamily on input line 12.
-LaTeX Info: Redefining \ttfamily on input line 12.
-LaTeX Info: Redefining \rmfamily on input line 13.
-LaTeX Info: Redefining \sffamily on input line 13.
-LaTeX Info: Redefining \ttfamily on input line 13.
-LaTeX Info: Redefining \rmfamily on input line 14.
-LaTeX Info: Redefining \sffamily on input line 14.
-LaTeX Info: Redefining \ttfamily on input line 14.
-LaTeX Info: Redefining \rmfamily on input line 15.
-LaTeX Info: Redefining \sffamily on input line 15.
-LaTeX Info: Redefining \ttfamily on input line 15.
-LaTeX Info: Redefining \rmfamily on input line 17.
-LaTeX Info: Redefining \sffamily on input line 17.
-LaTeX Info: Redefining \ttfamily on input line 17.
-LaTeX Info: Redefining \rmfamily on input line 19.
-LaTeX Info: Redefining \sffamily on input line 19.
-LaTeX Info: Redefining \ttfamily on input line 19.
-LaTeX Info: Redefining \rmfamily on input line 20.
-LaTeX Info: Redefining \sffamily on input line 20.
-LaTeX Info: Redefining \ttfamily on input line 20.
-LaTeX Info: Redefining \rmfamily on input line 22.
-LaTeX Info: Redefining \sffamily on input line 22.
-LaTeX Info: Redefining \ttfamily on input line 22.
-LaTeX Info: Redefining \rmfamily on input line 23.
-LaTeX Info: Redefining \sffamily on input line 23.
-LaTeX Info: Redefining \ttfamily on input line 23.
-LaTeX Info: Redefining \rmfamily on input line 24.
-LaTeX Info: Redefining \sffamily on input line 24.
-LaTeX Info: Redefining \ttfamily on input line 24.
-LaTeX Info: Redefining \rmfamily on input line 25.
-LaTeX Info: Redefining \sffamily on input line 25.
-LaTeX Info: Redefining \ttfamily on input line 25.
-)
+
+[5] (./memoria_tfg.lot)
 \tf@lot=\write10
 \openout10 = `memoria_tfg.lot'.
 
- [5
+
+
+[6
 
 ]
 \openout2 = `contido/introducion.aux'.
@@ -1751,14 +2255,21 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             reported on input line 4.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 14.4pt on input line 7.
+File: imaxes/figura1.png Graphic file (type bmp)
+<imaxes/figura1.png>
+
+
 [1
 
 
 
 ]
-File: imaxes/figura1.png Graphic file (type bmp)
-<imaxes/figura1.png>
- [2] [3] [4]) [5]
+
+[2]
+
+[3])
+
+[4]
 \openout2 = `contido/estado_arte.aux'.
 
  (./contido/estado_arte.tex
@@ -1767,26 +2278,78 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
-[6
+
+
+[5
 
 
 
 
-] [7] [8]) [9]
+]
+
+[6]
+File: imaxes/oleaje_parametros.jpg Graphic file (type bmp)
+<imaxes/oleaje_parametros.jpg>
+
+
+[7]
+File: imaxes/smartphone_sensor_diagram.png Graphic file (type bmp)
+<imaxes/smartphone_sensor_diagram.png>
+
+
+[8]
+
+[9]
+File: imaxes/nodo_embebido_conceptual.jpg Graphic file (type bmp)
+<imaxes/nodo_embebido_conceptual.jpg>
+
+
+[10]
+File: imaxes/datawell_buoys.png Graphic file (type bmp)
+<imaxes/datawell_buoys.png>
+File: imaxes/vectornav_vn200.png Graphic file (type bmp)
+<imaxes/vectornav_vn200.png>
+)
+
+[11]
+
+[12]
 \openout2 = `contido/metodoloxia_planificacion.aux'.
 
  (./contido/metodoloxia_planificacion.tex
 Capítulo 3.
 Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 21.35751pt (L);
+(lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
-[10
+
+
+[13
 
 
 
 
-] [11] [12] [13]) [14]
+]
+
+[14]
+
+[15]
+
+[16]
+
+[17]
+Underfull \hbox (badness 10000) in alignment at lines 164--164
+[][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 185--185
+[][][][] 
+ []
+
+)
+
+[18]
 \openout2 = `contido/diseno_plataforma.aux'.
 
  (./contido/diseno_plataforma.tex
@@ -1795,23 +2358,44 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
-File: imaxes/esquema_1_arquitectura.png Graphic file (type bmp)
-<imaxes/esquema_1_arquitectura.png>
-[15
+
+
+[19
 
 
 
 
 ]
+
+[20]
+File: imaxes/esquema_1_arquitectura.png Graphic file (type bmp)
+<imaxes/esquema_1_arquitectura.png>
 LaTeX Font Info:    Font shape `TU/LinLibertine(5)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 68.
- [16] [17]
+(Font)              scaled to size 10.95pt on input line 66.
+
+
+[21]
+
+[22]
+
+[23]
+
+[24]
+
+[25]
+
+[26]
 File: imaxes/esquema_2_flujo_android.png Graphic file (type bmp)
 <imaxes/esquema_2_flujo_android.png>
- [18] [19]
 File: imaxes/esquema_3_comparativa.png Graphic file (type bmp)
 <imaxes/esquema_3_comparativa.png>
- [20] [21]) [22]
+)
+
+[27]
+
+[28]
+
+[29]
 \openout2 = `contido/implementacion.aux'.
 
  (./contido/implementacion.tex
@@ -1820,15 +2404,52 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
-[23
+
+
+[30
 
 
 
 
-] [24]
-File: imaxes/imu_pipeline_all.png Graphic file (type bmp)
-<imaxes/imu_pipeline_all.png>
- [25]) [26]
+]
+
+[31]
+
+[32]
+
+[33] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 119.
+LaTeX Font Info:    Font shape `TU/LinLibertine(5)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 119.
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 120.
+
+
+[34]
+File: imaxes/app_fase2_menu.png Graphic file (type bmp)
+<imaxes/app_fase2_menu.png>
+File: imaxes/app_fase2_android.png Graphic file (type bmp)
+<imaxes/app_fase2_android.png>
+File: imaxes/app_fase2_esp32.png Graphic file (type bmp)
+<imaxes/app_fase2_esp32.png>
+File: imaxes/app_fase2_debug_procesado.png Graphic file (type bmp)
+<imaxes/app_fase2_debug_procesado.png>
+
+
+[35]
+
+[36]
+
+[37]
+
+[38]
+
+[39])
+
+[40]
 \openout2 = `contido/validacion.aux'.
 
  (./contido/validacion.tex
@@ -1837,12 +2458,24 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 21.35751pt (L);
 (lettrine.sty)             reported on input line 4.
-[27
+
+
+[41
 
 
 
 
-] [28] [29] [30]) [31]
+]
+
+[42]
+
+[43]
+
+[44]
+
+[45])
+
+[46]
 \openout2 = `contido/conclusions.aux'.
 
  (./contido/conclusions.tex
@@ -1851,15 +2484,21 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
-[32
+
+
+[47
 
 
 
 
-]) [33]
+])
+
+[48]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 136.
- [34
+(Font)              scaled to size 24.88pt on input line 149.
+
+
+[49
 
 
 
@@ -1873,41 +2512,49 @@ Package lettrine.sty Info: Targeted height = 21.55566pt
 (lettrine.sty)             Lettrine height = 21.42354pt (E);
 (lettrine.sty)             reported on input line 4.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
+File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-LaTeX Font Info:    Font shape `TU/LinLibertine(5)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18.
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 19.
- [35
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+
+[50
 
 
-]) [36] (./memoria_tfg.acr) (./memoria_tfg.gls) (./memoria_tfg.bbl [37
+])
+
+[51] (./memoria_tfg.acr) (./memoria_tfg.gls) (./memoria_tfg.bbl
+
+[52
 
 
 ]
 
-Package natbib Warning: Empty `thebibliography' environment on input line 24.
+Package natbib Warning: Empty `thebibliography' environment on input line 25.
 
-) [38
+)
 
-] (./memoria_tfg.aux (./portada/portada.aux) (./portada/resumo.aux) (./contido/introducion.aux) (./contido/estado_arte.aux) (./contido/metodoloxia_planificacion.aux) (./contido/diseno_plataforma.aux) (./contido/implementacion.aux) (./contido/validacion.aux) (./contido/conclusions.aux) (./anexos/adicional.aux))
+[53
+
+] (./memoria_tfg.aux (./portada/portada.aux) (./portada/resumo.aux)
+(./contido/introducion.aux) (./contido/estado_arte.aux)
+(./contido/metodoloxia_planificacion.aux) (./contido/diseno_plataforma.aux)
+(./contido/implementacion.aux) (./contido/validacion.aux)
+(./contido/conclusions.aux) (./anexos/adicional.aux))
  ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `memoria_tfg.out' has not changed.
-(rerunfilecheck)             Checksum: 44F1B35374139F73A066977683BCB81E;15213.
+(rerunfilecheck)             Checksum: 462928513F116C6E42C9643A6387EE06;14374.
  ) 
 Here is how much of TeX's memory you used:
- 47138 strings out of 474878
- 982478 string characters out of 5762516
- 1953627 words of memory out of 5000000
- 68344 multiletter control sequences out of 15000+600000
- 570224 words of font info for 134 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 106i,13n,145p,2390b,1205s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 47908 strings out of 470351
+ 1017435 string characters out of 5485085
+ 1689396 words of memory out of 5000000
+ 75474 multiletter control sequences out of 15000+600000
+ 639884 words of font info for 139 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 98i,13n,145p,2495b,1227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on memoria_tfg.xdv (48 pages, 655788 bytes).
+Output written on memoria_tfg.xdv (64 pages, 1022736 bytes).

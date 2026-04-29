@@ -1,8 +1,8 @@
 \chapter{Introducción}
 \label{chap:introducion}
 
-\lettrine{E}{ste} trabajo fin de grado se centra en una idea principal: usar el teléfono móvil como plataforma ubicua para capturar y procesar datos inerciales, y demostrar su viabilidad en un caso de uso de caracterización de oleaje.
-El valor del sistema no está en un sensor concreto, sino en el producto software: su arquitectura de plataforma, su operación en distintos modos y su capacidad de despliegue práctico.
+\lettrine{E}{ste} trabajo fin de grado se centra en usar el teléfono móvil como plataforma ubicua para capturar y procesar datos inerciales, y en demostrar su viabilidad en un caso de uso de caracterización de oleaje.
+El interés del sistema no reside en un sensor concreto, sino en la posibilidad de articular una solución operativa y desplegable sobre plataformas accesibles.
 
 \section{Motivación del problema}
 
@@ -29,22 +29,22 @@ La implementación se orienta a ejecución \textit{on-device} en Android, con un
 
 \subsection{Objetivo general}
 
-Diseñar e implementar una arquitectura modular de captura y gestión de datos inerciales, con Android como plataforma principal de operación y con capacidad de integración con un nodo embebido basado en ESP32+IMU.
+Diseñar e implementar una arquitectura modular de captura y gestión de datos inerciales, flexible y desacoplada del procesamiento aplicado, con Android como plataforma principal de operación y con capacidad de integración con un nodo embebido basado en ESP32+IMU.
 
 \subsection{Objetivos específicos}
 
 \begin{itemize}
-  \item Implementar en Android un modo autónomo de captura, guardado y gestión de sesiones.
-  \item Implementar un modo de integración con ESP32 para consulta de estado, control de captura y descarga de sesiones.
-  \item Definir contratos comunes de sesión, control y explotación para unificar ambos modos de operación.
-  \item Estructurar el sistema en capas desacopladas (adquisición, comunicación, backend y visualización/control).
-  \item Diseñar la integración con mecanismos de comunicación externa y acceso remoto a datos, sin depender de tecnologías concretas.
-  \item Establecer un plan de validación centrado en funcionalidad, integración y operación del sistema.
+  \item Estudiar alternativas para la adquisición de datos en distintas plataformas, incluyendo dispositivos móviles y sistemas embebidos, analizando sus limitaciones y características en términos de precisión, estabilidad y coste.
+  \item Implementar en Android un modo de captura, guardado y gestión de sesiones como base operativa del sistema.
+  \item Implementar la integración con un nodo embebido basado en ESP32+IMU para consulta de estado, control de captura y descarga de sesiones.
+  \item Definir contratos comunes de sesión, control y explotación para unificar ambos modos de operación y desacoplar la arquitectura del procesamiento aplicado.
+  \item Evaluar la capacidad del sistema para integrarse con mecanismos de comunicación externa, supervisión y acceso remoto a datos, sin depender de tecnologías concretas.
+  \item Aplicar la arquitectura desarrollada al caso práctico de caracterización del estado del mar, con el fin de validar su funcionamiento y analizar su comportamiento en condiciones reales o representativas de operación.
 \end{itemize}
 
 \section{Alcance y limitaciones}
 
-El alcance de la memoria es el diseño e implementación de una arquitectura operativa para adquisición y gestión de datos inerciales, no el cierre de una solución algorítmica definitiva para un único dominio de aplicación.
+El alcance de la memoria es el diseño e implementación de un sistema de adquisición y gestión de datos inerciales, no el cierre de una solución algorítmica definitiva para un único dominio de aplicación.
 
 Dentro de este alcance se cubren la operación local en Android, la integración con un nodo embebido ESP32+IMU y la definición de interfaces comunes para evolucionar la arquitectura de forma controlada.
 
@@ -74,24 +74,7 @@ Las limitaciones principales consideradas son:
 
 \section{Metodología de desarrollo}
 
-La memoria se apoya en cuatro marcos metodológicos complementarios:
-
-\begin{itemize}
-  \item \textbf{metodología de desarrollo incremental}, para construir el sistema por fases;
-  \item \textbf{enfoque modular ciberfísico}, para desacoplar subsistemas e interfaces;
-  \item \textbf{ingeniería de integración}, para validar contratos comunes entre nodos;
-  \item \textbf{metodología de validación operativa}, para evaluar funcionalidad y robustez de uso.
-\end{itemize}
-
-En términos prácticos, la metodología aplicada sigue una secuencia incremental y orientada a validación:
-
-\begin{enumerate}
-  \item Definición de arquitectura por capas y contratos de sesión/control.
-  \item Consolidación del modo móvil en Android como flujo base.
-  \item Integración del modo embebido ESP32 en el flujo de operación de la app.
-  \item Evaluación e integración preliminar de mecanismos de supervisión y acceso externo.
-  \item Validación de interoperabilidad y documentación de evolución futura.
-\end{enumerate}
+El trabajo sigue un enfoque incremental y modular, orientado a reducir riesgo técnico y a validar el sistema por fases. La descripción detallada de la metodología de desarrollo, planificación y validación se presenta en el Capítulo~\ref{chap:metodologia-plan}.
 
 \section{Estructura de la memoria}
 

@@ -1,8 +1,6 @@
-\xpginauxfiletrue 
-\selectlanguage *{spanish}
-\selectlanguage *{english}
-\selectlanguage *[variant=spanish,spanishoperators=none]{spanish}
-\selectlanguage *{spanish}
+\xpg@aux {}{spanish}
+\xpg@aux {}{english}
+\xpg@aux {}{spanish}
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivación del problema}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Objetivos}{2}{section.1.2}%
@@ -11,89 +9,87 @@
 \contentsline {section}{\numberline {1.3}Alcance y limitaciones}{3}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Metodología de desarrollo}{4}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Estructura de la memoria}{4}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Estado del arte y contexto tecnológico}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Android como plataforma de sensado de bajo coste}{6}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Límites de una solución móvil pura}{7}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Nodos embebidos para adquisición dedicada}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Arquitecturas híbridas móvil+embebido}{8}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Backend y operación remota}{8}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Contrato de datos e interoperabilidad}{9}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Posicionamiento del trabajo}{9}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Análisis del problema, requisitos, planificación y presupuesto}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Descripción general del sistema a desarrollar}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Requisitos funcionales}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Requisitos no funcionales}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Restricciones técnicas}{11}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Casos de uso principales}{11}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Enfoque de trabajo}{12}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Fases del proyecto}{12}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Planificación de operación remota (borrador)}{13}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Plan de pruebas y control de riesgos}{13}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Material y medios necesarios}{14}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Presupuesto orientativo}{14}{section.3.11}%
-\contentsline {chapter}{\numberline {4}Diseño de la plataforma}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Enfoque metodológico de diseño}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Arquitectura funcional}{15}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Arquitectura física}{15}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Arquitectura lógica y software}{16}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Diseño de contratos de interfaz}{16}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Contrato de sesión}{16}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Contrato de control}{17}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Contrato de explotación}{17}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Diseño del subsistema de adquisición}{17}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Adquisición en modo móvil}{17}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Adquisición en modo embebido}{17}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Almacenamiento de sesiones}{18}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Diseño del subsistema de comunicación}{18}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Diseño del backend}{18}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Criterios de diseño de backend}{18}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Estrategia de evolución tecnológica}{18}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Diseño del flujo Android}{20}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Flujo de datos extremo a extremo}{20}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Diseño de comparativa entre plataformas}{20}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Diseño del subsistema de procesado}{22}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Diseño hardware del sistema embebido}{22}{section.4.11}%
-\contentsline {chapter}{\numberline {5}Implementación del sistema}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Visión general del estado actual}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementación del modo móvil en Android}{23}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Captura y persistencia local}{23}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Gestión de sesiones}{24}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Implementación del modo ESP32}{24}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Flujo de operación embebida}{24}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Firmware del ESP32}{24}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Contrato de sesión y formato de datos}{24}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Visualización y explotación en la app}{25}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Diseño software y desacoplamiento}{25}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Estado de backend remoto}{26}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Herramientas de soporte de ingeniería}{26}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Limitaciones del estado implementado}{26}{section.5.9}%
-\contentsline {chapter}{\numberline {6}Validación y evaluación}{27}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Metodología de validación}{27}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Escenarios de prueba}{27}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Configuración de pruebas}{28}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Métricas de evaluación}{28}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Plantilla de comparativa móvil vs embebido}{29}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Criterios de aceptación}{29}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Resultados}{29}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Resultados del modo móvil}{29}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}Resultados del modo embebido}{29}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}Resultados de integración por contratos}{30}{subsection.6.7.3}%
-\contentsline {subsection}{\numberline {6.7.4}Comparación de operación entre modos}{30}{subsection.6.7.4}%
-\contentsline {section}{\numberline {6.8}Discusión}{31}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Limitaciones del trabajo}{31}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Lecciones aprendidas}{31}{subsection.6.8.2}%
-\contentsline {chapter}{\numberline {7}Conclusiones}{32}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Conclusiones principales}{32}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Conclusión metodológica}{32}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Implicaciones prácticas}{33}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Aportaciones}{33}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Trabajo futuro}{33}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Línea prioritaria inmediata}{33}{subsection.7.5.1}%
-\contentsline {chapter}{\numberline {A}Material adicional}{35}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Scripts principales}{35}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Comandos de referencia}{35}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Captura}{35}{subsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}Procesado rápido sin gráfica}{35}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Procesado paso a paso con validación temporal}{35}{subsection.A.2.3}%
-\contentsline {section}{\numberline {A.3}Datos de prueba}{36}{section.A.3}%
-\contentsline {chapter}{Bibliografía}{38}{appendix*.20}%
+\contentsline {chapter}{\numberline {2}Estado del arte y contexto tecnológico}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Caracterización del oleaje mediante parámetros estadísticos}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Android como plataforma de sensado de bajo coste}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Límites de una solución móvil pura}{8}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Nodos embebidos para adquisición dedicada}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Marco comercial y soluciones profesionales de referencia}{10}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Posicionamiento del trabajo}{11}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Análisis del problema, requisitos, planificación y presupuesto}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Análisis del problema}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Requisitos del sistema}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Requisitos funcionales}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Requisitos no funcionales}{14}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Restricciones técnicas}{15}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Casos de uso principales}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Metodología y planificación}{16}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Enfoque de trabajo}{16}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Fases del proyecto}{16}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Riesgos y estrategia de validación}{17}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Material y medios necesarios}{17}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Presupuesto orientativo}{18}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Recursos utilizados por el proyecto}{18}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Adquisiciones imputables al proyecto}{18}{subsection.3.7.2}%
+\contentsline {chapter}{\numberline {4}Diseño de la plataforma}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Entorno y herramientas de desarrollo}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Vista general del sistema}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Diseño de adquisición}{21}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Sesión como unidad de captura}{21}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Adquisición en Android}{22}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Adquisición en ESP32}{22}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Separación entre captura y procesado}{23}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Diseño de comunicación}{24}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Contrato de control}{24}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Enlace entre Android y ESP32}{24}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Flujo de datos del sistema}{25}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Diseño de persistencia y backend}{25}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Diseño de interfaz y control}{26}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Implementación del sistema}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Criterio de implementación incremental}{30}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Estado de partida de la implementación}{31}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Herramientas y organización del código}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Fase 1: scripts de captura y análisis}{32}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Fase 2: implementación del modo móvil en Android}{32}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Estructura general de la aplicación}{33}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Captura de sensores}{33}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Persistencia local de sesiones}{34}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Gestión local y operaciones de depuración}{34}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.5}Prototipo de interfaz auxiliar}{35}{subsection.5.5.5}%
+\contentsline {section}{\numberline {5.6}Fase 3: procesado on-device}{36}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Fase 4: pruebas iniciales con ESP32 e IMU}{37}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Fase 5: firmware en C/C++ para ESP32}{37}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Fase 6: formato común de sesión y resultados}{38}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Fase 7: backend remoto}{39}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Criterios de cierre de implementación}{40}{section.5.11}%
+\contentsline {chapter}{\numberline {6}Validación y evaluación}{41}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Metodología de validación}{41}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Escenarios de prueba}{41}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Configuración de pruebas}{42}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Métricas de evaluación}{42}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Plantilla de comparativa móvil vs embebido}{43}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Criterios de aceptación}{43}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Resultados}{43}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Resultados del modo móvil}{43}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Resultados del modo embebido}{43}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Evaluación del subsistema de comunicación}{44}{subsection.6.7.3}%
+\contentsline {subsection}{\numberline {6.7.4}Resultados de integración por contratos}{44}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Comparación de operación entre modos}{45}{subsection.6.7.5}%
+\contentsline {section}{\numberline {6.8}Discusión}{45}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Limitaciones del trabajo}{46}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Lecciones aprendidas}{46}{subsection.6.8.2}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{47}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclusiones principales}{47}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Conclusión metodológica}{47}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Implicaciones prácticas}{48}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Aportaciones}{48}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Trabajo futuro}{48}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Línea prioritaria inmediata}{48}{subsection.7.5.1}%
+\contentsline {chapter}{\numberline {A}Material adicional}{50}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Scripts principales}{50}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Comandos de referencia}{50}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Captura}{50}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}Procesado rápido sin gráfica}{50}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Procesado paso a paso con validación temporal}{50}{subsection.A.2.3}%
+\contentsline {section}{\numberline {A.3}Datos de prueba}{51}{section.A.3}%
+\contentsline {chapter}{Bibliografía}{53}{appendix*.33}%

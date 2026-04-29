@@ -1,48 +1,57 @@
 \chapter{Análisis del problema, requisitos, planificación y presupuesto}
 \label{chap:metodologia-plan}
 
-\lettrine{L}{a} ejecución del TFG se plantea como un desarrollo incremental de arquitectura, orientado a obtener un sistema funcional por fases y a reducir riesgo técnico en integración.
+\lettrine{E}{n} este capítulo se analiza el problema que aborda el TFG, se fijan los requisitos del sistema y se recoge la planificación de trabajo seguida durante el desarrollo. También se incluyen los riesgos principales, los medios necesarios y una primera estimación económica del proyecto.
 
-\section{Descripción general del sistema a desarrollar}
+\section{Análisis del problema}
 
-El sistema se define como una arquitectura ciberfísica para captura y gestión de datos inerciales.
-La propuesta integra adquisición, comunicación, persistencia y visualización/control bajo una estructura modular, de forma que Android y el nodo embebido puedan interoperar sin depender de implementaciones rígidas.
+El objetivo del trabajo no es construir una instrumentación oceanográfica profesional desde la primera iteración, sino definir un sistema capaz de capturar, gestionar y explotar datos inerciales con una base operativa común para distintas plataformas de adquisición.
 
-\section{Requisitos funcionales}
+La formulación inicial del problema estuvo ligada a la posibilidad de reconstruir directamente la forma de cada ola a partir de medidas inerciales. Tras revisar las limitaciones reales de sensores de consumo y el tipo de información que se maneja habitualmente en este dominio, el problema se reformuló en términos más realistas: obtener parámetros útiles del estado del mar a partir de sesiones inerciales y permitir que esos datos puedan capturarse, almacenarse, consultarse y reprocesarse de forma homogénea.
 
-Los requisitos funcionales principales del sistema son:
+Esta reformulación tiene dos consecuencias directas. La primera es que la captura deja de estar asociada a una única plataforma. La segunda es que el valor principal del sistema pasa a estar en la organización del flujo completo: adquisición, control, persistencia, comparación y explotación posterior.
+
+Dentro de ese marco, el smartphone se adopta como punto de partida por motivos prácticos: integra sensores, capacidad de procesamiento, conectividad y una interfaz de operación completa. Sobre esa base se plantea la incorporación de un nodo embebido dedicado para comparar plataformas, ganar control técnico sobre la captura y preparar la evolución hacia escenarios de operación remota y multi-nodo.
+
+\section{Requisitos del sistema}
+
+\subsection{Requisitos funcionales}
+
+Los requisitos funcionales principales del sistema son los siguientes:
 
 \begin{itemize}
-  \item capturar datos inerciales desde nodo móvil Android;
-  \item capturar o descargar sesiones desde nodo embebido ESP32+IMU;
+  \item capturar datos inerciales desde nodos de adquisición heterogéneos, incluyendo nodo móvil Android y nodo embebido ESP32+IMU;
   \item almacenar sesiones con metadatos trazables;
   \item visualizar estado de nodo, sesiones y resultados de forma operativa;
   \item exportar sesiones para análisis externo;
-  \item soportar comandos básicos de control remoto (inicio, parada, estado y configuración).
+  \item soportar comandos básicos de control remoto, como inicio, parada, estado y configuración;
+  \item permitir que la lógica de captura permanezca desacoplada de la interfaz, de modo que la operación pueda realizarse con la app en segundo plano o como consola de supervisión.
 \end{itemize}
 
-\section{Requisitos no funcionales}
+\subsection{Requisitos no funcionales}
 
-Además de la funcionalidad visible, el diseño debe cumplir:
+Además de la funcionalidad visible, el sistema debe cumplir los siguientes requisitos no funcionales:
 
 \begin{itemize}
   \item modularidad entre adquisición, comunicación, backend y visualización;
-  \item mantenibilidad para evolucionar backend/transporte sin rehacer el sistema;
+  \item mantenibilidad para evolucionar backend o transporte sin rehacer el sistema;
   \item bajo coste de despliegue en entorno de TFG;
   \item trazabilidad de sesiones y de parámetros de ejecución;
-  \item facilidad de operación en laboratorio y escenarios remotos.
+  \item facilidad de operación en laboratorio y escenarios remotos;
+  \item capacidad de escalar a escenarios con más de un nodo sin degradación operativa inaceptable.
 \end{itemize}
 
-\section{Restricciones técnicas}
+\subsection{Restricciones técnicas}
 
-Las restricciones más relevantes del proyecto son:
+Las restricciones técnicas más relevantes son:
 
 \begin{itemize}
   \item heterogeneidad de sensores y temporización en Android;
   \item limitaciones de recursos y estabilidad de integración en ESP32;
   \item necesidad de definir contratos de datos comunes entre nodos;
   \item tiempo de desarrollo limitado para cerrar integración extremo a extremo;
-  \item incertidumbre sobre qué transporte remoto aporta mejor equilibrio en este alcance.
+  \item incertidumbre sobre qué transporte remoto aporta mejor equilibrio en este alcance;
+  \item necesidad de estimar experimentalmente la capacidad práctica del sistema en escenarios multi-nodo, en función de frecuencia de envío, tamaño de mensaje y latencia aceptable.
 \end{itemize}
 
 \section{Casos de uso principales}
@@ -50,11 +59,11 @@ Las restricciones más relevantes del proyecto son:
 Los casos de uso que estructuran el sistema son:
 
 \begin{itemize}
-  \item captura y registro local desde Android;
-  \item operación de captura desde ESP32 con supervisión desde la app;
-  \item consulta histórica y reprocesado de sesiones;
-  \item comparación de sesiones entre nodos/dispositivos;
-  \item configuración remota y consulta de estado.
+  \item configuración remota y consulta de estado de nodos de captura;
+  \item inicio y parada remotos de adquisición sobre nodos móviles o embebidos;
+  \item recuperación, consulta histórica y reprocesado de sesiones capturadas;
+  \item comparación de sesiones entre nodos o dispositivos bajo un mismo flujo de explotación;
+  \item supervisión de operación con la app actuando como interfaz de control, sin depender de interacción continua en primer plano.
 \end{itemize}
 
 \figplaceholder{%
@@ -63,12 +72,15 @@ usuario, nodo móvil, nodo embebido, backend, panel de consulta
 }{Casos de uso principales del sistema.}
 \label{fig:placeholder-casos-uso}
 
-\section{Enfoque de trabajo}
+\section{Metodología y planificación}
 
-Se adopta una \textbf{metodología incremental e iterativa}.
-La razón principal es separar riesgos por capas: primero análisis del problema y diseño arquitectónico, después integración entre nodos y finalmente validación operativa.
+\subsection{Enfoque de trabajo}
 
-Este enfoque permite validar decisiones con entregables funcionales y evitar bloqueos por dependencias tempranas de infraestructura. El trabajo parte de un análisis inicial del problema, del estado del arte y de las tecnologías disponibles para definir la arquitectura final del sistema.
+Se adopta una \textbf{metodología incremental} con un \textbf{diseño modular}. El trabajo parte de un análisis inicial del problema, del estado del arte y de las tecnologías disponibles para definir la solución. A partir de ahí, el desarrollo se organiza en iteraciones sucesivas en las que se implementa y valida un bloque funcional del sistema.
+
+Este enfoque permite cerrar primero una base operativa del producto y reducir bloqueos por dependencias de infraestructura, integración o hardware. Además, facilita revisar decisiones con entregables intermedios y ajustar el alcance con el tutor conforme avanza el proyecto.
+
+Durante el desarrollo se plantean reuniones periódicas con el tutor para revisar el avance, evaluar las decisiones tomadas y ajustar el trabajo en función de las indicaciones recibidas.
 
 De forma resumida, la estrategia por bloques funcionales es:
 
@@ -80,67 +92,99 @@ De forma resumida, la estrategia por bloques funcionales es:
   \item evaluación final del sistema y propuestas de mejora.
 \end{enumerate}
 
-\section{Fases del proyecto}
+\subsection{Fases del proyecto}
+
+La planificación general del trabajo se descompone en las siguientes fases:
 
 \begin{itemize}
   \item \textbf{Fase 1.} Análisis de trabajos relacionados en sensores inerciales, análisis de movimiento y arquitecturas de captura de datos.
   \item \textbf{Fase 2.} Estudio de limitaciones y características de sensores IMU y técnicas de análisis aplicables.
-  \item \textbf{Fase 3.} Definición de la arquitectura del sistema y de la interacción entre módulos.
+  \item \textbf{Fase 3.} Definición de la solución y de la interacción entre sus módulos.
   \item \textbf{Fase 4.} Implementación de captura y gestión de datos en diferentes plataformas.
   \item \textbf{Fase 5.} Evaluación del sistema desarrollado y análisis de comportamiento, limitaciones y mejoras.
   \item \textbf{Fase 6.} Aplicación del sistema al caso práctico propuesto.
   \item \textbf{Fase 7.} Documentación final y presentación.
 \end{itemize}
 
-\section{Planificación de operación remota (borrador)}
-\label{sec:plan-operacion-remota}
+\section{Riesgos y estrategia de validación}
 
-La operación remota se plantea como evolución del sistema y no como requisito cerrado desde el inicio.
-En el estado actual, el objetivo es dejar una base operativa con sincronización de sesiones y estado de nodos.
-
-Para ello se propone:
+Como todo proyecto de desarrollo, el trabajo presenta riesgos técnicos que conviene identificar desde el principio para evitar bloqueos significativos. Los más relevantes son:
 
 \begin{itemize}
-  \item \textbf{Implementación base:} integración con mecanismo de almacenamiento/sincronización externo según viabilidad del entorno de pruebas.
-  \item \textbf{Sincronización mínima:} metadatos de sesión, estado de nodo y referencias a ficheros.
-  \item \textbf{Control básico:} comandos start/stop/set\_config/status bajo contrato común.
-  \item \textbf{Evolución opcional:} evaluar alternativas de comunicación si mejoran latencia, robustez o escalabilidad.
-\end{itemize}
-
-Este planteamiento evita comprometer decisiones de infraestructura que no estén justificadas por evidencia experimental.
-
-\section{Plan de pruebas y control de riesgos}
-
-Los riesgos principales y su mitigación son:
-
-\begin{itemize}
-  \item \textbf{Desalineación entre nodos:} fijar contrato de sesión y validarlo en ambos modos.
+  \item \textbf{Desalineación entre nodos:} fijar un contrato de sesión común y validarlo en ambos modos de captura.
   \item \textbf{Inestabilidad de integración embebida:} mantener diagnósticos de conexión, bus y captura.
-  \item \textbf{Acoplamiento excesivo al backend:} desacoplar capa de comunicación y persistencia.
-  \item \textbf{Sobrecarga de alcance:} priorizar MVP funcional antes de añadir extensiones opcionales.
+  \item \textbf{Acoplamiento excesivo a backend o transporte:} mantener desacopladas las capas de comunicación y persistencia.
+  \item \textbf{Sobrecarga de alcance:} priorizar una base operativa funcional antes de añadir extensiones opcionales.
 \end{itemize}
+
+Desde el punto de vista de validación, el trabajo requiere comprobar no solo la captura aislada en cada plataforma, sino también la consistencia del flujo completo entre adquisición, sesión, consulta y explotación. En esta misma línea, la evolución hacia escenarios con más de un nodo hace recomendable medir de forma experimental la capacidad práctica de comunicación bajo diferentes tasas de envío y tamaños de mensaje.
 
 \section{Material y medios necesarios}
 
 Los medios necesarios para ejecutar el proyecto son:
 
 \begin{itemize}
-  \item PC para desarrollo, pruebas y análisis de resultados.
-  \item Dispositivo móvil Android con sensores inerciales.
-  \item Plataforma embebida para captura de datos con conectividad inalámbrica.
-  \item Sensor IMU externo (acelerómetro y/o giróscopo).
-  \item Herramientas de desarrollo software y entornos de programación.
-  \item Herramientas para almacenamiento, visualización y análisis de datos.
+  \item PC para desarrollo, pruebas y análisis de resultados;
+  \item dispositivo móvil Android con sensores inerciales;
+  \item plataforma embebida para captura de datos con conectividad inalámbrica;
+  \item sensor IMU externo, con acelerómetro y giróscopo;
+  \item herramientas de desarrollo software y entornos de programación;
+  \item herramientas para almacenamiento, visualización y análisis de datos.
 \end{itemize}
 
 \section{Presupuesto orientativo}
 
-El trabajo prioriza bajo coste de hardware:
+Con el objetivo de reflejar de forma más realista el esfuerzo material del proyecto, se distinguen dos lecturas del presupuesto:
 
 \begin{itemize}
-  \item teléfono Android como nodo principal;
-  \item placa ESP32 disponible para integración embebida;
-  \item IMU MPU6050 para pruebas de adquisición dedicada.
+  \item \textbf{recursos utilizados por el proyecto}, incluyendo medios ya disponibles pero necesarios para desarrollar y validar el sistema;
+  \item \textbf{adquisiciones imputables al proyecto}, centradas en el material específico comprado para la implementación.
 \end{itemize}
 
-El coste principal se concentra en tiempo de desarrollo, integración y validación del sistema extremo a extremo.
+Los valores de esta primera versión deben entenderse como una referencia preliminar pendiente de ajuste final con datos verificados.
+
+\subsection{Recursos utilizados por el proyecto}
+
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.46\textwidth} >{\centering\arraybackslash}p{0.10\textwidth} >{\raggedleft\arraybackslash}p{0.16\textwidth} >{\raggedleft\arraybackslash}p{0.16\textwidth}}
+    \rowcolor{udcpink!25}
+    \textbf{Concepto} & \textbf{Cantidad} & \textbf{Coste unitario} & \textbf{Coste estimado} \\
+    PC de desarrollo y pruebas & 1 & 900,00~€ & 900,00~€ \\
+    Dispositivo Android con sensores inerciales & 1 & 250,00~€ & 250,00~€ \\
+    Placa ESP32 para nodo embebido & 1 & 15,00~€ & 15,00~€ \\
+    Sensor IMU MPU6050 & 1 & 5,00~€ & 5,00~€ \\
+    Cableado, protoboard y pequeños consumibles & 1 & 15,00~€ & 15,00~€ \\
+    Herramientas software y entornos de desarrollo & 1 & 0,00~€ & 0,00~€ \\
+    \rowcolor{udcgray!20}
+    \textbf{Total estimado de recursos utilizados} &  &  & \textbf{1185,00~€} \\
+  \end{tabularx}
+  \caption{Primera estimación de los recursos utilizados por el proyecto, incluyendo medios ya disponibles.}
+  \label{tab:presupuesto-recursos-utilizados}
+\end{table}
+
+\subsection{Adquisiciones imputables al proyecto}
+
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.46\textwidth} >{\centering\arraybackslash}p{0.10\textwidth} >{\raggedleft\arraybackslash}p{0.16\textwidth} >{\raggedleft\arraybackslash}p{0.16\textwidth}}
+    \rowcolor{udcpink!25}
+    \textbf{Concepto} & \textbf{Cantidad} & \textbf{Coste unitario} & \textbf{Coste estimado} \\
+    Placa ESP32 para integración embebida & 1 & 15,00~€ & 15,00~€ \\
+    Sensor IMU MPU6050 & 1 & 5,00~€ & 5,00~€ \\
+    Cableado, conectores y protoboard & 1 & 10,00~€ & 10,00~€ \\
+    Consumibles de montaje y prueba & 1 & 10,00~€ & 10,00~€ \\
+    \rowcolor{udcgray!20}
+    \textbf{Total estimado de adquisiciones} &  &  & \textbf{40,00~€} \\
+  \end{tabularx}
+  \caption{Primera estimación del material comprado o imputable directamente al desarrollo del proyecto.}
+  \label{tab:presupuesto-adquisiciones}
+\end{table}
+
+Incluso en esta primera aproximación se aprecia que el grueso del coste del TFG no reside en hardware especializado, sino en la integración, el desarrollo software, las campañas de prueba y la validación extremo a extremo del sistema.

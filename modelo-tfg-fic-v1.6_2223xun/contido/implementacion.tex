@@ -1,109 +1,313 @@
 \chapter{Implementación del sistema}
 \label{chap:implementacion}
 
-\lettrine{E}{n} este capítulo se describe el estado de implementación del sistema según la arquitectura modular definida, diferenciando claramente lo implementado de las líneas de evolución.
+\lettrine{E}{n} este capítulo se documenta la implementación del sistema siguiendo la metodología incremental descrita en capítulos anteriores. A diferencia del diseño, que define la arquitectura objetivo, la implementación se presenta como una evolución por fases. Esta forma de organizar el capítulo permite reflejar con claridad qué partes están ya desarrolladas, cuáles se encuentran en prueba y cuáles quedan como trabajo pendiente.
 
-\section{Visión general del estado actual}
+\section{Criterio de implementación incremental}
 
-La implementación actual cubre un flujo funcional extremo a extremo en entorno local:
+El desarrollo del sistema se plantea de forma progresiva para reducir el riesgo técnico. En lugar de intentar cerrar desde el principio una solución completa con aplicación móvil, nodo embebido, procesado y backend, se implementan primero bloques pequeños que puedan probarse por separado.
 
-\begin{itemize}
-  \item captura de datos inerciales en Android;
-  \item gestión local de sesiones;
-  \item integración con ESP32 para control de captura y descarga;
-  \item visualización operativa de sesiones desde la aplicación.
-\end{itemize}
+El orden de trabajo seguido es el siguiente:
 
-La capa backend remota se mantiene como fase de evolución y no como componente cerrado en el estado actual.
+\begin{enumerate}
+  \item preparación del entorno de desarrollo y estructura del repositorio;
+  \item pruebas iniciales de captura y procesado con scripts de apoyo;
+  \item implementación del modo móvil en Android;
+  \item pruebas de lectura de IMU en ESP32 mediante prototipos sencillos;
+  \item migración del nodo embebido a una implementación más controlada en C/C++;
+  \item definición de un formato común de sesión y resultados;
+  \item integración progresiva entre Android, ESP32 y, posteriormente, backend remoto.
+\end{enumerate}
 
-\section{Implementación del modo móvil en Android}
+Esta estrategia permite validar cada decisión antes de acoplarla al resto del sistema. Además, facilita mantener trazabilidad entre pruebas, código, sesiones capturadas y resultados obtenidos.
 
-El modo móvil registra sensores inerciales del teléfono y guarda las capturas como sesiones en almacenamiento de la app.
-Cada sesión incluye muestras temporales y metadatos mínimos para trazabilidad.
+\section{Estado de partida de la implementación}
 
-\subsection{Captura y persistencia local}
+El punto de partida del trabajo práctico es un repositorio único que agrupa la memoria, los scripts de experimentación, la aplicación Android, el firmware del nodo embebido y los datos de prueba. Esta organización simplifica la continuidad del proyecto, ya que permite mantener juntos código, documentación y resultados.
 
-La app implementa captura con duración configurable y guardado automático en ficheros de sesión.
-Esta decisión permite trabajar sin infraestructura externa en etapas tempranas y facilita depuración rápida.
-
-\subsection{Gestión de sesiones}
-
-Se implementan operaciones de catálogo para listar, renombrar, eliminar y abrir sesiones.
-Esto convierte la app en una herramienta operativa de trabajo y no solo en una pantalla de captura puntual.
-
-\section{Implementación del modo ESP32}
-
-La integración embebida se implementa como flujo de operación desde Android contra el nodo ESP32.
-El intercambio actual se realiza por red local, con endpoints para verificación de estado, control de captura y descarga de datos.
-
-\subsection{Flujo de operación embebida}
-
-La app permite:
+En esta fase inicial se distinguen tres líneas de trabajo:
 
 \begin{itemize}
-  \item comprobar conectividad con el nodo;
-  \item iniciar/parar captura remota;
-  \item descargar sesión generada en el ESP32;
-  \item almacenar y visualizar la sesión de forma homogénea al modo móvil.
+  \item \textbf{línea Android}: aplicación móvil para captura, gestión local y visualización;
+  \item \textbf{línea ESP32}: pruebas de hardware, lectura de IMU y comunicación con la app;
+  \item \textbf{línea de análisis}: scripts externos para validar el procesado antes de integrarlo definitivamente en la aplicación.
 \end{itemize}
 
-Este diseño mantiene una experiencia operativa consistente entre ambos orígenes de datos.
+La capa de backend remoto no se considera todavía parte implementada del sistema. Se mantiene como una línea de evolución que se incorporará cuando el flujo local y el formato de datos estén suficientemente estabilizados.
 
-\subsection{Firmware del ESP32}
+\section{Herramientas y organización del código}
 
-El firmware actual incluye funciones de red, estado de captura y descarga de sesiones.
-Además, incorpora soporte de diagnóstico y un modo de simulación para acelerar pruebas cuando la integración física del sensor no está cerrada.
+La implementación se organiza según las herramientas descritas en el Capítulo~\ref{chap:diseno-plataforma}. Visual Studio Code se utiliza como entorno general para revisar el repositorio, editar la memoria, mantener scripts y consultar resultados. Android Studio se emplea para compilar, desplegar y depurar la aplicación Android.
 
-\section{Contrato de sesión y formato de datos}
+Para el nodo embebido se contempla una primera fase de pruebas con Python y MicroPython en Thonny, orientada a verificar la comunicación con la IMU y el comportamiento básico del hardware. Tras esa fase, la implementación principal del firmware se desarrolla en C/C++, con el objetivo de tener mayor control sobre temporización, memoria, red y generación de sesiones.
 
-El sistema utiliza una sesión como unidad de trabajo compartida.
-En la implementación actual, el formato local de referencia está orientado a series temporales con metadatos básicos.
+La estructura del repositorio separa los componentes principales:
 
-Se mantiene como criterio de diseño que la sesión contenga identidad de origen, base temporal y parámetros de captura suficientes para comparación y reprocesado.
+\begin{itemize}
+  \item \texttt{android\_app\_boya/}: aplicación Android;
+  \item \texttt{esp32/}: código del nodo embebido;
+  \item scripts Python en la raíz del repositorio: captura, procesado y diagnóstico;
+  \item \texttt{data/}: sesiones y resultados de pruebas;
+  \item \texttt{modelo-tfg-fic-v1.6\_2223xun/}: memoria del TFG.
+\end{itemize}
 
-\section{Visualización y explotación en la app}
+\section{Fase 1: scripts de captura y análisis}
 
-La aplicación integra visualización de sesiones y panel de estado de operación.
-El objetivo principal de esta capa es permitir inspección rápida, trazabilidad de capturas y flujo de trabajo continuo (captura, revisión, gestión y exportación).
+Antes de cerrar la funcionalidad dentro de Android, se utilizan scripts en Python para explorar el problema de captura y procesado de datos inerciales. Esta fase permite trabajar con ciclos de prueba rápidos y observar el comportamiento de la señal sin depender de una interfaz móvil completa.
+
+Los scripts de apoyo cumplen tres funciones:
+
+\begin{itemize}
+  \item recibir o leer sesiones de datos IMU;
+  \item aplicar diferentes configuraciones de procesado;
+  \item generar métricas y gráficas para entender la respuesta de la señal.
+\end{itemize}
+
+Esta fase también sirve para corregir el enfoque inicial del proyecto. Las primeras pruebas muestran que la doble integración de aceleración para obtener una altura instantánea es muy sensible a ruido, orientación y deriva. Por ello, el procesado se orienta hacia una estimación espectral por ventana, siguiendo un enfoque tipo OpenMetBuoy, con cálculo de parámetros agregados como \(H_s\), \(T_z\), \(T_c\) y \(T_p\).
+
+\begin{temporalblock}
+Pendiente de completar con resultados concretos:
+\begin{itemize}
+  \item listar scripts finalmente usados;
+  \item indicar una o dos sesiones representativas;
+  \item añadir una figura del pipeline de procesado;
+  \item resumir qué decisión técnica se tomó a partir de estas pruebas.
+\end{itemize}
+\end{temporalblock}
+
+\section{Fase 2: implementación del modo móvil en Android}
+
+El modo móvil es la primera implementación funcional de la aplicación Android. En esta fase no se persigue todavía cerrar la experiencia final de usuario, sino construir una base práctica que permita comprobar que la captura de sensores, el guardado de sesiones y la navegación entre pantallas funcionan de forma controlada.
+
+Por este motivo se desarrolla una interfaz sencilla de depuración. Esta interfaz sirve para lanzar capturas manuales, listar los ficheros generados, revisar información básica de cada sesión y preparar puntos de entrada para fases posteriores. El objetivo operativo a medio plazo es que la captura pueda ejecutarse en segundo plano y que la interfaz quede reducida a configuración, diagnóstico y consulta puntual.
+
+\subsection{Estructura general de la aplicación}
+
+La aplicación se implementa como un proyecto Android nativo en Java, con Gradle como sistema de construcción. La estructura inicial separa la navegación y las responsabilidades principales en varias actividades:
+
+\begin{itemize}
+  \item \texttt{MenuActivity}, como pantalla inicial de selección entre modo móvil y modo ESP32;
+  \item \texttt{MobileModeActivity}, como pantalla de captura y gestión local de sesiones;
+  \item \texttt{Esp32ModeActivity}, preparada como consola de diagnóstico e integración con el nodo embebido;
+  \item \texttt{SessionDetailActivity}, reservada para la consulta detallada de sesiones en fases posteriores.
+\end{itemize}
+
+Esta separación permite validar primero el flujo móvil sin bloquear la evolución hacia el modo embebido. También evita concentrar toda la lógica en una única pantalla, algo importante para mantener la aplicación extensible conforme se incorporen captura en segundo plano, diagnóstico de comunicación y explotación de sesiones.
+
+\subsection{Captura de sensores}
+
+La captura usa las APIs nativas de sensores de Android, mediante el gestor de sensores del sistema y un listener de eventos. La actividad de modo móvil obtiene el acelerómetro y el giroscopio del dispositivo y registra muestras durante una ventana temporal configurable. Para cada muestra se guarda un tiempo relativo y las componentes disponibles de aceleración y giro.
+
+El uso de \texttt{SystemClock.elapsedRealtimeNanos()} permite construir una referencia temporal relativa al inicio de la captura. Durante la adquisición se mantiene una lista de objetos \texttt{ImuSample}, que agrupan los campos \texttt{t\_ms}, \texttt{ax}, \texttt{ay}, \texttt{az}, \texttt{gx}, \texttt{gy} y \texttt{gz}. La interfaz actual muestra el estado de la captura, el tiempo restante y el número de muestras acumuladas, lo que resulta útil para detectar problemas de frecuencia, ausencia de sensores o interrupciones durante las primeras pruebas.
+
+En esta fase la captura se controla manualmente desde la pantalla de depuración. No obstante, la lógica se organiza de forma que pueda desplazarse posteriormente a un servicio o componente en segundo plano, manteniendo la interfaz como capa de configuración y supervisión.
+
+\subsection{Persistencia local de sesiones}
+
+Las sesiones se almacenan localmente mediante una clase específica del repositorio de datos: \texttt{SessionRepository}. Esta clase encapsula las operaciones sobre ficheros, crea una carpeta de sesiones dentro del espacio externo privado de la aplicación y proporciona métodos para guardar, listar, renombrar, eliminar y leer sesiones.
+
+El formato inicial elegido es CSV, con cabecera:
+
+\begin{verbatim}
+t_ms,ax,ay,az,gx,gy,gz
+\end{verbatim}
+
+Este formato se adopta por simplicidad, porque puede inspeccionarse fácilmente fuera de la aplicación y porque facilita comparar las sesiones generadas por Android con datos procedentes de scripts o del nodo embebido. Los nombres de fichero incluyen una marca temporal y la duración de la captura; si el usuario introduce un nombre manual, se normaliza para evitar caracteres problemáticos en el sistema de ficheros.
+
+El Código~\ref{lst:android-save-session} muestra de forma simplificada la escritura de una sesión. El aspecto más relevante de este fragmento es que la captura deja de ser una lectura puntual de sensores y pasa a convertirse en un artefacto persistente, con una estructura de columnas estable y reutilizable por el resto del sistema.
+
+\begin{lstlisting}[language=Java,caption={Fragmento simplificado del guardado de una sesión IMU en formato CSV.},label={lst:android-save-session}]
+try (BufferedWriter writer = new BufferedWriter(new FileWriter(outFile))) {
+    writer.write("t_ms,ax,ay,az,gx,gy,gz\n");
+
+    for (ImuSample s : samples) {
+        writer.write(String.format(
+                Locale.US,
+                "%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+                s.tMs, s.ax, s.ay, s.az, s.gx, s.gy, s.gz
+        ));
+    }
+
+    writer.flush();
+}
+\end{lstlisting}
+
+\subsection{Gestión local y operaciones de depuración}
+
+La pantalla de modo móvil no se diseña como interfaz definitiva, sino como herramienta de trabajo para comprobar el comportamiento de la aplicación durante el desarrollo. Desde ella se puede seleccionar la duración de captura, asignar un nombre opcional a la sesión, iniciar o detener la adquisición y actualizar el listado de ficheros guardados.
+
+\begin{itemize}
+  \item La pulsación normal sobre una sesión permite seleccionarla para pruebas posteriores.
+  \item La pulsación larga abre un menú contextual con operaciones auxiliares, como consultar información del fichero, renombrarlo o eliminarlo.
+  \item La lista de sesiones se actualiza desde el repositorio local, ordenando los ficheros por fecha de modificación.
+\end{itemize}
+
+Esta gestión local permite verificar rápidamente que las capturas se están generando, que el tamaño de los ficheros es coherente y que las sesiones pueden recuperarse en ejecuciones posteriores de la aplicación. En una versión más madura, estas operaciones deberían quedar integradas en una pantalla de ajustes, diagnóstico o administración de sesiones, mientras que la captura principal se ejecutaría sin depender de la interacción continua con la interfaz.
+
+\figplaceholder[0.42\textwidth]{%
+Captura pendiente:\\
+pantalla real del modo móvil con controles de captura y listado de sesiones
+}{Pantalla real de la aplicación Android utilizada durante la depuración del modo móvil.}
+\label{fig:captura-real-modo-movil}
+
+\subsection{Prototipo de interfaz auxiliar}
+
+Antes de implementar una operación en segundo plano, se definió un prototipo visual de la aplicación para ordenar las pantallas necesarias durante las pruebas. La Figura~\ref{fig:app-fase2-debug} muestra esta idea: una pantalla inicial de selección de modo, una pantalla de control para el modo Android, una pantalla equivalente para el modo ESP32 y una vista de comprobación prevista para la revisión posterior de sesiones.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{imaxes/imu_pipeline_all.png}
-  \caption{Vista de apoyo utilizada para revisión de sesiones y depuración del flujo de datos.}
-  \label{fig:imu-pipeline-all}
+  \includegraphics[width=0.22\textwidth]{imaxes/app_fase2_menu.png}
+  \hfill
+  \includegraphics[width=0.22\textwidth]{imaxes/app_fase2_android.png}
+  \hfill
+  \includegraphics[width=0.22\textwidth]{imaxes/app_fase2_esp32.png}
+  \hfill
+  \includegraphics[width=0.22\textwidth]{imaxes/app_fase2_debug_procesado.png}
+  \caption{Prototipo de interfaz auxiliar usado para organizar las primeras pruebas de captura, gestión de sesiones y diagnóstico de modos de operación.}
+  \label{fig:app-fase2-debug}
 \end{figure}
 
-\section{Diseño software y desacoplamiento}
+La existencia de estas pantallas no implica que la interfaz sea el objetivo principal del sistema. Su función en esta fase es reducir el tiempo de depuración y hacer visibles los estados intermedios de captura, persistencia y conexión. La evolución prevista consiste en desplazar la adquisición a un funcionamiento en segundo plano y conservar únicamente controles de configuración, estado y diagnóstico.
 
-A nivel de implementación, se mantiene separación entre:
+\section{Fase 3: procesado on-device}
 
-\begin{itemize}
-  \item captura;
-  \item repositorio de sesiones;
-  \item comunicación con nodo embebido;
-  \item visualización y operación.
-\end{itemize}
+Una vez cerrada la captura local, el siguiente paso es integrar el procesado dentro de Android. El algoritmo no se trata como un bloque aislado, sino como una parte de la aplicación que consume sesiones y devuelve resultados trazables.
 
-Esta separación reduce acoplamiento y facilita introducir backend remoto o cambios de transporte sin rehacer la aplicación.
-
-\section{Estado de backend remoto}
-
-La integración con backend cloud se considera una fase posterior del desarrollo.
-En esta etapa, se mantienen definidos los requisitos de capa remota (sincronización de sesiones, estado de nodos y acceso externo), dejando abierta la elección tecnológica final.
-
-\section{Herramientas de soporte de ingeniería}
-
-Durante el desarrollo se han utilizado scripts y utilidades de diagnóstico para acelerar verificación de captura, comunicación y consistencia de sesiones.
-Estas herramientas se consideran apoyo técnico de implementación y no sustituyen al flujo de producto principal en Android.
-
-\section{Limitaciones del estado implementado}
-
-En el estado actual del TFG, las limitaciones más relevantes son:
+El enfoque principal de procesado se basa en:
 
 \begin{itemize}
-  \item dependencia de operación local para parte del flujo embebido;
-  \item backend remoto todavía no integrado en la rama principal;
-  \item necesidad de consolidar validación comparativa completa bajo protocolo homogéneo.
+  \item estimar la frecuencia efectiva de muestreo;
+  \item remuestrear o normalizar temporalmente la señal cuando sea necesario;
+  \item calcular una estimación espectral mediante Welch;
+  \item convertir el espectro de aceleración vertical a espectro de elevación;
+  \item obtener métricas de oleaje mediante momentos espectrales.
 \end{itemize}
 
-Estas limitaciones se asumen explícitamente como parte de un desarrollo incremental orientado a reducir riesgo técnico.
+Las métricas de salida previstas son \(H_s\), \(T_z\), \(T_c\) y \(T_p\). Se debe mantener visible que estos valores representan una estimación por ventana, no una reconstrucción exacta de la altura instantánea de cada ola.
+
+\begin{temporalblock}
+Pendiente de completar:
+\begin{itemize}
+  \item explicar la clase o módulo concreto que implementa el procesado;
+  \item indicar modos de procesado disponibles;
+  \item añadir tabla de parámetros usados;
+  \item comparar resultados Android frente a los scripts Python.
+\end{itemize}
+\end{temporalblock}
+
+\section{Fase 4: pruebas iniciales con ESP32 e IMU}
+
+La línea embebida se introduce después de tener una base funcional en Android. Su objetivo es disponer de un nodo de captura dedicado que permita comparar la solución móvil con una plataforma de mayor control técnico.
+
+La primera fase con ESP32 se orienta a diagnóstico:
+
+\begin{itemize}
+  \item comprobar alimentación y conexión del sensor;
+  \item verificar el bus I2C;
+  \item leer registros básicos de la IMU;
+  \item obtener muestras de aceleración y giro;
+  \item detectar problemas de cableado, dirección del dispositivo o estabilidad.
+\end{itemize}
+
+Para estas pruebas iniciales se puede utilizar MicroPython desde Thonny, ya que permite ejecutar código sencillo de forma interactiva y comprobar rápidamente si el hardware responde. Esta fase no pretende ser el firmware definitivo, sino una forma de reducir incertidumbre antes de pasar a una implementación más controlada.
+
+\begin{temporalblock}
+Pendiente de completar:
+\begin{itemize}
+  \item indicar modelo exacto de placa ESP32 usada;
+  \item documentar conexiones SDA/SCL, alimentación y dirección I2C;
+  \item añadir resultado de detección de la IMU;
+  \item recoger incidencias encontradas durante las pruebas.
+\end{itemize}
+\end{temporalblock}
+
+\section{Fase 5: firmware en C/C++ para ESP32}
+
+Tras validar el hardware con pruebas simples, el nodo embebido debe implementarse en C/C++ para ganar control sobre temporización, memoria y comunicación. Esta fase busca convertir el ESP32 en un nodo operativo capaz de producir sesiones compatibles con el resto del sistema.
+
+Las responsabilidades previstas del firmware son:
+
+\begin{itemize}
+  \item inicializar la IMU;
+  \item capturar muestras con una frecuencia definida;
+  \item mantener estado de captura;
+  \item exponer un mecanismo de comunicación local;
+  \item generar una sesión descargable o enviar resultados estructurados.
+\end{itemize}
+
+La comunicación con Android se plantea inicialmente en red local, mediante un conjunto reducido de operaciones: comprobar estado, iniciar captura, detener captura y recuperar datos. Estas operaciones deben mantenerse simples para facilitar depuración y posterior comparación con otros mecanismos de comunicación.
+
+\begin{temporalblock}
+Pendiente de completar:
+\begin{itemize}
+  \item describir endpoints o comandos finalmente implementados;
+  \item indicar cómo se almacena o genera la sesión en ESP32;
+  \item medir frecuencia real de captura;
+  \item documentar limitaciones de memoria y duración máxima de sesión.
+\end{itemize}
+\end{temporalblock}
+
+\section{Fase 6: formato común de sesión y resultados}
+
+Para que Android y ESP32 puedan compararse de forma justa, ambos modos deben producir datos bajo un contrato común. Esta parte de la implementación es importante porque evita que cada plataforma tenga su propio formato incompatible.
+
+El formato común debe incluir:
+
+\begin{itemize}
+  \item identificador de dispositivo u origen;
+  \item marca temporal o eje temporal relativo;
+  \item frecuencia estimada o configurada;
+  \item muestras inerciales disponibles;
+  \item parámetros de procesado;
+  \item resultados calculados y unidades.
+\end{itemize}
+
+En una primera iteración se mantiene CSV para las muestras por su simplicidad. Para resultados y metadatos se prevé añadir un resumen estructurado en JSON, de modo que cada sesión pueda reproducirse y compararse sin depender únicamente del nombre del fichero.
+
+\begin{temporalblock}
+Pendiente de completar:
+\begin{itemize}
+  \item fijar nombres definitivos de columnas;
+  \item definir campos del resumen JSON;
+  \item incluir ejemplo mínimo de sesión;
+  \item comprobar compatibilidad entre sesiones Android y ESP32.
+\end{itemize}
+\end{temporalblock}
+
+\section{Fase 7: backend remoto}
+
+La integración con backend remoto no se considera cerrada en el estado actual. Su papel dentro del sistema será sincronizar sesiones, resultados y estado de nodos cuando el flujo local sea estable.
+
+Antes de implementar esta capa se deben resolver dos cuestiones:
+
+\begin{itemize}
+  \item qué datos deben sincronizarse y con qué granularidad;
+  \item qué tecnología ofrece mejor equilibrio entre sencillez, coste y mantenibilidad.
+\end{itemize}
+
+Como alternativas iniciales se consideran plataformas como Firebase o Supabase, por su integración rápida con aplicaciones móviles y por ofrecer base de datos, autenticación y almacenamiento de ficheros. La elección final deberá justificarse con criterios prácticos y no solo por familiaridad con la herramienta.
+
+\begin{temporalblock}
+Pendiente de completar:
+\begin{itemize}
+  \item comparar alternativas de backend;
+  \item definir modelo mínimo de datos remoto;
+  \item decidir si se sincronizan sesiones completas, resúmenes o ambos;
+  \item implementar una prueba mínima de subida y consulta.
+\end{itemize}
+\end{temporalblock}
+
+\section{Criterios de cierre de implementación}
+
+Se considerará que la implementación queda suficientemente cerrada para el alcance del TFG cuando se cumplan los siguientes puntos:
+
+\begin{itemize}
+  \item la app Android capture y guarde sesiones de forma repetible;
+  \item el procesado on-device genere métricas trazables por sesión;
+  \item el nodo ESP32 pueda capturar o generar sesiones compatibles con el formato común;
+  \item exista una prueba de integración entre Android y ESP32;
+  \item se documenten claramente las partes implementadas y las partes pendientes;
+  \item los resultados puedan reproducirse a partir de sesiones guardadas.
+\end{itemize}
+
+Este cierre no implica que el sistema sea una boya oceanográfica profesional, sino que la arquitectura propuesta se ha llevado a una implementación funcional y evaluable dentro del alcance de un TFG.

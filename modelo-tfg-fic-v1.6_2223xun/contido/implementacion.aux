@@ -1,30 +1,35 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementación del sistema}{23}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementación del sistema}{30}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:implementacion}{{5}{23}{Implementación del sistema}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Visión general del estado actual}{23}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Implementación del modo móvil en Android}{23}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Captura y persistencia local}{23}{subsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Gestión de sesiones}{24}{subsection.5.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementación del modo ESP32}{24}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Flujo de operación embebida}{24}{subsection.5.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Firmware del ESP32}{24}{subsection.5.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Contrato de sesión y formato de datos}{24}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Visualización y explotación en la app}{25}{section.5.5}\protected@file@percent }
-\@writefile{lof}{\setforeignlanguage {spanish}}
-\@writefile{lot}{\setforeignlanguage {spanish}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Vista de apoyo utilizada para revisión de sesiones y depuración del flujo de datos.}}{25}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:imu-pipeline-all}{{5.1}{25}{Vista de apoyo utilizada para revisión de sesiones y depuración del flujo de datos}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Diseño software y desacoplamiento}{25}{section.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}Estado de backend remoto}{26}{section.5.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Herramientas de soporte de ingeniería}{26}{section.5.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Limitaciones del estado implementado}{26}{section.5.9}\protected@file@percent }
+\newlabel{chap:implementacion}{{5}{30}{Implementación del sistema}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Criterio de implementación incremental}{30}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Estado de partida de la implementación}{31}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Herramientas y organización del código}{31}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Fase 1: scripts de captura y análisis}{32}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Fase 2: implementación del modo móvil en Android}{32}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Estructura general de la aplicación}{33}{subsection.5.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Captura de sensores}{33}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Persistencia local de sesiones}{34}{subsection.5.5.3}\protected@file@percent }
+\newlabel{lst:android-save-session}{{5.1}{34}{Fragmento simplificado del guardado de una sesión IMU en formato CSV}{lstlisting.5.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.1}{\ignorespaces Fragmento simplificado del guardado de una sesión IMU en formato CSV.}}{34}{lstlisting.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}Gestión local y operaciones de depuración}{34}{subsection.5.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Pantalla real de la aplicación Android utilizada durante la depuración del modo móvil.}}{35}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:captura-real-modo-movil}{{5.5.4}{35}{Gestión local y operaciones de depuración}{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}Prototipo de interfaz auxiliar}{35}{subsection.5.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Prototipo de interfaz auxiliar usado para organizar las primeras pruebas de captura, gestión de sesiones y diagnóstico de modos de operación.}}{36}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:app-fase2-debug}{{5.2}{36}{\texorpdfstring {\xpg@aux {\xpg@current@opts }{\languagename }}{}\ignorespaces Prototipo de interfaz auxiliar usado para organizar las primeras pruebas de captura, gestión de sesiones y diagnóstico de modos de operación}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Fase 3: procesado on-device}{36}{section.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Fase 4: pruebas iniciales con ESP32 e IMU}{37}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Fase 5: firmware en C/C++ para ESP32}{37}{section.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Fase 6: formato común de sesión y resultados}{38}{section.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.10}Fase 7: backend remoto}{39}{section.5.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.11}Criterios de cierre de implementación}{40}{section.5.11}\protected@file@percent }
 \@setckpt{contido/implementacion}{
-\setcounter{page}{27}
+\setcounter{page}{41}
 \setcounter{equation}{0}
-\setcounter{enumi}{4}
+\setcounter{enumi}{7}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -32,12 +37,12 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{5}
-\setcounter{section}{9}
+\setcounter{section}{11}
 \setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{1}
+\setcounter{figure}{2}
 \setcounter{table}{0}
 \setcounter{DefaultLines}{2}
 \setcounter{DefaultDepth}{0}
@@ -48,7 +53,7 @@
 \setcounter{@ppsaveapp}{0}
 \setcounter{parentequation}{0}
 \setcounter{IEEEsubequation}{0}
-\setcounter{lstnumber}{1}
+\setcounter{lstnumber}{14}
 \setcounter{NAT@ctr}{0}
 \setcounter{caption@flags}{2}
 \setcounter{continuedfloat}{0}
@@ -67,13 +72,12 @@
 \setcounter{blind@pangramcount}{0}
 \setcounter{blind@pangrammax}{0}
 \setcounter{section@level}{0}
-\setcounter{Item}{14}
+\setcounter{Item}{16}
 \setcounter{Hfootnote}{0}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{64}
+\setcounter{bookmark@seq@number}{61}
 \setcounter{BackrefHyperFootnoteCounter}{0}
-\setcounter{su@anzahl}{0}
 \setcounter{LT@tables}{0}
 \setcounter{LT@chunks}{0}
-\setcounter{lstlisting}{0}
+\setcounter{lstlisting}{1}
 }

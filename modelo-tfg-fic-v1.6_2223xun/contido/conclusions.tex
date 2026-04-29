@@ -1,16 +1,15 @@
 \chapter{Conclusiones}
 \label{chap:conclusions}
 
-\lettrine{E}{l} trabajo se consolida en torno a una idea principal: construir una arquitectura modular de captura inercial que pueda operar con nodo móvil y nodo embebido bajo contratos comunes.
+\lettrine{E}{l} trabajo se consolida en torno a una idea principal: construir un sistema de captura inercial capaz de operar con más de una plataforma de adquisición dentro de un mismo flujo de trabajo.
 
 \section{Conclusiones principales}
 
 \begin{itemize}
-  \item El enfoque Android como plataforma operativa principal es viable para captura, gestión de sesiones y operación de campo.
-  \item La separación por capas (adquisición, comunicación, backend, visualización/control) reduce acoplamiento y mejora mantenibilidad.
-  \item La integración con ESP32 aporta una ruta realista para adquisición dedicada y validación de interoperabilidad.
-  \item El uso de contratos comunes entre nodos evita bifurcar el sistema y facilita evolución tecnológica.
-  \item El estado actual permite un flujo funcional local extremo a extremo y deja preparada la expansión a backend remoto.
+  \item Android resulta una base viable para captura, gestión de sesiones y operación de campo en fases tempranas del sistema.
+  \item La separación funcional entre adquisición, comunicación, persistencia y visualización facilita mantenimiento e integración progresiva.
+  \item La incorporación de un nodo ESP32 aporta una ruta realista para adquisición dedicada y para validar la interoperabilidad entre plataformas.
+  \item El estado actual permite un flujo funcional local extremo a extremo y deja preparada la evolución hacia operación remota.
 \end{itemize}
 
 \section{Conclusión metodológica}
@@ -27,7 +26,7 @@ Este criterio ha permitido:
 
 \section{Implicaciones prácticas}
 
-Desde el punto de vista de ingeniería, la arquitectura propuesta permite:
+Desde el punto de vista de ingeniería, la solución propuesta permite:
 
 \begin{itemize}
   \item reutilizar la misma lógica de operación con distintos nodos de adquisición;
@@ -40,7 +39,7 @@ Desde el punto de vista de ingeniería, la arquitectura propuesta permite:
 Las aportaciones del trabajo en su estado actual son:
 
 \begin{itemize}
-  \item definición de una arquitectura ciberfísica modular para captura inercial;
+  \item definición de una base ciberfísica para captura inercial sobre plataformas heterogéneas;
   \item implementación de modo móvil operativo con gestión de sesiones;
   \item integración funcional Android-ESP32 para control y descarga de capturas;
   \item formalización de contratos de sesión, control y explotación;

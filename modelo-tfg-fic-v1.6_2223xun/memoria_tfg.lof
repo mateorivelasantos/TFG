@@ -1,39 +1,32 @@
-\xpginauxfiletrue 
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Esquema conceptual del problema abordado por el sistema.}}{2}{figure.caption.4}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Esquema conceptual del problema abordado por el sistema.}}{2}{figure.caption.4}%
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Representación visual de algunos parámetros característicos del oleaje, como $Hs$, $Tp$ y $Tz$. Fuente: Folkestone Fringe.}}{7}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Referencia visual del smartphone como dispositivo de sensado, con integración de sensores y procesamiento local. Fuente: Medium.}}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Referencia visual del subsistema embebido de captura, formado por una placa de control/comunicación y una IMU externa. Fuente: Pinterest.}}{10}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Ejemplos de soluciones profesionales de referencia en medida de oleaje y sensado inercial: familia de boyas Datawell Waverider (izquierda) y sensor VectorNav VN-200 (derecha). Fuentes: Datawell y VectorNav.}}{11}{figure.caption.8}%
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Casos de uso principales del sistema.}}{12}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Casos de uso principales del sistema.}}{15}{figure.caption.11}%
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Arquitectura funcional del sistema con Android como plataforma central de operación.}}{16}{figure.caption.7}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Arquitectura física del sistema y conexiones entre subsistemas.}}{16}{figure.caption.8}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Flujo Android: captura/operación, gestión de sesiones y visualización.}}{19}{figure.caption.9}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Flujo de datos extremo a extremo del sistema.}}{20}{figure.caption.10}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Flujo de comparativa entre nodo móvil y nodo embebido con contratos comunes.}}{21}{figure.caption.11}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Esquema del subsistema embebido y conexiones principales.}}{22}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Arquitectura funcional del sistema con Android como plataforma central de operación.}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Hueco para diagrama de arquitectura general del sistema.}}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Hueco para diagrama de adquisición en modo móvil y modo embebido.}}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Esquema del subsistema embebido y conexiones principales.}}{23}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Hueco para diagrama de secuencia de operación remota.}}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de datos extremo a extremo del sistema.}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Hueco para diagrama de despliegue lógico y persistencia.}}{26}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo Android: captura/operación, gestión de sesiones y visualización.}}{28}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Flujo de comparativa entre nodo móvil y nodo embebido con contratos comunes.}}{29}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Hueco para diagrama de estados de operación del sistema.}}{29}{figure.caption.23}%
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Vista de apoyo utilizada para revisión de sesiones y depuración del flujo de datos.}}{25}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Pantalla real de la aplicación Android utilizada durante la depuración del modo móvil.}}{35}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Prototipo de interfaz auxiliar usado para organizar las primeras pruebas de captura, gestión de sesiones y diagnóstico de modos de operación.}}{36}{figure.caption.25}%
 \addvspace {10\p@ }
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Escenarios de prueba del sistema.}}{28}{figure.caption.14}%
-\setforeignlanguage {spanish}
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Resultados representativos del modo móvil.}}{30}{figure.caption.16}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Resultados representativos del modo embebido.}}{30}{figure.caption.17}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Validación de contratos de integración entre subsistemas.}}{30}{figure.caption.18}%
-\setforeignlanguage {spanish}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Comparación operativa entre modo móvil y modo embebido.}}{31}{figure.caption.19}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Escenarios de prueba del sistema.}}{42}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Resultados representativos del modo móvil.}}{44}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Resultados representativos del modo embebido.}}{44}{figure.caption.29}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Evaluación comparativa del subsistema de comunicación Android-ESP32.}}{45}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Validación de contratos de integración entre subsistemas.}}{45}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces \xpg@aux {}{spanish}\ignorespaces Comparación operativa entre modo móvil y modo embebido.}}{45}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
